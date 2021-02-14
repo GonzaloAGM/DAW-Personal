@@ -20,7 +20,8 @@
         </style>
     </head>
     <body>
-        <section><!-- Este es el título -->
+        <!-- Este es el título -->
+        <section>
             <h1>
                 Laboratorio 1
             </h1>
@@ -29,6 +30,7 @@
 
         <hr/>
 
+        <!-- Control de color -->  
         <section>
             <form>
                 <label>Selecciona tu color: 
@@ -38,102 +40,111 @@
         </section>
 
         <!-- Tabla como tabla de contenidos -->  
+        <section>
+            <h2>Tabla de contenidos</h2>
+
+            <table class="tablaCont">
+            <tr>
+                <th>Sección </th>
+                <th>   </th>
+                <th>Boton con Link</th>
+                
+            </tr>
+            <tr>
+                <td>Descripción</td>
+                <td>   </td>
+                <td><button onclick="document.location='#Descripcion'">Ir a Descripción</button></td>
+            </tr>
+            <tr>
+                <td>Instrucciones</td>
+                <td>   </td>
+                <td><button onclick="document.location='#Instruciones'">Ir a Instrucciones</button></td>
+            </tr>
+            <tr>
+                <td>Acerca de mi</td>
+                <td>   </td>
+                <td><button onclick="document.location='#SobreMi'">Ir al articulo sobre mi</button></td>
+            </tr>
+            <tr>
+                <td>Preguntas por responder</td>
+                <td>   </td>
+                <td><button onclick="document.location='#Preguntas'">Ir a Preguntas</button></td>
+            </tr>
+            <tr>
+                <td>Referencias</td>
+                <td>   </td>
+                <td><button onclick="document.location='#Referencia'">Ir a Referencias</button></td>
+            </tr>
+            <tr>
+                <td>Datos de Autor</td>
+                <td>   </td>
+                <td><button onclick="document.location='#DatosAutor'">Ir a Datos de Autor</button></td>
+            </tr>
+            </table>
+
+            <br/>
+        </section>
         
-        <h2>Tabla de contenidos</h2>
-
-        <table class="tablaCont">
-        <tr>
-            <th>Sección </th>
-            <th>   </th>
-            <th>Boton con Link</th>
-            
-        </tr>
-        <tr>
-            <td>Descripción</td>
-            <td>   </td>
-            <td><button onclick="document.location='#Descripcion'">Ir a Descripción</button></td>
-        </tr>
-        <tr>
-            <td>Instrucciones</td>
-            <td>   </td>
-            <td><button onclick="document.location='#Instruciones'">Ir a Instrucciones</button></td>
-        </tr>
-        <tr>
-            <td>Acerca de mi</td>
-            <td>   </td>
-            <td><button onclick="document.location='#SobreMi'">Ir al articulo sobre mi</button></td>
-        </tr>
-        <tr>
-            <td>Preguntas por responder</td>
-            <td>   </td>
-            <td><button onclick="document.location='#Preguntas'">Ir a Preguntas</button></td>
-        </tr>
-        <tr>
-            <td>Referencias</td>
-            <td>   </td>
-            <td><button onclick="document.location='#Referencia'">Ir a Referencias</button></td>
-        </tr>
-        <tr>
-            <td>Datos de Autor</td>
-            <td>   </td>
-            <td><button onclick="document.location='#DatosAutor'">Ir a Datos de Autor</button></td>
-        </tr>
-        </table>
-
-        <br/>
         <hr/>
 
         <!-- Descripción e instrucciones -->
         <section>
-            <h2 id="Descripcion"> Descripción </h2>
-            <p>
-                En esta actividad se abordarán brevemente los conceptos fundamentales para comenzar con el desarrollo 
-                de aplicaciones web, y se hará un breve repaso sobre html5.
-            </p>
-            <p>
-                <h3>Objetivos:</h3>
-                <ul>
-                    <li>Comprender conceptos básicos del desarrollo web.</li>
-                    <li>Comprender las principales etiquetas HTML (imágenes, hipervínculos, listas, tablas, formas)</li>
-                    <li>Desarrollar interfaces de usuario sencillas en HTML</li>
-                    <li>Explorar editores para desarrollo web</li>
-                    <li>Comprender el ciclo de vida y de desarrollo de los sistemas de información</li>
-                </ul>
-            </p>
-
-            <h2 id="Instrucciones">Instrucciones</h2>
-            <p>
-                <ol>
-                    <li>
-                        Revisa uno o varios de los siguientes sitios de editores html: 
-                        <a href="https://code.visualstudio.com/">Visual Studio Code</a>, 
-                        <a href="http://brackets.io/">Brackets</a>, 
-                        <a href="http://brackets.io/">Sublime Text</a>, 
-                        <a href="https://atom.io/"> Atom</a>,
-                        <a href="http://codepen.io/"> Codepen</a>,
-                        <a href="https://netbeans.org/"> NetBeans</a>,
-                        <a href="https://eclipse.org/downloads/"> Eclipse</a>, entre otros. Instala y/o configura el (los)
-                        de tu preferencia. Eres libre de utilizar cualquier otro que te agrade que no esté en la lista 
-                        anterior, y de ser así, comarte el enlace en el grupo de slack del curso para que los demás lo conozcan.
-                    </li>
-                    <li>
-                        Crea una página personal o un pequeño sitio donde muestres el uso de las principales etiquetas HTML. 
-                        Puedes hablar de tus principales proyectos o aficiones, incluir artículos interesantes tuyos, sobre tí, 
-                        o sobre algo que te apasione. Usa componentes semánticos como por ejemplo "header", "footer" o "strong" 
-                        en lugar de "div id="header"", "div id="footer"" y "b". El sitio o página debe incluir alguna forma con controles.
-                    </li>
-                    <li>
-                        Responde las preguntas de la siguiente sección en algún lugar del sitio.
-                    </li>
-                    <li>
-                        De ser necesario, soporta tus respuestas utilizando libros, revistas o sitios WEB. En cualquier caso, cita las 
-                        fuentes utilizadas. Recuerda que si utilizas párrafos de otros autores, deben estar citados adecuadamente.
-                    </li>
-                </ol>
-                </ol>
-            </p>
+            <article>
+                <h2 id="Descripcion"> Descripción </h2>
+                <p>
+                    En esta actividad se abordarán brevemente los conceptos fundamentales para comenzar con el desarrollo 
+                    de aplicaciones web, y se hará un breve repaso sobre html5.
+                </p>
+                <p>
+                    <h3>Objetivos:</h3>
+                    <ul>
+                        <li>Comprender conceptos básicos del desarrollo web.</li>
+                        <li>Comprender las principales etiquetas HTML (imágenes, hipervínculos, listas, tablas, formas)</li>
+                        <li>Desarrollar interfaces de usuario sencillas en HTML</li>
+                        <li>Explorar editores para desarrollo web</li>
+                        <li>Comprender el ciclo de vida y de desarrollo de los sistemas de información</li>
+                    </ul>
+                </p>
+            </article>
+            
+            <article>
+                <h2 id="Instrucciones">Instrucciones</h2>
+                <p>
+                    <ol>
+                        <li>
+                            Revisa uno o varios de los siguientes sitios de editores html: 
+                            <a href="https://code.visualstudio.com/">Visual Studio Code</a>, 
+                            <a href="http://brackets.io/">Brackets</a>, 
+                            <a href="http://brackets.io/">Sublime Text</a>, 
+                            <a href="https://atom.io/"> Atom</a>,
+                            <a href="http://codepen.io/"> Codepen</a>,
+                            <a href="https://netbeans.org/"> NetBeans</a>,
+                            <a href="https://eclipse.org/downloads/"> Eclipse</a>, entre otros. Instala y/o configura el (los)
+                            de tu preferencia. Eres libre de utilizar cualquier otro que te agrade que no esté en la lista 
+                            anterior, y de ser así, comarte el enlace en el grupo de slack del curso para que los demás lo conozcan.
+                        </li>
+                        <li>
+                            Crea una página personal o un pequeño sitio donde muestres el uso de las principales etiquetas HTML. 
+                            Puedes hablar de tus principales proyectos o aficiones, incluir artículos interesantes tuyos, sobre tí, 
+                            o sobre algo que te apasione. Usa componentes semánticos como por ejemplo "header", "footer" o "strong" 
+                            en lugar de "div id="header"", "div id="footer"" y "b". El sitio o página debe incluir alguna forma con controles.
+                        </li>
+                        <li>
+                            Responde las preguntas de la siguiente sección en algún lugar del sitio.
+                        </li>
+                        <li>
+                            De ser necesario, soporta tus respuestas utilizando libros, revistas o sitios WEB. En cualquier caso, cita las 
+                            fuentes utilizadas. Recuerda que si utilizas párrafos de otros autores, deben estar citados adecuadamente.
+                        </li>
+                    </ol>
+                    </ol>
+                </p>
+            </article>
         </section>
 
+        <hr/>
+
+        <!-- Sobre mi -->
         <section>
             <h2 id="SobreMi">Acerca de mi</h2>
             <p>
@@ -141,7 +152,7 @@
             </p>
         </section>
         
-        </hr>
+         <hr/>
         <!-- Preguntas a responder -->
 
         <section>
@@ -152,63 +163,66 @@
                          definidos por los estándares TCP/IP., mientras que la World Wide Web (www),
                          es una recopilación de información determinada como recursos a la que se
                          accede a través de Internet.
-                    </li>
+                    </li></br>
                     <li><strong>¿Cuáles son las partes de un URL?</strong></br>
-
+                        El URL es "la secuencia de caracteres que identifica y permite localizar y 
+                        recuperar una información determinada en Internet". Se compone de tres partes 
+                        principales: Protocolo, dominio, path y parámetros.
+                        <img src="PartesURL.jpg" alt="Partes de un URL. Saber mas en https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/">
                     </li>
                     <li><strong>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</strong></br>
 
-                    </li>
+                    </li></br>
                     <li><strong>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando
                                  ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</strong></br>
                         
-                    </li>
+                    </li></br>
                     <li><strong>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una 
                                 página a través de un URL?</strong></br>
 
-                    </li>
+                    </li></br>
                     <li><strong>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? 
                                 ¿Ocurrió algún error?</strong></br>
                         
-                    </li>
+                    </li></br>
                     <li><strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta
                                  que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</strong></br>
 
-                    </li>
+                    </li></br>
                     <li><strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta 
                                 que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</strong></br>
                         
-                    </li>
+                    </li></br>
                     <li><strong>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? 
                                 Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</strong></br>
                         
-                    </li>
+                    </li></br>
                     <li><strong>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</strong></br>
                         
-                    </li>
+                    </li></br>
                     <li><strong>¿Qué componentes de estructura y estilo tiene una tabla?</strong></br>
                         
-                    </li>
+                    </li></br>
                     <li><strong>¿Cuáles son los principales controles de una forma HTML5?</strong></br>
                         
-                    </li>
+                    </li></br>
                     <li><strong>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? 
                         Puedes utilizar la siguiente página para descubrirlo: http://html5test.com/ 
                         (Al responder la pregunta recuerda poner el navegador que utilizas)</strong>
                         
-                    </li>
+                    </li></br>
                     <li><strong> Sobre el ciclo de vida y desarrollo de los sistemas de información: 
                         ¿Cuál es el ciclo de vida de los sistemas de información?</strong>
                         
-                    </li>
+                    </li></br>
                     <li><strong>Sobre el ciclo de vida y desarrollo de los sistemas de información: 
                         ¿Cuál es el ciclo de desarrollo de sistemas de información?</strong>
                         
-                    </li>
+                    </li></br>
                 </ol>
         </section>
 
-        </hr>
+        <hr/>
         <!-- Referencias -->  
         <section>
             <h2 id="Referencia"> Referencias </h2>
@@ -240,8 +254,10 @@
                 </li>
             </ul>
         </section>
-        </hr>
+
+        <hr/>
     <footer>
+
         <!-- Datos de autor -->  
         <h3 id="DatosAutor">
             Mis datos 
