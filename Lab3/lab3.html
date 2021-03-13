@@ -3,49 +3,24 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Laboratorio 1: Introducción a las aplicaciones web, HTML5 y ciclo de vida 
-                                            de los sistemas de información">
-        <title>Lab1 - Gonzalo García - DAW & BD</title>
-
-        <!-- Solo lo puse para que se viera bien y centrada la tabla -->
-        <style> 
-            th, td {
-                text-align: center;
-            }
-            table.tablaCont {
-                width: 50%;
-                margin-left: auto; 
-                margin-right: auto;
-            }
-        </style>
+        <meta name="description" content="Laboratorio 3: CSS">
+        <title>Lab3 - Gonzalo García - DAW & BD</title>
+        <link rel="stylesheet" href="stylesheet.css">
     </head>
     <body>
         <!-- Este es el título -->
         <section>
-            <h1>
-                Laboratorio 1
-            </h1>
-            <h2>INTRODUCCIÓN A LAS APLICACIONES WEB, HTML5 Y CICLO DE VIDA DE LOS SISTEMAS DE INFORMACIÓN</h2>
+            <h1 id="titulo_lab">
+                Laboratorio 3
+            </h1 id="subtitulo_lab">
+            <h2>CSS</h2>
         </section>
 
         <hr/>
 
-        <!-- Control de color, fecha y hora-->  
-        <section>
-            <form>
-                <label>Selecciona tu color: 
-                    <input type="color" autofocus />
-                </label>
-                <label>Fecha y hora:
-                    <input type="datetime" name="fechahora" step="1" min="2021-01-01T00:00Z" max="2021-12-31T11:59Z" value="2021-02-14T22:00">
-                </label>
-                <input type="submit" value="Enviar" />
-            </form>
-        </section>
-
         <!-- Tabla como tabla de contenidos -->  
         <section>
-            <h2>Tabla de contenidos</h2>
+            <h2 class="titulo_sec">Tabla de contenidos</h2>
 
             <table class="tablaCont">
             <tr>
@@ -94,51 +69,42 @@
         <!-- Descripción e instrucciones -->
         <section>
             <article>
-                <h2 id="Descripcion"> Descripción </h2>
+                <h2 class="titulo_sec" id="Descripcion"> Descripción </h2>
                 <p>
-                    En esta actividad se abordarán brevemente los conceptos fundamentales para comenzar con el desarrollo 
-                    de aplicaciones web, y se hará un breve repaso sobre html5.
+                    En esta actividad se hará un repaso sobre CSS.
                 </p>
                 <p>
                     <h3>Objetivos:</h3>
                     <ul>
-                        <li>Comprender conceptos básicos del desarrollo web.</li>
-                        <li>Comprender las principales etiquetas HTML (imágenes, hipervínculos, listas, tablas, formas)</li>
-                        <li>Desarrollar interfaces de usuario sencillas en HTML</li>
-                        <li>Explorar editores para desarrollo web</li>
-                        <li>Comprender el ciclo de vida y de desarrollo de los sistemas de información</li>
+                        <li>Comprender el funcionamiento de las hojas de estilo en cascada.</li>
+                        <li>Aplicar los 3 niveles de estilos (en línea, documento y externo)</li>
+                        <li>Aplicar los diferentes tipos de selectores (genéricos, de clase, id, universales y pseudo clases)</li>
+                        <li>Explorar las propiedades de fuentes, listas y texto</li>
+                        <li>Comprender el modelo de caja (The Box Model)</li>
+                        <li>Aprender a separar la presentación del contenido en documentos HTML.</li>
                     </ul>
                 </p>
             </article>
             
             <article>
-                <h2 id="Instrucciones">Instrucciones</h2>
+                <h2 class="titulo_sec" id="Instrucciones">Instrucciones</h2>
                 <p>
                     <ol>
                         <li>
-                            Revisa uno o varios de los siguientes sitios de editores html: 
-                            <a href="https://code.visualstudio.com/">Visual Studio Code</a>, 
-                            <a href="http://brackets.io/">Brackets</a>, 
-                            <a href="http://brackets.io/">Sublime Text</a>, 
-                            <a href="https://atom.io/"> Atom</a>,
-                            <a href="http://codepen.io/"> Codepen</a>,
-                            <a href="https://netbeans.org/"> NetBeans</a>,
-                            <a href="https://eclipse.org/downloads/"> Eclipse</a>, entre otros. Instala y/o configura el (los)
-                            de tu preferencia. Eres libre de utilizar cualquier otro que te agrade que no esté en la lista 
-                            anterior, y de ser así, comarte el enlace en el grupo de slack del curso para que los demás lo conozcan.
+                            Revisa la presentación <a href="https://ejuarez.bitbucket.io/daw/documentos/CSS.ppt">CSS</a>.
                         </li>
                         <li>
-                            Crea una página personal o un pequeño sitio donde muestres el uso de las principales etiquetas HTML. 
-                            Puedes hablar de tus principales proyectos o aficiones, incluir artículos interesantes tuyos, sobre tí, 
-                            o sobre algo que te apasione. Usa componentes semánticos como por ejemplo "header", "footer" o "strong" 
-                            en lugar de "div id="header"", "div id="footer"" y "b". El sitio o página debe incluir alguna forma con controles.
+                            El CSS debe contener al menos un estilo definido con cada uno de los selectores y el estilo debe 
+                            ser aplicado al documento. Puedes utilizar como guía o o ayudarte de algunos de los sitios web 
+                            que se enlistan en la sección de Recursos, o en algún otro sitio. </br>
+                            Asegúrate que tus documentos HTML no tengan estilos en línea.
                         </li>
                         <li>
-                            Responde las preguntas de la siguiente sección en algún lugar del sitio.
+                            Para un mejor rendimiento de tu sitio, crea una versión minimizada de tu CSS y enlázala a tu sitio
+                             en lugar del CSS que acabas de crear. Puedes apoyarte de herramientas como <a href="http://cssminifier.com/">http://cssminifier.com/</a>
                         </li>
                         <li>
-                            De ser necesario, soporta tus respuestas utilizando libros, revistas o sitios WEB. En cualquier caso, cita las 
-                            fuentes utilizadas. Recuerda que si utilizas párrafos de otros autores, deben estar citados adecuadamente.
+                            Agrega las preguntas con sus respectivas respuestas en el documento HTML.
                         </li>
                     </ol>
                     </ol>
@@ -150,7 +116,7 @@
 
         <!-- Sobre mi -->
         <section>
-            <h2 id="SobreMi">Acerca de mi</h2>
+            <h2 class="titulo_sec" id="SobreMi">Acerca de mi</h2>
             <p>
                 Soy alguien interesado en el area general de las ingenierías y ciencias aplicadas. Específicamente me apasiona mas el area 
                 aeroespacial, sin embargo tambien tengo un interes en lo que es la electrónica y la mecánica. Es por esto que estudio actualmete
@@ -172,195 +138,35 @@
         <!-- Preguntas a responder -->
 
         <section>
-            <h2 id="Preguntas">Preguntas a responder</h2>
-                <ol>
-                    <li><strong>¿Cuál es la diferencia entre Internet y la World Wide Web?</strong></br>
-                        Por un lado, el internet es una red globla de comunicaciones interconectadas
-                         definidos por los estándares TCP/IP, mientras que la World Wide Web (www),
-                         es una recopilación de información determinada como recursos a la que se
-                         accede a través de Internet.
-                    </li></br>
-                    <li><strong>¿Cuáles son las partes de un URL?</strong></br>
-                        El URL es "la secuencia de caracteres que identifica y permite localizar y 
-                        recuperar una información determinada en Internet". Se compone de tres partes 
-                        principales:</br> 
-                        <img src="PartesURL.jpg" alt="Partes de un URL. Saber mas en https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/">
-                        <strong>Protocolo</strong>: Es la norma o código que se establece los criterios de sintaxis y 
-                        semántica informática (forma y significado) para realizar una comunicación. 
-                        Comunmnete se usan el HTTP y HTTPS, aunque tambien existe FTP y SMTP.</br>
-                        <strong>Dominio</strong>: El nombre usado para identificar la dirección IP donde estan ubicados los recursos.</br>
-                        <strong>Path</strong>: Especifica la ubicación del recurso que se busca consultar dentro un servidor.</br>
-                        <strong>Parámetros</strong>: Datos adicionales usados para identificar o filtrar recursos dentro del servidor.</br>
-                    </li></br>
-                    <li><strong>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</strong></br>
-                        <ul>
-                            <li>
-                                GET: Solicita una representación de un recurso específico, sólo deben recuperar datos. Los datos producidos 
-                                se devolverán como la entidad en la respuesta y no el texto fuente del proceso, a menos que ese texto 
-                                sea el resultado del proceso.
-                            </li>
-                            <li>
-                                HEAD:  Solicita una representación de un recurso específico sin el cuerpo de respuesta. Este método puede 
-                                usarse para obtener metainformación sobre la entidad implicada y se usa a menudo para probar enlaces de 
-                                hipertexto para verificar su validez, accesibilidad y modificaciones recientes.
-                            </li>
-                            <li>
-                                POST: Se utiliza para enviar una entidad a un recurso en específico, causando a menudo un cambio en el 
-                                estado o efectos secundarios en el servidor. Así mismo cumple con otras funciones tales como extender una 
-                                base de datos a través de una operación de agregar; proporcionar un bloque de datos como el resultado de
-                                enviar un formulario a un proceso de manejo de datos; y publicar un mensaje en un tablón de anuncios, 
-                                grupo de noticias, lista de correo, o grupo similar de artículos;
-                            </li>
-                            <li>
-                                PUT: Reemplaza todas las representaciones actuales del recurso de destino con la carga útil de la petición. 
-                                Si el URI de solicitud se refiere a un recurso ya existente, la entidad adjunta debe considerarse como una 
-                                versión modificada de la que reside en el servidor de origen.
-                            </li>
-                            <li>
-                                PATCH: Es utilizado para aplicar modificaciones parciales a un recurso.
-                            </li>
-                            <li>
-                                DELETE: Borra un recurso en específico. Este método PUEDE ser anulado por intervención humana (u otro medio) 
-                                en el servidor de origen.
-                            </li>
-                        </ul>
-                    </li></br>
-                    <li><strong>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando
-                                 ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</strong></br>
-                                 Se puede a través de los métodos GET o POST, ya que estos métodos son utilizados por el navegador 
-                                 para pedir al servidor que se envíe de vuelta un recurso dado. Sin embargo, una difereencia entre 
-                                 estos, es que el método POST no lo envía por el URL, por lo que no es público, al contrario de GET, 
-                                 el cual es visible en la barra de navegación. Es por eso que para el caso de contraseñas, se prefiere 
-                                 al primero. 
-                    </li></br>
-                    <li><strong>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una 
-                                página a través de un URL?</strong></br>
-                                Se utiliza el método GET, ya que se esta realizando una petición al servidor para recuperar la página
-                                alojada en este. Sobre todo si se realiza a trvés de un URL.
-                    </li></br>
-                    <li><strong>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? 
-                                ¿Ocurrió algún error?</strong></br>
-                                El código 200 representa un proceso o solicitud fue exitoso. Dependiendo del método HTTP usado, este 
-                                éxito puede definirse como:
-                                <ul>
-                                    <li>
-                                        GET: El recurso se ha obtenido y se transmite en el cuerpo del mensaje.
-                                    </li>
-                                    <li>
-                                        HEAD: Los encabezados de entidad están en el cuerpo del mensaje.
-                                    </li>
-                                    <li>
-                                        PUT: El recurso que describe el resultado de la acción se transmite en el cuerpo del mensaje.
-                                    </li>
-                                </ul>
-                    </li></br>
-                    <li><strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta
-                                 que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</strong></br>
-                                Este error se da normalmente por un error del usuario. Ya sea porque ingresó datos incorrectos a la consulta,
-                                o porque esté intentando ingresar a una página que no existe o que esta restringida a su acceso. Puede darse 
-                                el caso de que en realidad un hipervínculo este roto o un recurso dentro del servidor esté corrupto o eliminado,
-                                pero en este caso sería un error de mantenimiento del sitio, y normalmente no es frecuente.
-                    </li></br>
-                    <li><strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta 
-                                que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</strong></br>
-                                Este es un error del lado del servidor. Ya sea por no estar programado para un caso o estado específicos, 
-                                problemas de autentificación, error de programación o saturación del servidor. Siendo así responsabilidad 
-                                completa del desarrollador.
-                    </li></br>
-                    <li><strong>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? 
-                                Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</strong></br>
-                                Significa que este elemento o atributo no está incluido en el estandar HTML5 y por lo tanto se considera 
-                                obsoleto. Cabe destacar que existe una diferencia entre los atributos (características que se modificaban 
-                                dentro de la misma etiquéta y ahora se realiza en una hoja de estilos de CSS) y un elemento (una etiqueta 
-                                que define o se reserva con una función específica). Algunos de estos puede que todavía funcione por 
-                                razones de compatibilidad, pero se considera su uso como llevar a cabo malas prácticas.
-                                <ul>
-                                    <li>acronym</li>
-                                    <li>big</li>
-                                    <li>tt</li>
-                                    <li>basefoot</li>
-                                    <li>center</li>
-                                    <li>dir</li>
-                                    <li>applet</li>
-                                </ul>
-                    </li></br>
-                    <li><strong>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</strong></br>
-                                La estandarización en su desarrollo así como separar el desarrollo de las páginas del estilo del desarrollador
-                                provocando una prevalencia de la semántica (al usar etiquetas como HEAD, BODY, HEADER, SECTION o ARTICLE), al 
-                                mismo tiempo que privilegian el uso de CSS y javascript.
-                    </li></br>
-                    <li><strong>¿Qué componentes de estructura y estilo tiene una tabla?</strong></br>
-                                Una tabla básica puede ser declarada usando tres elementos, table (el contenedor principal), tr (representando a las 
-                                filas contenedoras de las celdas), td (representando a las celdas), th (las celdas del encabezado), tfoot (las céldas
-                                de la última fila de la tabla) y tbody (para enmarcar la parte principal de la tabla, aunque puede haber mas de uno).
-                    </li></br>
-                    <li><strong>¿Cuáles son los principales controles de una forma HTML5?</strong></br>
-                            Basados en la etiqueta "form", que delimita el espacio o area o formulario para que el usuario 
-                            introduzca datos para ser enviados al servidor. Al mismo tiempo, emplea la etiqueta "label" para 
-                            contener e identificar al control o formualario creado. Y por último la etiqueta input, donde 
-                            dependiendo del atributo "type" se puede definir el tipo de formulario entre las siguientes opciones: 
-                            <ul>
-                                <li>color: crea un boton que te permite esoger un color a travez de un formato hexadecimal o seleccioando un pixel de una matriz de color.</li>
-                                <li>date: crea un campo donde ingresar una fecha a través de un calendario.</li>
-                                <li>datetime: crea un campo donde ingresar una fecha y hora. No se representa correctamente en todos los navegadores</li>
-                                <li>email: crea un campo donde se puede ingresar un texto que será reconocido como un correo electrónico.</li>
-                                <li>number: crea un campo donde se pueda ingresar un número.</li>
-                                <li>range: crea un campo donde se pueda ingresar un número a través de una barra deslizante.</li>
-                                <li>time: crea un campo que puede ser seleccionado de un camp'o desplegable de selección de hora digital.</li>
-                                <li>url: crea un campo que puede llenado con un URL.</li>
-                                <li>submit: Un botón donde se puedan enviar los datos introducidos en los formularios anteriores.</li>
-                            </ul>
-                    </li></br>
-                    <li><strong>¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente 
-                                página para descubrirlo: http://html5test.com/ (Al responder la pregunta recuerda poner 
-                                el navegador que utilizas)</strong></br>
-                                Utilizo google chrome, versión 88.0.4324.150 de 64 bits y este obtiene una puntuación 
-                                de 476 de 555 puntos. Sin embargo algunas opciones estan bloqueadas por seguridad (cámara 
-                                web, localización, capturas de pantalla automáticas, grbación del stream multimedia, pagos 
-                                web, etc) o por limitaciones impuestas al rendimiento del navegador (algunos codecs de video, 
-                                orientación del dispositivo, cache de aplicaciones web, etc) pudiendo activarlas al ser 
-                                necesarias. En conclusión, de forma nativa Chrome no soporta algunas cosas de HTML5 pero al 
-                                parecer en su mayoría soporta bien HTML5.
-                    </li></br>
-                    <li><strong> Sobre el ciclo de vida y desarrollo de los sistemas de información: 
-                        ¿Cuál es el ciclo de vida de los sistemas de información? ¿Cuál es el ciclo de desarrollo de sistemas de información?</strong>
-                        Empezando por definir un sistema de información como un sistema que engloba a personas, máquinas y/o métodos organizados
-                        para recopilar, procesar y transmitir datos que representan información. Englobando la infrestructura, la organización, 
-                        el personal, y todos los componentes necesarios para la recopilación, procesamiento, almacenamiento, transmisión, visualización,
-                        diseminación y organización de la información. </br></br> 
-                        Es así que se estudian bajo dos modelos, los cuales son el ciclo de vida y el ciclo de desarrollo:</br> 
-                        <ul>
-                            <li><strong>Ciclo de vida</strong>: En este se estudian las etapas de análisis y diseño al observar el uso de un cilo 
-                                específico de actividades, tanto del analista como del usuario. Se dividen en planteamiento de la necesidad y 
-                                estudio de factibilidad (nacimiento), análisis de requerimientos y diseño del sistema y programas de apoyo (desarrollo),
-                                se usa el sistema terminado, introduciendo datos y obteniendo información (operación), corregir errores que se detectan 
-                                en los programas o funciones que realiza el sistema (mantenimiento) y finalmente cuando deja de ser necesario o es reemplazado
-                                por uno mejor (muerte).
-                            </li>
-                            <li><strong>Ciclo de desarrollo</strong>:Este tiene una serie de fases mas definidas (aunque a veces existen discrepacias y reducciones)
-                                <ol>
-                                    <li>ase de planificación.- En esta fase se prepara el diseño y posterior implementación del sistema. Es necesario definir el 
-                                        alcance del proyecto, justificarlo y escoger una metodología para su desarrollo.</li>
-                                    <li>Fase de análisis.- Se decide por una metodología de desarrollo determinada.</li>
-                                    <li>Fase de diseño.- En este estadio el equipo de proyecto tendrá que determinar cómo el nuevo sistema de información cumplirá 
-                                        con los requisitos aplicables.</li>
-                                    <li>Fase de desarrollo.- El desarrollo software marca un antes y un después en la vida del sistema y significa, además, el 
-                                        inicio de la producción.</li>
-                                    <li>Fase de integración y periodo de pruebas.- El objetivo de esta etapa es corroborar que el diseño propuesto cumple con los 
-                                        requisitos de negocio establecidos.</li>
-                                    <li>Fase de implementación.- Someterlas a pruebas, crear la documentación pertinente y capacitar a los usuarios.</li>
-                                    <li>Fase de mantenimiento.- Introducir los ajustes necesarios para mejorar el rendimiento y corregir los problemas que puedan surgir.</li>
-                                </ol>
-                            </li>
-                        </ul>
-                    </li></br>
-                </ol>
+            <h2 class="titulo_sec" id="Preguntas">Preguntas a responder</h2>
+            <ol>
+                <li class="pregunta">Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS? </li>
+                <br>
+                Utilizarlo solo cuando sea necesario, por ejemplo, que solo arreglas el problema que tienes con eso. O cuando sabes perfectamnte
+                que es lo que haces y que no afectará nada mas. 
+                <br><br>
+                <li class="pregunta">Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</li>
+                <br>
+                Por la resolucion de la imagen, y por consecuente, las pantallas en donde se estara viendo. Por la accesibilidad al usuario, se deben
+                considerar si es facil de leer el contenido. 
+                <br><br>
+                <li class="pregunta">Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</li>
+                <br>
+                Creo que cada una tiene su lugar para utilizarse excepto px. Quizas solo para imagenes o bordes. 
+                En cuanto a % y pt, yo usaria el porcentage para pocisionar algo relativo a otro elemento o la pantalla, y 
+                pt para algo estatico y texto.
+                <br><br>
+                <li class="pregunta">¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</li>
+                <br>
+                Al no tener saltos de linea, ni espacios de mas, que aunque útiles para identación, ya no se consumirían tantos recursos en memoria 
+                del servidor que aloja la página web y trasnporte a través del internet. 
+            </ol>
         </section>
 
         <hr/>
         <!-- Referencias -->  
         <section>
-            <h2 id="Referencia"> Referencias </h2>
+            <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
             <ul>
                 <li>
                     Berners-Lee, Tim (2004) Architecture of the World Wide Web, Volume One. Recuperado de: https://www.w3.org/TR/webarch/#acks
@@ -391,21 +197,24 @@
         </section>
 
         <hr/>
-        <footer>
-
-            <!-- Datos de autor -->  
-            <h3 id="DatosAutor">
-                Mis datos 
-            </h3>
-            <p>
-                <h4>Gonzalo Alberto García Muñoz</h4>
-                A01702956 </br>
-                a01702956@itesm.mx </br>
-                gonzalo.light.agm@gmail.com </br>
-                <a href="https://github.com/GonzaloAGM/DAW-Personal-A01702956">Mi git hub</a> </br>
-                Hecho en <a href="https://code.visualstudio.com/ ">visual studio code </a>
-            </p>
-        </footer>
+        
     </body>
-
+    <footer>
+    </br>
+    </br>
+        <!-- Datos de autor -->  
+        <h3 class="titulo_sec" id="DatosAutor">
+            Mis datos 
+        </h3>
+        <p>
+            <h4>Gonzalo Alberto García Muñoz</h4>
+            A01702956 </br>
+            a01702956@itesm.mx </br>
+            gonzalo.light.agm@gmail.com </br>
+            <a href="https://github.com/GonzaloAGM/DAW-Personal-A01702956">Mi git hub</a> </br>
+            Hecho en <a href="https://code.visualstudio.com/ ">visual studio code </a>
+        </p>
+    </br>
+    </br>
+    </footer>
 </html>

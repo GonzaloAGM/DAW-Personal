@@ -1,0 +1,48 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightcyan;
+    width: 80%;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+header{
+    color: darkslategray;
+}
+
+footer{
+    background-color: lightgray;
+    width: 100%;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center;
+}
+
+th, td {
+    text-align: center;
+}
+table.tablaCont {
+    width: 50%;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+#titulo_lab{
+
+}
+
+#subtitulo_lab{
+
+}
+
+.titulo_sec{
+
+}
+
+.pregunta{
+    
+}
+
+.pregunta:hover{
+    
+}
