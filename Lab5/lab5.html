@@ -9,17 +9,17 @@
     </head>
     <!-- Este es el título -->
     <body>
-        <header id="header">
+        <header>
             <h1 id="titulo_lab">
                 Laboratorio 5
             </h1 id="subtitulo_lab">
             <h2>FUNDAMENTOS DE JAVASCRIPT</h2>
         </header>
         <div class="topnav">
-            <a class="active" href="#header">Home</a>
+            <a class="active" href="lab5.html">Home</a>
             <a href="#Descripcion">Descripción</a>
             <a href="#Instrucciones">Instrucciones</a>
-            <a href="#SobreMi">Sobre mi</a>
+            <a href="#Actividad">Actividad</a>
             <a href="#Preguntas">Preguntas</a>
             <a href="#Referencia">Referencias</a>
             <a href="#DatosAutor">Autor</a>
@@ -86,23 +86,43 @@
 
         <hr/>
 
-        <!-- Sobre mi -->
+        <!-- Actividades -->
         <section>
-            <h2 class="titulo_sec" id="SobreMi">Acerca de mi</h2>
+            <h2 class="titulo_sec" id="Actividad">Actividad</h2>
+            <table class="tablaAct">
+                <tr>
+                    <th>
+                        <h3>Problema 1</h3>
+                        <input type="button" name="btn_table" value="Tabla" onclick="tabla()">
+                    </th>
+                    <th>
+                        <h3>Problema 2</h3>
+                        <input type="button" name="btn_random" value="Random" onclick="random()">
+                    </th>
+                    <th>
+                        <h3>Problema 3</h3>
+                        <input type="button" name="btn_radArray" value="Arreglo" onclick="contador()">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <h3>Problema 4</h3>
+                        <input type="button" name="btn_promedios" value="Promedios" onclick="promedios()">
+                    </th>
+                    <th>
+                        <h3>Problema 5</h3>
+                        <input type="button" name="btn_inverso" value="Inverso" onclick="inverso()">    
+                    </th>
+                    <th>
+                        <h3>Problema 6</h3>
+                        Calcular el area y </br> volumen de un </br>prisma rectangular </br>
+                        <input type="button" name="btn_rectangulo" value="Area y Volumen" onclick="areaVolPrismRect()">
+                    </th>
+                </tr>
+                </table>
+                <br/>
             <p>
-                Soy alguien interesado en el area general de las ingenierías y ciencias aplicadas. Específicamente me apasiona mas el area 
-                aeroespacial, sin embargo tambien tengo un interes en lo que es la electrónica y la mecánica. Es por esto que estudio actualmete
-                ingeniería electrónica (o su equivalente) con miras de estudiar una maestria y/o especialidad en ingeniería aeroespacial. </br></br>
-                Es así que actualmente soy el presidente del grupo estudiantil de robótica espacial Eagle X, con ambisiones de expandirlo a 
-                varias de otras ramas del campo, convirtiendolo en el referente estudiantil del area en el Tec de Monterrey. </br></br>
-                De la misma forma conseguí ser asignado a una oportunidad de intercambio en Purdue, con la esperanza de que si se pueda 
-                realizar y poder especializarme mas en este campo. </br></br>
-                Así mismo, estoy colaborando con un emprendimiento privado en el desarrollo de un cubesat. Fue en este último donde me enteré 
-                de la utilidad de las herramientas web, no solo para el monitorio sino para la recopilación y vizualización correcta y facil 
-                de los datos, sobre todo en estaciones terrenas. </br></br>
-                Cabe destacar que no es por esto que estoy llevando este curso, pues siempre he sabido que estas herramientas son necesarias en 
-                varias partes del ambito profesional. Aunque no necesariamente ser un experto, si es muy recomendable tener un buen entendimiento
-                para poder colaborar de forma mas efectiva con quienes si son expertos y lograr grandes cosas. </br></br>
+                <button onclick="document.location='#Descripcion'">Ir a Descripción</button>
             </p>
         </section>
         
@@ -120,20 +140,20 @@
                                 La principal diferencia entre un lenguaje compilado y uno interpretado es que el lenguaje 
                                 compilado requiere un paso adicional antes de ser ejecutado, la compilación, que convierte 
                                 el código que escribes a lenguaje de máquina. Un lenguaje interpretado, por otro lado, es 
-                                convertido a lenguaje de máquina a medida que es ejecutado.[2]</li><br>
+                                convertido a lenguaje de máquina a medida que es ejecutado.[2]</li>
                             <li>Java se depura en dos fases y JavaScript en una.<br>
                                 Java tiene dos fases donde se puede detectar errores cuando se compila y cuando se ejecuta; 
-                                Mientras que JavaScript es al mismo tiempo.[1]</li><br>
-                            <li>Java es un lenguaje orientado a objetos puro, pero JavaScript está basado en prototipos.[1]</li><br>
+                                Mientras que JavaScript es al mismo tiempo.[1]</li>
+                            <li>Java es un lenguaje orientado a objetos puro, pero JavaScript está basado en prototipos.[1]</li>
                             <li>Java es fuertemente tipado, y JavaScript es débilmente tipado.[1]<br>
                                 Tipado es cuando no  se permiten violaciones de los tipos de datos, es decir, dado el valor 
                                 de una variable de un tipo concreto, no se puede usar como si fuera de otro tipo distinto a 
-                                menos que se haga una conversión.[3]</li><br>
-                            <li>JavaScript es estándar, Java no.[1]</li><br>
-                        </uL>
+                                menos que se haga una conversión.[3]</li>
+                            <li>JavaScript es estándar, Java no.[1]</li>
+                        </uL><br>
                         <li class="pregunta">Semejanzas</li></br>
                         <ul>
-                            <il>Ambos soportan orientado a objetos.<br></il>
+                            <il>Ambos soportan orientado a objetos.</il><br><br>
                         </ul>
                     </ul>
                 <li class="pregunta">¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</li></br>
@@ -143,7 +163,7 @@
                     <li>getFullYear()	Regresa el año</li>
                     <li>getUTCDay()	Regresa el dia de la semana, deacuerdo al timpo universal( 0-6)</li>
                     <li>now()	Regresa el tiempo en mili segundos des  enero 1, 1970</li>
-                </ol>
+                </ol><br>
                 <li class="pregunta">¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</li></br>
                 <ol>
                     <li>toString()	Convierte una array en string y regresa el resultado</li>
@@ -151,31 +171,15 @@
                     <li>find()	Regresa el primer elemto de un array que pase una prueba</li>
                     <li>indexOf()	Busca un elemento de la array y regresa su posicion</li>
                     <li>isArray()	Revisa si un elemento esta en la array</li>
-                </ol>
-                <li class="pregunta">Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo 
-                entre %, px y pt?</li></br>
-                Cada una se emplea en cierta aplicación. Los pixeles y pts son los menos recomendados por usar, sin embargo al igual que 
-                los otros, se pueden emplear en casos específicos. Esto porque son medidas absolutas, por lo que iría en contra de la accesibilidad
-                de la pagina, por lo que se buscaría usar medidas relativas como % o em, entre otras medidas.</br></br>
-                <li class="pregunta">¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</li></br>
-                Al no tener saltos de linea, ni espacios de mas, que aunque útiles para identación, ya no se consumirían tantos recursos en memoria 
-                del servidor que aloja la página web y trasnporte a través del internet.</br></br>
+                </ol><br>
+                <li class="pregunta">¿Cómo se declara una variable con alcance local dentro de una función? </li></br>
+                Se declara dentro de la función que se esta ejecutando.</br></br>
+                <li class="pregunta">¿Qué método de String se puede utilizar para buscar patrones con expresiones 
+                    regulares?¿Para qué podrías utilizar esto en una aplicación web?</br></br>
+                    match()	Busca en una cadena una coincidencia con una expresión regular y devuelve las coincidencias.<br> 
+                    Sirve para hacer un buscador deacuerdo a campos y regresaria todos los resultados de la matris 
+                    que coincidan con las letras que se busca.</br></br>
             </ol>
-            <dl>
-                <dt>¿Cómo se declara una variable con alcance local dentro de una función? </dt>
-                <dd>
-                    Se declara dentro de la función que se esta ejecutando.
-                </dd>
-                <dt>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</dt>
-                <dd>
-                    Las variables se pueden modificar por todas las funciones
-                </dd>
-                <dt>¿Qué método de String se puede utilizar para buscar patrones con expresiones regulares?¿Para qué podrías utilizar esto en una aplicación web?</dt>
-                <dd>
-                    match()	Busca en una cadena una coincidencia con una expresión regular y devuelve las coincidencias. 
-                    <br>Sirvia para hacer un buscador deacuerdo a campos y regresaria todos los resultados de la matris que coincidan con las letras que se busca.
-                </dd>
-            </dl>
         </section>
 
         <hr/>
