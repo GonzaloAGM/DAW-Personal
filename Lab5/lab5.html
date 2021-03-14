@@ -112,13 +112,46 @@
         <section>
             <h2 class="titulo_sec" id="Preguntas">Preguntas a responder</h2>
             <ol>
-                <li class="pregunta">Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS? </li></br>
-                Es una herramienta, pero si el código esta bien diseñado, no debería ser necesaria, por lo que solamente en casos
-                específicos es recomendada usarla.</br></br>
-                <li class="pregunta">Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</li></br>
-                Ya que cada imagen tiene una resolución diferente, al igual que toda pantalla donde se observe esta, el sitio web podría
-                deformarse o sufrir desplazamnientos o no visualizaciones de las imagenes que se esten viendo. Esto se pude resolver al 
-                hacerlas responsivas aumentando la accesibilidad de la página, pero de todas formas hay que tomarlo en cuenta.</br></br>
+                <li class="pregunta">¿Qué diferencias y semejanzas hay entre Java y JavaScript? </li></br>
+                    <ul>
+                        <li class="pregunta">Diferencias</li></br>
+                        <uL>
+                            <li>JavaScript tradicionalmente ha sido un lenguaje interpretado, y Java es compilado.<br>
+                                La principal diferencia entre un lenguaje compilado y uno interpretado es que el lenguaje 
+                                compilado requiere un paso adicional antes de ser ejecutado, la compilación, que convierte 
+                                el código que escribes a lenguaje de máquina. Un lenguaje interpretado, por otro lado, es 
+                                convertido a lenguaje de máquina a medida que es ejecutado.[2]</li><br>
+                            <li>Java se depura en dos fases y JavaScript en una.<br>
+                                Java tiene dos fases donde se puede detectar errores cuando se compila y cuando se ejecuta; 
+                                Mientras que JavaScript es al mismo tiempo.[1]</li><br>
+                            <li>Java es un lenguaje orientado a objetos puro, pero JavaScript está basado en prototipos.[1]</li><br>
+                            <li>Java es fuertemente tipado, y JavaScript es débilmente tipado.[1]<br>
+                                Tipado es cuando no  se permiten violaciones de los tipos de datos, es decir, dado el valor 
+                                de una variable de un tipo concreto, no se puede usar como si fuera de otro tipo distinto a 
+                                menos que se haga una conversión.[3]</li><br>
+                            <li>JavaScript es estándar, Java no.[1]</li><br>
+                        </uL>
+                        <li class="pregunta">Semejanzas</li></br>
+                        <ul>
+                            <il>Ambos soportan orientado a objetos.<br></il>
+                        </ul>
+                    </ul>
+                <li class="pregunta">¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</li></br>
+                <ol>
+                    <li>getTime() Obtiene el tiempo millisegundos  desde Enero 1, 1970</li>
+                    <li>getDate()	Regresa el dia.</li>
+                    <li>getFullYear()	Regresa el año</li>
+                    <li>getUTCDay()	Regresa el dia de la semana, deacuerdo al timpo universal( 0-6)</li>
+                    <li>now()	Regresa el tiempo en mili segundos des  enero 1, 1970</li>
+                </ol>
+                <li class="pregunta">¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</li></br>
+                <ol>
+                    <li>toString()	Convierte una array en string y regresa el resultado</li>
+                    <li>concat()	Junta dos arrays y regresa el resultado</li>
+                    <li>find()	Regresa el primer elemto de un array que pase una prueba</li>
+                    <li>indexOf()	Busca un elemento de la array y regresa su posicion</li>
+                    <li>isArray()	Revisa si un elemento esta en la array</li>
+                </ol>
                 <li class="pregunta">Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo 
                 entre %, px y pt?</li></br>
                 Cada una se emplea en cierta aplicación. Los pixeles y pts son los menos recomendados por usar, sin embargo al igual que 
@@ -129,96 +162,6 @@
                 del servidor que aloja la página web y trasnporte a través del internet.</br></br>
             </ol>
             <dl>
-                <dt>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</dt>
-                    <dd>
-                        Diferencias
-                        <uL>
-                            <li>
-                                JavaScript tradicionalmente ha sido un lenguaje interpretado, y Java es compilado.[1]
-                                <br>
-                                La principal diferencia entre un lenguaje compilado y uno interpretado es que el lenguaje compilado requiere un paso adicional antes de ser ejecutado, la compilación, que convierte el código que escribes a lenguaje de máquina. Un lenguaje interpretado, por otro lado, es convertido a lenguaje de máquina a medida que es ejecutado.[2]
-                            </li>
-                            <li>
-                                Java se depura en dos fases y JavaScript en una.
-                                <br>
-                                Java tiene dos fases donde se puede detectar errores cuando se compila y cuando se ejecuta; Mientras que JavaScript es al mismo tiempo.[1]
-                            </li>
-                            <li>
-                                Java es un lenguaje orientado a objetos puro, pero JavaScript está basado en prototipos.[1]
-                                <br>
-                            </li>
-                            <li>
-                                Java es fuertemente tipado, y JavaScript es débilmente tipado.[1]
-                                <br>
-                                Tipado es cuando no  se permiten violaciones de los tipos de datos, es decir, dado el valor de una variable de un tipo concreto, no se puede usar como si fuera de otro tipo distinto a menos que se haga una conversión.[3]
-                                <br>
-                            </li>
-                            <li>
-                                JavaScript es estándar, Java no.[1]
-                                <br>
-                            </li>
-                            
-                        </uL>
-                    </dd>
-                    <dd>
-                        Semejanzas
-                        <ul>
-                            <il>
-                                Ambos soportan orientado a objetos.
-                                <br>
-                            </il>
-                        </ul>
-                    </dd>
-                <dt>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</dt>
-                    <dd>
-                        <ul>
-                            <il>
-                                getTime() Obtiene el tiempo millisegundos  desde Enero 1, 1970
-                                <br>
-                            </il>
-                            <il>
-                                getDate()	Regresa el dia.
-                                <br>
-                            </il>
-                            <il>
-                                getFullYear()	Regresa el año
-                                <br>
-                            </il>
-                            <il>
-                                getUTCDay()	Regresa el dia de la semana, deacuerdo al timpo universal( 0-6)
-                                <br>
-                            </il>
-                            <il>
-                                now()	Regresa el tiempo en mili segundos des  enero 1, 1970
-                            </il>
-                        </ul>
-                        [4]
-                    </dd>
-                <dt>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</dt>
-                <dd>
-                    <ul>
-                        <il>
-                            toString()	Convierte una array en string y regresa el resultado
-                            <br>
-                        </il>
-                        <il>
-                            concat()	Junta dos arrays y regresa el resultado
-                            <br>
-                        </il>
-                        <il>
-                            find()	Regresa el primer elemto de un array que pase una prueba
-                            <br>
-                        </il>
-                        <il>
-                            indexOf()	Busca un elemento de la array y regresa su posicion
-                            <br>
-                        </il>
-                        <il>
-                            isArray()	Revisa si un elemento esta en la array
-                        </il>
-                    </ul>
-                    [4]
-                </dd>
                 <dt>¿Cómo se declara una variable con alcance local dentro de una función? </dt>
                 <dd>
                     Se declara dentro de la función que se esta ejecutando.
