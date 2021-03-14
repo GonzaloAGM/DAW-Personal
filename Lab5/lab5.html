@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Laboratorio 5: Fundamentos de JavaScript">
         <title>Lab5 - Gonzalo García - DAW & BD</title>
-        <link rel="stylesheet" href="stylesheet_min.css">
+        <link rel="stylesheet" href="stylesheet.css">
     </head>
     <!-- Este es el título -->
     <body>
@@ -93,36 +93,36 @@
                 <tr>
                     <th>
                         <h3>Problema 1</h3>
-                        <input type="button" name="btn_table" value="Tabla" onclick="tabla()">
+                        <input type="button" class="button_preg" value="Cuadrados y Cubos" onclick="tabla()">
                     </th>
                     <th>
                         <h3>Problema 2</h3>
-                        <input type="button" name="btn_random" value="Random" onclick="random()">
+                        <input type="button" class="button_preg" value="Suma Random" onclick="random()">
                     </th>
                     <th>
                         <h3>Problema 3</h3>
-                        <input type="button" name="btn_radArray" value="Arreglo" onclick="contador()">
+                        <input type="button" class="button_preg" value="Arreglo, neg, ceros y pos" onclick="contador()">
                     </th>
                 </tr>
                 <tr>
                     <th>
                         <h3>Problema 4</h3>
-                        <input type="button" name="btn_promedios" value="Promedios" onclick="promedios()">
+                        <input type="button" class="button_preg" value="Promedio de arreglos" onclick="promedios()">
                     </th>
                     <th>
                         <h3>Problema 5</h3>
-                        <input type="button" name="btn_inverso" value="Inverso" onclick="inverso()">    
+                        <input type="button" class="button_preg" value="Inverso" onclick="inverso()">    
                     </th>
                     <th>
                         <h3>Problema 6</h3>
                         Calcular el area y </br> volumen de un </br>prisma rectangular </br>
-                        <input type="button" name="btn_rectangulo" value="Area y Volumen" onclick="areaVolPrismRect()">
+                        <input type="button" class="button_preg" value="Area y Volumen" onclick="areaVolPrismRect()">
                     </th>
                 </tr>
                 </table>
                 <br/>
             <p>
-                <button onclick="document.location='#Descripcion'">Ir a Descripción</button>
+                <button class="button_reg" onclick="document.location='#Instrucciones'">Ir a Descripción de las actividades</button>
             </p>
         </section>
         
@@ -175,7 +175,7 @@
                 <li class="pregunta">¿Cómo se declara una variable con alcance local dentro de una función? </li></br>
                 Se declara dentro de la función que se esta ejecutando.</br></br>
                 <li class="pregunta">¿Qué método de String se puede utilizar para buscar patrones con expresiones 
-                    regulares?¿Para qué podrías utilizar esto en una aplicación web?</br></br>
+                    regulares?¿Para qué podrías utilizar esto en una aplicación web?</li></br>
                     match()	Busca en una cadena una coincidencia con una expresión regular y devuelve las coincidencias.<br> 
                     Sirve para hacer un buscador deacuerdo a campos y regresaria todos los resultados de la matris 
                     que coincidan con las letras que se busca.</br></br>
@@ -188,19 +188,19 @@
             <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
             <ul>
                 <il>
-                    [1]https://www.campusmvp.es/recursos/post/Java-y-JavaScript-son-lo-mismo.aspx 
+                    https://www.campusmvp.es/recursos/post/Java-y-JavaScript-son-lo-mismo.aspx 
                     <br>
                 </il>
                 <il>
-                    [2]https://blog.makeitreal.camp/lenguajes-compilados-e-interpretados/
+                    https://blog.makeitreal.camp/lenguajes-compilados-e-interpretados/
                     <br>
                 </il>
                 <il>
-                    [3]http://www.etnassoft.com/2011/01/27/tipado-blando-en-javascript/ 
+                    http://www.etnassoft.com/2011/01/27/tipado-blando-en-javascript/ 
                     <br>
                 </il>
                 <il>
-                    [4]https://www.w3schools.com/jsref/default.asp
+                    https://www.w3schools.com/jsref/default.asp
                     <br>
                 </il>
             </ul>
