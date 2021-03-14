@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Laboratorio 6: Programación orientada a eventos">
         <title>Lab6 - Gonzalo García - DAW & BD</title>
-        <link rel="stylesheet" href="/Lab6/CSS/stylesheet.css">
+        <link rel="stylesheet" href="CSS/stylesheet.css">
     </head>
     <!-- Este es el título -->
     <body>
@@ -48,7 +48,7 @@
                     <ol>
                         <li>
                             Revisa la presentación <a href="https://ejuarez.bitbucket.io/daw/documentos/POE.pptx">Programación orientada a eventos</a> 
-                        </li>
+                        </li></br>
                         <li>
                             Realiza los siguientes tutoriales sobre la propiedad de estilo position y sus atributos top y left:</br>
                             <ul>
@@ -72,7 +72,48 @@
                                 <li><a href="http://www.w3schools.com/jsref/prop_style_fontstyle.asp">http://www.w3schools.com/jsref/prop_style_fontstyle.asp</a></li>
                             </ul>
                         </li></br>
-                        <li></li>
+                        <li>
+                            Con JavaScript y HTML5 [y quizás CSS], desarrolla una página para validar passwords. La página debe tener una forma con 2 campos, el 
+                            campo de password, y el campo de verificar password. Utiliza al máximo tu creatividad e ingeniería para que la página sea un validador de 
+                            passwords de estado del arte, con la mejor experiencia para el usuario.
+                        </li></br>
+                        <li>
+                            Con JavaScript y HTML5 [y quizás CSS], desarrolla una página para vender 3 productos de tu interés, con los precios y promociones a tu 
+                            gusto. La página debe permitir al usuario escoger la cantidad de unidades de cada producto, y debe mostrar el precio total, el IVA que 
+                            se está cargando, y toda la información que consideres pertinente para que la experiencia del usuario sea la mejor. La página debe 
+                            validar los rangos de las unidades de cada producto.
+                        </li></br>
+                        <li>
+                            [Opcional] Con JavaScript y HTML5 y CSS, desarrolla una página con alguna temática o problema de tu interés. La página debe contener 
+                            una forma y debes realizar las validaciones necesarias. Después de validar la forma, la página debe desplegar información relacionada 
+                            con los datos introducidos en la forma, es decir la solución del problema o información respectiva a los datos introducidos.
+                        </li></br>
+                        <li>A partir de un documento o sitio de los anteriores, agrega las siguientes características:
+                            <ul>
+                                <li>
+                                    Cambia el estilo de las letras de alguna parte del documento con eventos diferentes a onClick. 
+                                </li>
+                                <li>
+                                    Para los campos de una forma, o para algún texto corto del documento, haz que de manera dinámica aparezca ayuda o información 
+                                    relevante o complementaria. Usa tu creatividad.
+                                </li>
+                                <li>
+                                    [Opcional]Investiga y prueba las funciones setInterval y setTimeout de JavaScript. De alguna manera incorpora una de ellas en 
+                                    el documento para agregarle una nueva característica al sitio.
+                                </li>
+                                <li>
+                                    [Opcional] Afortunadamente drag-and-drop ahora es parte del estándar HTML5 :) Utilizando como referencia el siguiente tutorial, 
+                                    incorpora esta característica a tu documento: <a href="http://www.w3schools.com/html/html5_draganddrop.asp">
+                                        http://www.w3schools.com/html/html5_draganddrop.asp</a>
+                                </li>
+                            </ul>
+                        </li><br>
+                        <li>
+                            Responde a las preguntas en el documento HTML
+                        </li>
+                        <li>
+                            Agrega al documento HTML una lista de enlaces con otras fuentes que hayas consultado para la realización de este laboratorio.
+                        </li>
                     </ol>
                 </p>
             </article>
@@ -126,53 +167,15 @@
         <section>
             <h2 class="titulo_sec" id="Preguntas">Preguntas a responder</h2>
             <ol>
-                <li class="pregunta">¿Qué diferencias y semejanzas hay entre Java y JavaScript? </li></br>
-                    <ul>
-                        <li class="pregunta">Diferencias</li></br>
-                        <uL>
-                            <li>JavaScript tradicionalmente ha sido un lenguaje interpretado, y Java es compilado.<br>
-                                La principal diferencia entre un lenguaje compilado y uno interpretado es que el lenguaje 
-                                compilado requiere un paso adicional antes de ser ejecutado, la compilación, que convierte 
-                                el código que escribes a lenguaje de máquina. Un lenguaje interpretado, por otro lado, es 
-                                convertido a lenguaje de máquina a medida que es ejecutado.[2]</li>
-                            <li>Java se depura en dos fases y JavaScript en una.<br>
-                                Java tiene dos fases donde se puede detectar errores cuando se compila y cuando se ejecuta; 
-                                Mientras que JavaScript es al mismo tiempo.[1]</li>
-                            <li>Java es un lenguaje orientado a objetos puro, pero JavaScript está basado en prototipos.[1]</li>
-                            <li>Java es fuertemente tipado, y JavaScript es débilmente tipado.[1]<br>
-                                Tipado es cuando no  se permiten violaciones de los tipos de datos, es decir, dado el valor 
-                                de una variable de un tipo concreto, no se puede usar como si fuera de otro tipo distinto a 
-                                menos que se haga una conversión.[3]</li>
-                            <li>JavaScript es estándar, Java no.[1]</li>
-                        </uL><br>
-                        <li class="pregunta">Semejanzas</li></br>
-                        <ul>
-                            <il>Ambos soportan orientado a objetos.</il><br><br>
-                        </ul>
-                    </ul>
-                <li class="pregunta">¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</li></br>
-                <ol>
-                    <li>getTime() Obtiene el tiempo millisegundos  desde Enero 1, 1970</li>
-                    <li>getDate()	Regresa el dia.</li>
-                    <li>getFullYear()	Regresa el año</li>
-                    <li>getUTCDay()	Regresa el dia de la semana, deacuerdo al timpo universal( 0-6)</li>
-                    <li>now()	Regresa el tiempo en mili segundos des  enero 1, 1970</li>
-                </ol><br>
-                <li class="pregunta">¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</li></br>
-                <ol>
-                    <li>toString()	Convierte una array en string y regresa el resultado</li>
-                    <li>concat()	Junta dos arrays y regresa el resultado</li>
-                    <li>find()	Regresa el primer elemto de un array que pase una prueba</li>
-                    <li>indexOf()	Busca un elemento de la array y regresa su posicion</li>
-                    <li>isArray()	Revisa si un elemento esta en la array</li>
-                </ol><br>
-                <li class="pregunta">¿Cómo se declara una variable con alcance local dentro de una función? </li></br>
-                Se declara dentro de la función que se esta ejecutando.</br></br>
-                <li class="pregunta">¿Qué método de String se puede utilizar para buscar patrones con expresiones 
-                    regulares?¿Para qué podrías utilizar esto en una aplicación web?</li></br>
-                    match()	Busca en una cadena una coincidencia con una expresión regular y devuelve las coincidencias.<br> 
-                    Sirve para hacer un buscador deacuerdo a campos y regresaria todos los resultados de la matris 
-                    que coincidan con las letras que se busca.</br></br>
+                <li class="pregunta">¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las 
+                    formas antes de enviar los datos al servidor?</li></br>
+                Para prevenir errores por parte del usuario y asegurarnos de mantener la integridad de los datos.<br><br>    
+                <li class="pregunta">¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</li></br>
+                Mediante los  atributos nonvalidate y formnovalidate<br><br>
+                <li class="pregunta">Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por 
+                    qué la primera pregunta dice que es una buena práctica?</li></br>
+                Ya que no es necesario validar, pero al hacerlo evitas errores que pueden ocurrir gracias al mal uso por parte  
+                del usuario tambien como darle consejos para un mejor llenado de los datos<br><br>
             </ol>
         </section>
 
@@ -214,6 +217,6 @@
                 Hecho en <a href="https://code.visualstudio.com/ ">visual studio code </a>
             </p>
         </footer>
-        <script src="/Lab6/JS/lab6.js"></script>
+        <script src="JS/lab6.js"></script>
     </body>
 </html>
