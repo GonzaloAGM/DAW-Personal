@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Laboratorio 3: CSS">
+        <title>Lab3 - Gonzalo García - DAW & BD</title>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <!-- Este es el título -->
+    <body>
+        <header id="header">
+            <h1 id="titulo_lab">
+                Laboratorio 3
+            </h1 id="subtitulo_lab">
+            <h2>CSS</h2>
+        </header>
+        <div class="topnav">
+            <a class="active" href="#header">Home</a>
+            <a href="#Descripcion">Descripción</a>
+            <a href="#Instrucciones">Instrucciones</a>
+            <a href="#SobreMi">Sobre mi</a>
+            <a href="#Preguntas">Preguntas</a>
+            <a href="#Referencia">Referencias</a>
+            <a href="#DatosAutor">Autor</a>
+          </div>
+        <main>
+            
+        <!-- Descripción e instrucciones -->
+        <section>
+            <article>
+                <h2 class="titulo_sec" id="Descripcion"> Descripción </h2>
+                <p>
+                    En esta actividad se hará un repaso sobre CSS.
+                </p>
+                <p>
+                    <h3>Objetivos:</h3>
+                    <ul>
+                        <li>Conocer el propósito y las características principales de JavaScript.</li>
+                        <li>Conocer las reglas básicas de sintaxis de JavaScript</li>
+                        <li>Elaborar programas básicos con JavaScript</li>
+                    </ul>
+                </p>
+            </article>
+            
+            <article>
+                <h2 class="titulo_sec" id="Instrucciones">Instrucciones</h2>
+                <p>
+                    <ol>
+                        <li>
+                            Revisa la presentación <a href="https://ejuarez.bitbucket.io/daw/documentos/CSS.ppt">CSS</a>.
+                        </li>
+                        <li>
+                            El CSS debe contener al menos un estilo definido con cada uno de los selectores y el estilo debe 
+                            ser aplicado al documento. Puedes utilizar como guía o o ayudarte de algunos de los sitios web 
+                            que se enlistan en la sección de Recursos, o en algún otro sitio. </br>
+                            Asegúrate que tus documentos HTML no tengan estilos en línea.
+                        </li>
+                        <li>
+                            Para un mejor rendimiento de tu sitio, crea una versión minimizada de tu CSS y enlázala a tu sitio
+                             en lugar del CSS que acabas de crear. Puedes apoyarte de herramientas como <a href="http://cssminifier.com/">http://cssminifier.com/</a>
+                        </li>
+                        <li>
+                            Agrega las preguntas con sus respectivas respuestas en el documento HTML.
+                        </li>
+                    </ol>
+                    </ol>
+                </p>
+            </article>
+        </section>
+
+        <hr/>
+
+        <!-- Sobre mi -->
+        <section>
+            <h2 class="titulo_sec" id="SobreMi">Acerca de mi</h2>
+            <p>
+                Soy alguien interesado en el area general de las ingenierías y ciencias aplicadas. Específicamente me apasiona mas el area 
+                aeroespacial, sin embargo tambien tengo un interes en lo que es la electrónica y la mecánica. Es por esto que estudio actualmete
+                ingeniería electrónica (o su equivalente) con miras de estudiar una maestria y/o especialidad en ingeniería aeroespacial. </br></br>
+                Es así que actualmente soy el presidente del grupo estudiantil de robótica espacial Eagle X, con ambisiones de expandirlo a 
+                varias de otras ramas del campo, convirtiendolo en el referente estudiantil del area en el Tec de Monterrey. </br></br>
+                De la misma forma conseguí ser asignado a una oportunidad de intercambio en Purdue, con la esperanza de que si se pueda 
+                realizar y poder especializarme mas en este campo. </br></br>
+                Así mismo, estoy colaborando con un emprendimiento privado en el desarrollo de un cubesat. Fue en este último donde me enteré 
+                de la utilidad de las herramientas web, no solo para el monitorio sino para la recopilación y vizualización correcta y facil 
+                de los datos, sobre todo en estaciones terrenas. </br></br>
+                Cabe destacar que no es por esto que estoy llevando este curso, pues siempre he sabido que estas herramientas son necesarias en 
+                varias partes del ambito profesional. Aunque no necesariamente ser un experto, si es muy recomendable tener un buen entendimiento
+                para poder colaborar de forma mas efectiva con quienes si son expertos y lograr grandes cosas. </br></br>
+            </p>
+        </section>
+        
+         <hr/>
+        <!-- Preguntas a responder -->
+
+        <section>
+            <h2 class="titulo_sec" id="Preguntas">Preguntas a responder</h2>
+            <ol>
+                <li class="pregunta">Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS? </li>
+                <br>
+                Utilizarlo solo cuando sea necesario, por ejemplo, que solo arreglas el problema que tienes con eso. O cuando sabes perfectamnte
+                que es lo que haces y que no afectará nada mas. 
+                <br><br>
+                <li class="pregunta">Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</li>
+                <br>
+                Por la resolucion de la imagen, y por consecuente, las pantallas en donde se estara viendo. Por la accesibilidad al usuario, se deben
+                considerar si es facil de leer el contenido. 
+                <br><br>
+                <li class="pregunta">Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</li>
+                <br>
+                Creo que cada una tiene su lugar para utilizarse excepto px. Quizas solo para imagenes o bordes. 
+                En cuanto a % y pt, yo usaria el porcentage para pocisionar algo relativo a otro elemento o la pantalla, y 
+                pt para algo estatico y texto.
+                <br><br>
+                <li class="pregunta">¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</li>
+                <br>
+                Al no tener saltos de linea, ni espacios de mas, que aunque útiles para identación, ya no se consumirían tantos recursos en memoria 
+                del servidor que aloja la página web y trasnporte a través del internet. 
+            </ol>
+        </section>
+
+        <hr/>
+        <!-- Referencias -->  
+        <section>
+            <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
+            <ul>
+                <li>
+                    MDN (s.f) Conceptos básicos de las tablas HTML. Recuperado de: https://developer.mozilla.org/es/docs/Learn/HTML/Tablas/Conceptos_b%C3%A1sicos_de_las_tablas_HTML
+                </li>
+                <li>
+                    W3C (s.f) TopNav Tutorial. Recuperado de: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_topnav
+                </li>
+                <li>
+                    W3C (s.f). Conformance: requirements and recommendations. Recuperado de: https://www.w3.org/TR/REC-html40/conform.html
+                </li>
+                <li>
+                    W3C (s.f). Conformance: requirements and recommendations. Recuperado de: https://www.w3.org/TR/REC-html40/conform.html
+                </li>
+                <li>
+                    Thomas, Jeremy (s.f). Web design in 4 minutes. Recuperado de: http://jgthms.com/web-design-in-4-minutes
+                </li>
+                
+            </ul>
+        </section>
+        </main>
+        <footer>
+            <!-- Datos de autor -->  
+            <h3 class="titulo_sec" id="DatosAutor">
+                Mis datos 
+            </h3>
+            <p>
+                <h4>Gonzalo Alberto García Muñoz</h4>
+                A01702956 </br>
+                a01702956@itesm.mx </br>
+                gonzalo.light.agm@gmail.com </br>
+                <a href="https://github.com/GonzaloAGM/DAW-Personal-A01702956">Mi git hub</a> </br>
+                Hecho en <a href="https://code.visualstudio.com/ ">visual studio code </a>
+            </p>
+        </footer>
+    </body>
+</html>
