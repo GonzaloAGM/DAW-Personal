@@ -107,7 +107,7 @@ pre {
 }
 
 .titulo_sec{
-
+    font-weight: 700;
 }
 
 .pregunta{
@@ -115,5 +115,5 @@ pre {
 }
 
 .pregunta:hover{
-    
+    font-weight: 700;
 }
