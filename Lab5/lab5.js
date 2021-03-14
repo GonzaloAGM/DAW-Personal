@@ -1,6 +1,6 @@
 var nombre = "";
-const HeadTab = '<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="description" content="Laboratorio 5: Fundamentos de JavaScript"> <title>Lab5 - Gonzalo García - DAW & BD</title> <link rel="stylesheet" href="stylesheet.css"> </head>';
-const navTab = '<body><header id="header"><h1 id="titulo_lab">Laboratorio 5</h1 id="subtitulo_lab"><h2>FUNDAMENTOS DE JAVASCRIPT</h2></header><div class="topnav"><a href="lab5.html">Home</a>';
+const HeadTab = '<!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="description" content="Laboratorio 5: Fundamentos de JavaScript - Act"> <title>Lab5 Act - Gonzalo García - DAW & BD</title> <link rel="stylesheet" href="stylesheet.css"> </head>';
+const navTab = '<body><header id="header"><h1 id="titulo_lab">Laboratorio 5</h1 id="subtitulo_lab"><h2>FUNDAMENTOS DE JAVASCRIPT</h2></br><h3>Actividad</h3></header><div class="topnav"><a href="lab5.html">Home</a>';
 const endNavTab = '>Actividad</a></div><main><section>';
 const endTab = '</section></body></html>';
 
@@ -8,7 +8,7 @@ function openDoc(nombrefunct){
     document.open("");
     document.write(HeadTab);
     document.write(navTab);
-    document.write('<a class="active" onclick='+nombrefunct);
+    document.write('<a class="active" onclick=' + nombrefunct);
     document.write(endNavTab);
 }
 
@@ -66,7 +66,7 @@ function contador(){
 	let menores = 0;
     let ceros = 0;
     let n = 10;
-    document.write('<table border = "n" >');
+    document.write('<table border = '+ n + '>');
     document.write('<tr><th colspan=10>Numeros en el arreglo</th></tr>');
 
     document.write('<tr>');
