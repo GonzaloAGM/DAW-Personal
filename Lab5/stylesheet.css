@@ -107,13 +107,14 @@ pre {
 }
 
 .titulo_sec{
-
+  font-weight: 700;
 }
 
 .pregunta{
-    font-weight: 595;
+  font-weight: 595;
 }
 
 .pregunta:hover{
-    
+  font-weight: 700;
+  color:lightsalmon;
 }
