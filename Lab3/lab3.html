@@ -8,61 +8,24 @@
         <link rel="stylesheet" href="stylesheet.css">
     </head>
     <!-- Este es el título -->
-    <header>
-        <h1 id="titulo_lab">
-            Laboratorio 3
-        </h1 id="subtitulo_lab">
-        <h2>CSS</h2>
-    </header>
     <body>
-        <!-- Tabla como tabla de contenidos -->  
-        <section>
-            <h2 class="titulo_sec">Tabla de contenidos</h2>
-
-            <table class="tablaCont">
-            <tr>
-                <th>Sección </th>
-                <th>   </th>
-                <th>Boton con Link</th>
-                
-            </tr>
-            <tr>
-                <td>Descripción</td>
-                <td>   </td>
-                <td><button onclick="document.location='#Descripcion'">Ir a Descripción</button></td>
-            </tr>
-            <tr>
-                <td>Instrucciones</td>
-                <td>   </td>
-                <td><button onclick="document.location='#Instruciones'">Ir a Instrucciones</button></td>
-            </tr>
-            <tr>
-                <td>Acerca de mi</td>
-                <td>   </td>
-                <td><button onclick="document.location='#SobreMi'">Ir al articulo sobre mi</button></td>
-            </tr>
-            <tr>
-                <td>Preguntas por responder</td>
-                <td>   </td>
-                <td><button onclick="document.location='#Preguntas'">Ir a Preguntas</button></td>
-            </tr>
-            <tr>
-                <td>Referencias</td>
-                <td>   </td>
-                <td><button onclick="document.location='#Referencia'">Ir a Referencias</button></td>
-            </tr>
-            <tr>
-                <td>Datos de Autor</td>
-                <td>   </td>
-                <td><button onclick="document.location='#DatosAutor'">Ir a Datos de Autor</button></td>
-            </tr>
-            </table>
-
-            <br/>
-        </section>
-        
-        <hr/>
-
+        <header id="header">
+            <h1 id="titulo_lab">
+                Laboratorio 3
+            </h1 id="subtitulo_lab">
+            <h2>CSS</h2>
+        </header>
+        <div class="topnav">
+            <a class="active" href="#header">Home</a>
+            <a href="#Descripcion">Descripción</a>
+            <a href="#Instrucciones">Instrucciones</a>
+            <a href="#SobreMi">Sobre mi</a>
+            <a href="#Preguntas">Preguntas</a>
+            <a href="#Referencia">Referencias</a>
+            <a href="#DatosAutor">Autor</a>
+          </div>
+        <main>
+            
         <!-- Descripción e instrucciones -->
         <section>
             <article>
@@ -117,17 +80,17 @@
             <p>
                 Soy alguien interesado en el area general de las ingenierías y ciencias aplicadas. Específicamente me apasiona mas el area 
                 aeroespacial, sin embargo tambien tengo un interes en lo que es la electrónica y la mecánica. Es por esto que estudio actualmete
-                ingeniería electrónica (o su equivalente) con miras de estudiar una maestria y/o especialidad en ingeniería aeroespacial. </br>
+                ingeniería electrónica (o su equivalente) con miras de estudiar una maestria y/o especialidad en ingeniería aeroespacial. </br></br>
                 Es así que actualmente soy el presidente del grupo estudiantil de robótica espacial Eagle X, con ambisiones de expandirlo a 
-                varias de otras ramas del campo, convirtiendolo en el referente estudiantil del area en el Tec de Monterrey. </br>
+                varias de otras ramas del campo, convirtiendolo en el referente estudiantil del area en el Tec de Monterrey. </br></br>
                 De la misma forma conseguí ser asignado a una oportunidad de intercambio en Purdue, con la esperanza de que si se pueda 
-                realizar y poder especializarme mas en este campo. </br>
+                realizar y poder especializarme mas en este campo. </br></br>
                 Así mismo, estoy colaborando con un emprendimiento privado en el desarrollo de un cubesat. Fue en este último donde me enteré 
                 de la utilidad de las herramientas web, no solo para el monitorio sino para la recopilación y vizualización correcta y facil 
-                de los datos, sobre todo en estaciones terrenas. </br>
+                de los datos, sobre todo en estaciones terrenas. </br></br>
                 Cabe destacar que no es por esto que estoy llevando este curso, pues siempre he sabido que estas herramientas son necesarias en 
                 varias partes del ambito profesional. Aunque no necesariamente ser un experto, si es muy recomendable tener un buen entendimiento
-                para poder colaborar de forma mas efectiva con quienes si son expertos y lograr grandes cosas. </br>
+                para poder colaborar de forma mas efectiva con quienes si son expertos y lograr grandes cosas. </br></br>
             </p>
         </section>
         
@@ -166,46 +129,37 @@
             <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
             <ul>
                 <li>
-                    Berners-Lee, Tim (2004) Architecture of the World Wide Web, Volume One. Recuperado de: https://www.w3.org/TR/webarch/#acks
-                </li>
-                <li>
-                    Berzal, F. (s.f.) El ciclo de vida de un sistema de información. Recuperado de: http://flanagan.ugr.es/docencia/2005-2006/2/apuntes/ciclovida.pdf
-                </li>
-                <li>
-                    Fielding, et al.(1999) Hypertext Transfer Protocol -- HTTP/1.1. Recuperado de: https://www.w3.org/Protocols/rfc2616/rfc2616.html
-                </li>
-                <li>
-                    MDN (s.f) Códigos de Estado de Respuesta. Recuperado de: https://developer.mozilla.org/es/docs/Web/HTTP/Status
-                </li>
-                <li>
                     MDN (s.f) Conceptos básicos de las tablas HTML. Recuperado de: https://developer.mozilla.org/es/docs/Learn/HTML/Tablas/Conceptos_b%C3%A1sicos_de_las_tablas_HTML
                 </li>
                 <li>
-                    MDN (s.f) Sending form data. Recuperado de: https://developer.mozilla.org/es/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data
+                    W3C (s.f) TopNav Tutorial. Recuperado de: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_topnav
                 </li>
-                
                 <li>
                     W3C (s.f). Conformance: requirements and recommendations. Recuperado de: https://www.w3.org/TR/REC-html40/conform.html
                 </li>
                 <li>
-                    W3C (2014). HTML5 Differences from HTML4. Recuperado de: https://www.w3.org/TR/html5-diff/#obsolete-attributes
+                    W3C (s.f). Conformance: requirements and recommendations. Recuperado de: https://www.w3.org/TR/REC-html40/conform.html
                 </li>
+                <li>
+                    Thomas, Jeremy (s.f). Web design in 4 minutes. Recuperado de: http://jgthms.com/web-design-in-4-minutes
+                </li>
+                
             </ul>
         </section>
-        
+        </main>
+        <footer>
+            <!-- Datos de autor -->  
+            <h3 class="titulo_sec" id="DatosAutor">
+                Mis datos 
+            </h3>
+            <p>
+                <h4>Gonzalo Alberto García Muñoz</h4>
+                A01702956 </br>
+                a01702956@itesm.mx </br>
+                gonzalo.light.agm@gmail.com </br>
+                <a href="https://github.com/GonzaloAGM/DAW-Personal-A01702956">Mi git hub</a> </br>
+                Hecho en <a href="https://code.visualstudio.com/ ">visual studio code </a>
+            </p>
+        </footer>
     </body>
-    <footer>
-        <!-- Datos de autor -->  
-        <h3 class="titulo_sec" id="DatosAutor">
-            Mis datos 
-        </h3>
-        <p>
-            <h4>Gonzalo Alberto García Muñoz</h4>
-            A01702956 </br>
-            a01702956@itesm.mx </br>
-            gonzalo.light.agm@gmail.com </br>
-            <a href="https://github.com/GonzaloAGM/DAW-Personal-A01702956">Mi git hub</a> </br>
-            Hecho en <a href="https://code.visualstudio.com/ ">visual studio code </a>
-        </p>
-    </footer>
 </html>
