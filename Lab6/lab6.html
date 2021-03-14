@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Laboratorio 6: Programación orientada a eventos">
+        <title>Lab6 - Gonzalo García - DAW & BD</title>
+        <link rel="stylesheet" href="/Lab6/CSS/stylesheet.css">
+    </head>
+    <!-- Este es el título -->
+    <body>
+        <header>
+            <h1 id="titulo_lab">
+                Laboratorio 6
+            </h1 id="subtitulo_lab">
+            <h2>PROGRAMACIÓN ORIENTADA A EVENTOS</h2>
+        </header>
+        <div class="topnav">
+            <a class="active" href="lab6.html">Home</a>
+            <a href="#Descripcion">Descripción</a>
+            <a href="#Instrucciones">Instrucciones</a>
+            <a href="#Actividad">Actividad</a>
+            <a href="#Preguntas">Preguntas</a>
+            <a href="#Referencia">Referencias</a>
+            <a href="#DatosAutor">Autor</a>
+          </div>
+        <main>
+            
+        <!-- Descripción e instrucciones -->
+        <section>
+            <article>
+                <h2 class="titulo_sec" id="Descripcion"> Descripción </h2>
+                <p>
+                    En esta actividad se hará una introducción a JavaScript.
+                </p>
+                <p>
+                    <h3>Objetivos:</h3>
+                    <ul>
+                        <li>Conocer el propósito y las características principales de JavaScript</li>
+                        <li>Conocer las reglas básicas de sintaxis de JavaScript</li>
+                        <li>Elaborar programas básicos con JavaScript</li>
+                    </ul>
+                </p>
+            </article>
+            
+            <article>
+                <h2 class="titulo_sec" id="Instrucciones">Instrucciones</h2>
+                <p>
+                    <ol>
+                        <li>
+                            Revisa la presentación <a href="https://ejuarez.bitbucket.io/daw/documentos/IntroJavaScript.pptx">Fundamentos de JavaScript</a> 
+                        </li>
+                        <li>
+                            Escribe, prueba y debuguea (si es necesario) scripts de JavaScript para los siguientes problemas. Cuando se requiera escribir 
+                            funciones, es necesario incluir un script para probar la función con al menos 2 conjuntos de datos de prueba. Haz las pruebas 
+                            en un documento.</br>
+                            <ol>
+                                <li>Entrada: un número pedido con un prompt.</br>
+                                    Salida: Una tabla con los números del 1 al número dado con sus cuadrados y cubos. Utiliza document.write para producir 
+                                    la salida</li>
+                                <li>Entrada: Usando un prompt se pide el resultado de la suma de 2 números generados de manera aleatoria.</br> 
+                                    Salida: La página debe indicar si el resultado fue correcto o incorrecto, y el tiempo que tardó el usuario en escribir 
+                                    la respuesta.</li>
+                                <li>Función: contador. </br>
+                                    Parámetros: Un arreglo de números. </br>
+                                    Regresa: La cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en 
+                                    el arreglo.</li>
+                                <li>Función: promedios. </br>
+                                    Parámetros: Un arreglo de arreglos de números. </br>
+                                    Regresa: Un arreglo con los promedios de cada uno de los renglones de la matriz.</li>
+                                <li>Función: inverso. </br>
+                                    Parámetros: Un número. </br>
+                                    Regresa: El número con sus dígitos en orden inverso.</li>
+                                <li>Crea una solución para un problema de tu elección (puede ser algo relacionado con tus intereses, alguna problemática 
+                                    que hayas identificado en algún ámbito, un problema de programación que hayas resuelto en otro lenguaje, un problema 
+                                    de la ACM, entre otros). El problema debe estar descrito en un documento HTML, y la solución implementada en JavaScript, 
+                                    utilizando al menos la creación de un objeto, el objeto además de su constructor deben tener al menos 2 métodos. 
+                                    Muestra los resultados en el documento HTML.</li>
+                            </ol>
+                        </li>
+                    </ol>
+                    </ol>
+                </p>
+            </article>
+        </section>
+
+        <hr/>
+
+        <!-- Actividades -->
+        <section>
+            <h2 class="titulo_sec" id="Actividad">Actividad</h2>
+            <table class="tablaAct">
+                <tr>
+                    <th>
+                        <h3>Problema 1</h3>
+                        <input type="button" class="button_preg" value="Cuadrados y Cubos" onclick="tabla()">
+                    </th>
+                    <th>
+                        <h3>Problema 2</h3>
+                        <input type="button" class="button_preg" value="Suma Random" onclick="random()">
+                    </th>
+                    <th>
+                        <h3>Problema 3</h3>
+                        <input type="button" class="button_preg" value="Arreglo, neg, ceros y pos" onclick="contador()">
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <h3>Problema 4</h3>
+                        <input type="button" class="button_preg" value="Promedio de arreglos" onclick="promedios()">
+                    </th>
+                    <th>
+                        <h3>Problema 5</h3>
+                        <input type="button" class="button_preg" value="Inverso" onclick="inverso()">    
+                    </th>
+                    <th>
+                        <h3>Problema 6</h3>
+                        Calcular el area y </br> volumen de un </br>prisma rectangular </br>
+                        <input type="button" class="button_preg" value="Area y Volumen" onclick="areaVolPrismRect()">
+                    </th>
+                </tr>
+                </table>
+                <br/>
+            <p>
+                <button class="button_reg" onclick="document.location='#Instrucciones'">Ir a Descripción de las actividades</button>
+            </p>
+        </section>
+        
+         <hr/>
+        <!-- Preguntas a responder -->
+
+        <section>
+            <h2 class="titulo_sec" id="Preguntas">Preguntas a responder</h2>
+            <ol>
+                <li class="pregunta">¿Qué diferencias y semejanzas hay entre Java y JavaScript? </li></br>
+                    <ul>
+                        <li class="pregunta">Diferencias</li></br>
+                        <uL>
+                            <li>JavaScript tradicionalmente ha sido un lenguaje interpretado, y Java es compilado.<br>
+                                La principal diferencia entre un lenguaje compilado y uno interpretado es que el lenguaje 
+                                compilado requiere un paso adicional antes de ser ejecutado, la compilación, que convierte 
+                                el código que escribes a lenguaje de máquina. Un lenguaje interpretado, por otro lado, es 
+                                convertido a lenguaje de máquina a medida que es ejecutado.[2]</li>
+                            <li>Java se depura en dos fases y JavaScript en una.<br>
+                                Java tiene dos fases donde se puede detectar errores cuando se compila y cuando se ejecuta; 
+                                Mientras que JavaScript es al mismo tiempo.[1]</li>
+                            <li>Java es un lenguaje orientado a objetos puro, pero JavaScript está basado en prototipos.[1]</li>
+                            <li>Java es fuertemente tipado, y JavaScript es débilmente tipado.[1]<br>
+                                Tipado es cuando no  se permiten violaciones de los tipos de datos, es decir, dado el valor 
+                                de una variable de un tipo concreto, no se puede usar como si fuera de otro tipo distinto a 
+                                menos que se haga una conversión.[3]</li>
+                            <li>JavaScript es estándar, Java no.[1]</li>
+                        </uL><br>
+                        <li class="pregunta">Semejanzas</li></br>
+                        <ul>
+                            <il>Ambos soportan orientado a objetos.</il><br><br>
+                        </ul>
+                    </ul>
+                <li class="pregunta">¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</li></br>
+                <ol>
+                    <li>getTime() Obtiene el tiempo millisegundos  desde Enero 1, 1970</li>
+                    <li>getDate()	Regresa el dia.</li>
+                    <li>getFullYear()	Regresa el año</li>
+                    <li>getUTCDay()	Regresa el dia de la semana, deacuerdo al timpo universal( 0-6)</li>
+                    <li>now()	Regresa el tiempo en mili segundos des  enero 1, 1970</li>
+                </ol><br>
+                <li class="pregunta">¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</li></br>
+                <ol>
+                    <li>toString()	Convierte una array en string y regresa el resultado</li>
+                    <li>concat()	Junta dos arrays y regresa el resultado</li>
+                    <li>find()	Regresa el primer elemto de un array que pase una prueba</li>
+                    <li>indexOf()	Busca un elemento de la array y regresa su posicion</li>
+                    <li>isArray()	Revisa si un elemento esta en la array</li>
+                </ol><br>
+                <li class="pregunta">¿Cómo se declara una variable con alcance local dentro de una función? </li></br>
+                Se declara dentro de la función que se esta ejecutando.</br></br>
+                <li class="pregunta">¿Qué método de String se puede utilizar para buscar patrones con expresiones 
+                    regulares?¿Para qué podrías utilizar esto en una aplicación web?</li></br>
+                    match()	Busca en una cadena una coincidencia con una expresión regular y devuelve las coincidencias.<br> 
+                    Sirve para hacer un buscador deacuerdo a campos y regresaria todos los resultados de la matris 
+                    que coincidan con las letras que se busca.</br></br>
+            </ol>
+        </section>
+
+        <hr/>
+        <!-- Referencias -->  
+        <section>
+            <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
+            <ul>
+                <il>
+                    https://www.campusmvp.es/recursos/post/Java-y-JavaScript-son-lo-mismo.aspx 
+                    <br>
+                </il>
+                <il>
+                    https://blog.makeitreal.camp/lenguajes-compilados-e-interpretados/
+                    <br>
+                </il>
+                <il>
+                    http://www.etnassoft.com/2011/01/27/tipado-blando-en-javascript/ 
+                    <br>
+                </il>
+                <il>
+                    https://www.w3schools.com/jsref/default.asp
+                    <br>
+                </il>
+            </ul>
+        </section>
+        </main>
+        <footer>
+            <!-- Datos de autor -->  
+            <h3 class="titulo_sec" id="DatosAutor">
+                Mis datos 
+            </h3>
+            <p>
+                <h4>Gonzalo Alberto García Muñoz</h4>
+                A01702956 </br>
+                a01702956@itesm.mx </br>
+                gonzalo.light.agm@gmail.com </br>
+                <a href="https://github.com/GonzaloAGM/DAW-Personal-A01702956">Mi git hub</a> </br>
+                Hecho en <a href="https://code.visualstudio.com/ ">visual studio code </a>
+            </p>
+        </footer>
+        <script src="/Lab6/JS/lab6.js"></script>
+    </body>
+</html>
