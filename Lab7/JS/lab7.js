@@ -12,6 +12,14 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
+var pushpinNav = document.getElementById('pushpinNav');
+var pushpinNavOptions = {
+    top: 300,
+    bottom: 999999999,
+    offset: 0
+}
+var instancePushpinNav = M.Pushpin.init(pushpinNav,pushpinNavOptions);
+
 function password() {
     
     var password = document.getElementById("password").value;
