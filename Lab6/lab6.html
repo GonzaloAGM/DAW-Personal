@@ -140,18 +140,56 @@
         <section class="tabcontent" id="Tienda" style="display: none;">
             <h2 class="titulo_sec">Realiza una compra</h2>
             <div>
-                <h3>Compra tu super</h3>
-                Pan  <input type="number" name="pan" id="pan" value="0" min="0">$15<br>
-                Carne<input type="number" name="carne" id="carne" value="0" min="0">$50<br>
-                Jitomate  <input type="number" name="jitomate" id="jitomate" value="0" min="0">$20<br>
-                Lechuga  <input type="number" name="lechuga" id="lechuga" value="0" min="0">$15<br>
-                Tortillas <input type="number" name="tortillas" id="tortillas" value="0" min="0">$5<br>
-                Cafe <input type="number" name="cafe" id="cafe" value="0" min="0">$20<br>
-                IVA <input type="number" name="iva" value="16" id="iva" min="0" max="100"><br>
-                Descuento <input type="number" name="descuento" value="0" id="descuento" min="0" max="100"><br>
+                <table>
+                    <tr>
+                        <th>Articulo </th>
+                        <th>Precio   </th>
+                        <th>Cantidad</th>
+                    </tr>
+                    <tr>
+                        <td>Pan</td>
+                        <td>$15</td>
+                        <td><input type="number" name="pan" id="pan" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Carne</td>
+                        <td>$$50</td>
+                        <td><input type="number" name="carne" id="carne" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Jitomate</td>
+                        <td>$20</td>
+                        <td><input type="number" name="jitomate" id="jitomate" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Lechuga</td>
+                        <td>$15</td>
+                        <td><input type="number" name="lechuga" id="lechuga" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Tortillas</td>
+                        <td>$5</td>
+                        <td><input type="number" name="tortillas" id="tortillas" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Cafe</td>
+                        <td>$15</td>
+                        <td><input type="number" name="cafe" id="cafe" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>IVA</td>
+                        <td>%</td>
+                        <td><input type="number" name="iva" value="16" id="iva" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td>Descuento</td>
+                        <td>%</td>
+                        <td><input type="number" name="descuento" value="0" id="descuento" min="0" max="100"></td>
+                    </tr>
+                </table>
                 <br>
-                Total: <p id="pago"> </p>
-                <button type="button" name="boton" onclick="pay()">Pagar</button>
+                <p id="pago">Total: </p>
+                <button type="button" name="boton" onclick="pay()">Pagar</button><br><br>
             </div>
         </section>
         

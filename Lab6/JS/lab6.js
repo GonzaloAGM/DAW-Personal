@@ -66,17 +66,21 @@ function password() {
   }
 
   function pay(){
-    var pan = document.getElementById("pan").value;
-    var carne = document.getElementById("carne").value;
-    var jitomate = document.getElementById("jitomate").value;
-    var lechuga = document.getElementById("lechuga").value;
-    var tortillas = document.getElementById("tortillas").value;
-    var cafe = document.getElementById("cafe").value;
-    var descuento = document.getElementById("descuento").value;
-    var iva = document.getElementById("iva").value;
-    var total;
+    const  articulos = [];
+    const precio = [15,50,20,25,5,20];
+    articulos.push(document.getElementById("art1").value);
+    articulos.push(document.getElementById("art2").value);
+    articulos.push(document.getElementById("art3").value);
+    articulos.push(document.getElementById("art4").value);
+    articulos.push(document.getElementById("art5").value);
+    articulos.push(document.getElementById("art6").value);
+    articulos.push(document.getElementById("descuento").value);
+    articulos.push(document.getElementById("iva").value);
+    let total;
+
+    for(let subtotal of precio)
 
     total = (pan*15+carne*50+ jitomate*20+ lechuga * 15 + tortillas * 5 + cafe * 20)*(1-descuento/100);
     total = total + (total * iva)/100;
-    document.getElementById("pago").innerHTML = total;
+    document.getElementById("pago").innerHTML = "Total: $" + total;
 }

@@ -113,3 +113,9 @@ a:hover {
   font-weight: 700;
   color:lightsalmon;
 }
+
+table{
+  width: 70%;
+  margin-left: auto; 
+  margin-right: auto;
+}
