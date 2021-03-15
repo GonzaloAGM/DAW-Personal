@@ -16,20 +16,16 @@
             <h2>PROGRAMACIÓN ORIENTADA A EVENTOS</h2>
         </header>
         <div class="topnav">
-            <a class="active" href="lab6.html">Home</a>
-            <a href="#Descripcion">Descripción</a>
-            <a href="#Instrucciones">Instrucciones</a>
-            <a href="#Actividad">Actividad</a>
-            <a href="#Preguntas">Preguntas</a>
-            <a href="#Referencia">Referencias</a>
-            <a href="#DatosAutor">Autor</a>
-          </div>
+            <button class="tablinks active" onclick="openTab(event, 'DescripInstr')">Home</a>
+            <button class="tablinks" onclick="openTab(event, 'Password')">Password</a>
+            <button class="tablinks" onclick="openTab(event, 'Tienda')">Tienda</a>
+            <button class="tablinks" onclick="openTab(event, 'Preguntas')">Preguntas y Referencias</a>
+        </div>
         <main>
-            
         <!-- Descripción e instrucciones -->
-        <section>
+        <section class="tabcontent" id="DescripInstr" style="display: block;">
             <article>
-                <h2 class="titulo_sec" id="Descripcion"> Descripción </h2>
+                <h2 class="titulo_sec"> Descripción </h2>
                 <p>
                     En esta actividad se abordará el paradigma de programación orientada a eventos.
                 </p>
@@ -42,8 +38,8 @@
                 </p>
             </article>
             
-            <article>
-                <h2 class="titulo_sec" id="Instrucciones">Instrucciones</h2>
+            <article >
+                <h2 class="titulo_sec">Instrucciones</h2>
                 <p>
                     <ol>
                         <li>
@@ -110,7 +106,7 @@
                         </li><br>
                         <li>
                             Responde a las preguntas en el documento HTML
-                        </li>
+                        </li><br>
                         <li>
                             Agrega al documento HTML una lista de enlaces con otras fuentes que hayas consultado para la realización de este laboratorio.
                         </li>
@@ -119,53 +115,23 @@
             </article>
         </section>
 
-        <hr/>
+        <!-- Actividad de validación de passwords -->
 
-        <!-- Actividades -->
-        <section>
-            <h2 class="titulo_sec" id="Actividad">Actividad</h2>
-            <table class="tablaAct">
-                <tr>
-                    <th>
-                        <h3>Problema 1</h3>
-                        <input type="button" class="button_preg" value="Cuadrados y Cubos" onclick="tabla()">
-                    </th>
-                    <th>
-                        <h3>Problema 2</h3>
-                        <input type="button" class="button_preg" value="Suma Random" onclick="random()">
-                    </th>
-                    <th>
-                        <h3>Problema 3</h3>
-                        <input type="button" class="button_preg" value="Arreglo, neg, ceros y pos" onclick="contador()">
-                    </th>
-                </tr>
-                <tr>
-                    <th>
-                        <h3>Problema 4</h3>
-                        <input type="button" class="button_preg" value="Promedio de arreglos" onclick="promedios()">
-                    </th>
-                    <th>
-                        <h3>Problema 5</h3>
-                        <input type="button" class="button_preg" value="Inverso" onclick="inverso()">    
-                    </th>
-                    <th>
-                        <h3>Problema 6</h3>
-                        Calcular el area y </br> volumen de un </br>prisma rectangular </br>
-                        <input type="button" class="button_preg" value="Area y Volumen" onclick="areaVolPrismRect()">
-                    </th>
-                </tr>
-                </table>
-                <br/>
-            <p>
-                <button class="button_reg" onclick="document.location='#Instrucciones'">Ir a Descripción de las actividades</button>
-            </p>
+        <section class="tabcontent" id="Password" style="display: none;">
+            <h2 class="titulo_sec">Validación de password</h2>
+            
+        </section>
+
+        <!-- Actividad de validación de Simular una tienda -->
+        <section class="tabcontent" id="Tienda" style="display: none;">
+            <h2 class="titulo_sec">Realiza una compra</h2>
+            
         </section>
         
-         <hr/>
         <!-- Preguntas a responder -->
 
-        <section>
-            <h2 class="titulo_sec" id="Preguntas">Preguntas a responder</h2>
+        <section class="tabcontent" id="Preguntas" style="display: none;">
+            <h2  class="titulo_sec">Preguntas a responder</h2>
             <ol>
                 <li class="pregunta">¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las 
                     formas antes de enviar los datos al servidor?</li></br>
@@ -175,13 +141,10 @@
                 <li class="pregunta">Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por 
                     qué la primera pregunta dice que es una buena práctica?</li></br>
                 Ya que no es necesario validar, pero al hacerlo evitas errores que pueden ocurrir gracias al mal uso por parte  
-                del usuario tambien como darle consejos para un mejor llenado de los datos<br><br>
+                del usuario tambien como darle consejos para un mejor llenado de los datos.
             </ol>
-        </section>
 
-        <hr/>
-        <!-- Referencias -->  
-        <section>
+            <!-- Referencias -->
             <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
             <ul>
                 <il>
@@ -200,6 +163,10 @@
                     https://www.w3schools.com/jsref/default.asp
                     <br>
                 </il>
+                <li>
+                    https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_tabs
+                    <br>
+                </li>
             </ul>
         </section>
         </main>
