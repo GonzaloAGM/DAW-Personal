@@ -65,22 +65,24 @@ function password() {
     document.getElementById("MessagePasword").innerHTML = message;
   }
 
-  function pay(){
+  function totalCompra(){
     const  articulos = [];
-    const precio = [15,50,20,25,5,20];
-    articulos.push(document.getElementById("art1").value);
-    articulos.push(document.getElementById("art2").value);
-    articulos.push(document.getElementById("art3").value);
-    articulos.push(document.getElementById("art4").value);
-    articulos.push(document.getElementById("art5").value);
-    articulos.push(document.getElementById("art6").value);
-    articulos.push(document.getElementById("descuento").value);
-    articulos.push(document.getElementById("iva").value);
-    let total;
+    const precios = [12,35,23,18,9,15];
+    const cant_art = 6;
+    
+    for(let i=0; i<6 ; i++){
+        let nombre = "art" + (i+1);
+        articulos.push(document.getElementById(nombre).value);
+    }
 
-    for(let subtotal of precio)
+    let descuento = document.getElementById("descuento").value;
+    let iva = document.getElementById("iva").value;
+    let total=0;
 
-    total = (pan*15+carne*50+ jitomate*20+ lechuga * 15 + tortillas * 5 + cafe * 20)*(1-descuento/100);
-    total = total + (total * iva)/100;
+    for(let i=0; i<articulos.length ; i++){
+        total += articulos[i]*precios[i];
+    }
+    total *= (100-descuento)/100;
+    total += (total * iva)/100;
     document.getElementById("pago").innerHTML = "Total: $" + total;
 }
