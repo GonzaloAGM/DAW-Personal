@@ -72,6 +72,19 @@ function password() {
     }
     document.getElementById("MessagePasword").innerHTML = message;
   }
+  
+  $(document).ready(function(){
+    $('.fixed-action-btn').floatingActionButton();
+  });
+
+  var instance = M.FloatingActionButton.getInstance(elem);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'left'
+    });
+  });
 
   function totalCompra(){
     const  articulos = [];
