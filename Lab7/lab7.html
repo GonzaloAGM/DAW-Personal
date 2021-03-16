@@ -28,147 +28,147 @@
         <button class="tablinks" onclick="openTab(event, 'Preguntas')">Preguntas y Referencias</a>
      </nav>
     </div>
-    <section class="tabcontent" id="DescripInstr" style="display: block;">
-            <h3 class="titulo_sec"> Descripción </h2>
-            <p>
-                En esta actividad exploraremos algunos de los frameworks para desarrollo de Front-end de aplicaciones web, y aprenderás a usar uno de estos frameworks para mejorar la experiencia del usuario.
-            </p>
-            <p>
-                <h3>Objetivos:</h3>
-                <ul>
-                    <li>Que conozcas frameworks para el desarrollo de front-end, y aprendas a usar uno de ellos.</li>
-                    <li>Desarrollar tu capacidad de autoaprendizaje.</li>
-                    <li>Que amplíes tu abanico de librerías para generar interfaces web amigables para el usuario.</li>
-                </ul>
-            </p>
+    <main class="container">
+        <section class="tabcontent" id="DescripInstr" style="display: block;">
+                <h3 class="titulo_sec"> Descripción </h2>
+                <p>
+                    En esta actividad exploraremos algunos de los frameworks para desarrollo de Front-end de aplicaciones web, y aprenderás a usar uno de estos frameworks para mejorar la experiencia del usuario.
+                </p>
+                <p>
+                    <h3>Objetivos:</h3>
+                    <ul>
+                        <li>Que conozcas frameworks para el desarrollo de front-end, y aprendas a usar uno de ellos.</li>
+                        <li>Desarrollar tu capacidad de autoaprendizaje.</li>
+                        <li>Que amplíes tu abanico de librerías para generar interfaces web amigables para el usuario.</li>
+                    </ul>
+                </p>
 
-            <h3 class="titulo_sec">Instrucciones</h2>
-            <p>
-                <ol>
-                    <li>
-                        Revisa los siguientes enlaces a sitios de frameworks de Front-end:
-                        <ul>
-                            <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
-                            <li><a href="http://foundation.zurb.com/">Foundation</a></li>
-                            <li><a href="http://materializecss.com/">Materialize</a></li>
-                            <li><a href="https://bulma.io/">Bulma</a></li>
-                        </ul>
-                    </li></br>
-                    <li>
-                        Selecciona uno de los frameworks.
-                    </li></br>
-                    <li>
-                        Aplica el framework y sus componentes a alguno de tus laboratorios o 
-                        proyectos anteriores, al avance que lleves de tu proyecto actual, o 
-                        bien elabora una pequeña aplicación.
-                    </li></br>
-                    <li>
-                        Responde a las preguntas dentro de tu aplicación.
-                    </li>
-                </ol>
-            </p>
-    </section>
+                <h3 class="titulo_sec">Instrucciones</h2>
+                <p>
+                    <ol>
+                        <li>
+                            Revisa los siguientes enlaces a sitios de frameworks de Front-end:
+                            <ul>
+                                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+                                <li><a href="http://foundation.zurb.com/">Foundation</a></li>
+                                <li><a href="http://materializecss.com/">Materialize</a></li>
+                                <li><a href="https://bulma.io/">Bulma</a></li>
+                            </ul>
+                        </li></br>
+                        <li>
+                            Selecciona uno de los frameworks.
+                        </li></br>
+                        <li>
+                            Aplica el framework y sus componentes a alguno de tus laboratorios o 
+                            proyectos anteriores, al avance que lleves de tu proyecto actual, o 
+                            bien elabora una pequeña aplicación.
+                        </li></br>
+                        <li>
+                            Responde a las preguntas dentro de tu aplicación.
+                        </li></br>
+                    </ol>
+                </p>
+        </section>
 
-    <!-- Actividad de validación de passwords -->
+        <!-- Actividad de validación de passwords -->
 
-    <section class="tabcontent" id="Password" style="display: none;">
-        <h2 class="titulo_sec">Validación de password</h2>
-        <div>
-                <label for="password">Introduce tu password:</label><br>
-                <input type="password" name="password" id="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
-                minlength="8" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de 
-                una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al 
-                menor un dígito. Debe tener al menos 8 caracteres." onkeyup="password()"><br><br>
-                <label for="passworcheck">Confirma tu password:</label><br>
-                <input type="password" name="passworcheck" id="passworcheck" value="" onkeyup="password()">
-                <p id="MessagePasword"></p>
-        </div>
-        <br>
-    </section>
-
-    <!-- Actividad de validación de Simular una tienda -->
-    <section class="tabcontent" id="Tienda" style="display: none;">
-        <h2 class="titulo_sec">Realiza una compra</h2>
-        <div>
-            <table>
-                <tr>
-                    <th>Articulo </th>
-                    <th>Precio   </th>
-                    <th>Cantidad</th>
-                </tr>
-                <tr>
-                    <td>Naranja</td>
-                    <td>$12</td>
-                    <td><input type="number" name="Naranja" id="art1" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Sandia</td>
-                    <td>$35</td>
-                    <td><input type="number" name="Sandia" id="art2" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Jicama</td>
-                    <td>$23</td>
-                    <td><input type="number" name="Jicama" id="art3" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Jitomate</td>
-                    <td>$18</td>
-                    <td><input type="number" name="Jitomate" id="art4" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Chicharo</td>
-                    <td>$9</td>
-                    <td><input type="number" name="Chicharo" id="art5" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Espinaca</td>
-                    <td>$15</td>
-                    <td><input type="number" name="Espinaca" id="art6" value="0" min="0"></td>
-                </tr>
-                <tr>
-                    <td>Descuento</td>
-                    <td>%</td>
-                    <td><input type="number" name="descuento" value="0" id="descuento" min="0" max="100"></td>
-                </tr>
-                <tr>
-                    <td>IVA</td>
-                    <td>%</td>
-                    <td><input type="number" name="iva" value="16" id="iva" min="0" max="100"></td>
-                </tr>
-            </table>
+        <section class="tabcontent" id="Password" style="display: none;">
+            <h2 class="titulo_sec">Validación de password</h2>
+            <div>
+                    <label for="password">Introduce tu password:</label><br>
+                    <input type="password" name="password" id="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+                    minlength="8" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de 
+                    una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al 
+                    menor un dígito. Debe tener al menos 8 caracteres." onkeyup="password()"><br><br>
+                    <label for="passworcheck">Confirma tu password:</label><br>
+                    <input type="password" name="passworcheck" id="passworcheck" value="" onkeyup="password()">
+                    <p id="MessagePasword"></p>
+            </div>
             <br>
-            <p id="pago">Total: </p>
-            <button type="button" name="boton" onclick="totalCompra()">Pagar</button><br><br>
-        </div>
-    </section>
+        </section>
+
+        <!-- Actividad de validación de Simular una tienda -->
+        <section class="tabcontent" id="Tienda" style="display: none;">
+            <h2 class="titulo_sec">Realiza una compra</h2>
+            <div>
+                <table>
+                    <tr>
+                        <th>Articulo </th>
+                        <th>Precio   </th>
+                        <th>Cantidad</th>
+                    </tr>
+                    <tr>
+                        <td>Naranja</td>
+                        <td>$12</td>
+                        <td><input type="number" name="Naranja" id="art1" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Sandia</td>
+                        <td>$35</td>
+                        <td><input type="number" name="Sandia" id="art2" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Jicama</td>
+                        <td>$23</td>
+                        <td><input type="number" name="Jicama" id="art3" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Jitomate</td>
+                        <td>$18</td>
+                        <td><input type="number" name="Jitomate" id="art4" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Chicharo</td>
+                        <td>$9</td>
+                        <td><input type="number" name="Chicharo" id="art5" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Espinaca</td>
+                        <td>$15</td>
+                        <td><input type="number" name="Espinaca" id="art6" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Descuento</td>
+                        <td>%</td>
+                        <td><input type="number" name="descuento" value="0" id="descuento" min="0" max="100"></td>
+                    </tr>
+                    <tr>
+                        <td>IVA</td>
+                        <td>%</td>
+                        <td><input type="number" name="iva" value="16" id="iva" min="0" max="100"></td>
+                    </tr>
+                </table>
+                <br>
+                <p id="pago">Total: </p>
+                <button type="button" name="boton" onclick="totalCompra()">Pagar</button><br><br>
+            </div>
+        </section>
     
     <!-- Preguntas a responder -->
+        <section class="tabcontent" id="Preguntas" style="display: none;">
+            <h2  class="titulo_sec">Preguntas a responder</h2>
+            <ul>
+                <li class="pregunta">Describe Material design</li></br>
+                Material Design es un estándar de diseño con la finalidad de la compatibilidad de visualización entre distintos dispositivos.<br><br>    
+            </ul>
 
-    <section class="tabcontent" id="Preguntas" style="display: none;">
-        <h2  class="titulo_sec">Preguntas a responder</h2>
-        <ul>
-            <li class="pregunta">Describe Material design</li></br>
-            Para prevenir errores por parte del usuario y asegurarnos de mantener la integridad de los datos.<br><br>    
-        </ul>
+            <!-- Referencias -->
+            <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
+            <ul>
+                <il>
+                    https://www.materialpalette.com/
+                    <br>
+                </il>
+                <li>
+                    http://materializecss.com/
+                    <br>
+                </li>
+                <li>
+                    https://www.youtube.com/watch?v=Xk8S8yikcnA
+                </li><br>
 
-        <!-- Referencias -->
-        <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
-        <ul>
-            <il>
-                https://www.materialpalette.com/
-                <br>
-            </il>
-            <li>
-                http://materializecss.com/
-                <br>
-            </li>
-            <li>
-                https://www.youtube.com/watch?v=Xk8S8yikcnA
-            </li><br>
-
-        </ul>
-    </section>
+            </ul>
+        </section>
     </main>
 
     <footer class="page-footer">

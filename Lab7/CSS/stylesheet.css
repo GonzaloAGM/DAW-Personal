@@ -35,9 +35,15 @@ body{
 }
 
 main{
-    margin: 0 auto;
-    max-width: 70% !important;
-    line-height: 1.5;
+  margin: 0 auto;
+  max-width: 70% !important;
+  line-height: 1.5;
+}
+
+section{
+  margin: 0 auto;
+  max-width: 100%;
+  line-height: 1.5;
 }
 
 h2 {
@@ -57,7 +63,6 @@ footer{
     padding: 3vw 2em;
     margin-left: auto; 
     margin-right: auto;
-    text-align: center;
 }
 
 th, td {
@@ -94,6 +99,13 @@ th, td {
   color: white;
 }
 
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
 /* Fade in tabs */
 @-webkit-keyframes fadeEffect {
   from {opacity: 0;}
@@ -106,11 +118,11 @@ th, td {
 }
 
 a {
-  color: #e81c4f;
+  color: #2f7fe7;
 }
 
 a:hover {
-  background:  #e81c4f;
+  background:  #2f7fe7;
   color: white;
 }
 
