@@ -72,12 +72,11 @@ function password() {
     }
     document.getElementById("MessagePasword").innerHTML = message;
   }
-  
+
   $(document).ready(function(){
     $('.fixed-action-btn').floatingActionButton();
   });
 
-  var instance = M.FloatingActionButton.getInstance(elem);
 
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.fixed-action-btn');
@@ -86,24 +85,51 @@ function password() {
     });
   });
 
-  function totalCompra(){
-    const  articulos = [];
+ var articulos =  [
+    ['Naranja', 0],
+    ['Sandia', 0],
+    ['Jicama', 0],
+    ['Jitomate', 0],
+    ['Chicharo', 0],
+    ['Espinaca',0]
+];
+
+console.table(articulos);
+
+function addArt(artNum){
+    let nombre = "art" + (artNum+1);
+    articulos[artNum][1] +=1;
+    document.getElementById(nombre).innerHTML=articulos[artNum][1];
+    console.table(articulos);
+}
+
+function subtractArt(artNum){
+    let nombre = "art" + (artNum+1);
+    if(articulos[artNum][1] !== 0)
+        articulos[artNum][1] -=1;
+    document.getElementById(nombre).innerHTML=articulos[artNum][1];
+    console.table(articulos);
+}
+
+function subtotal(){
     const precios = [12,35,23,18,9,15];
-    const cant_art = 6;
-    
-    for(let i=0; i<6 ; i++){
-        let nombre = "art" + (i+1);
-        articulos.push(document.getElementById(nombre).value);
-    }
+    let subtotal=0;
 
-    let descuento = document.getElementById("descuento").value;
-    let iva = document.getElementById("iva").value;
+    subtotal = articulos[0][1]*precios[0] + articulos[1][1]*precios[1] + articulos[2][1]*precios[2] +articulos[3][1]*precios[3]+articulos[4][1]*precios[4]+articulos[5][1]*precios[5];
+    document.getElementById("subpago").innerHTML = "Subtotal: $" + subtotal;
+    return subtotal;
+}
+
+function totalCompra(){
+
+    let descuento = 0;
+    let iva = 0;
+    descuento = document.getElementById("descuento").value;
+    iva = document.getElementById("iva").value;
     let total=0;
-
-    for(let i=0; i<articulos.length ; i++){
-        total += articulos[i]*precios[i];
-    }
-    total *= (100-descuento)/100;
+    let subtot = 0;
+    subtot = subtotal();
+    total = subtot*(100-descuento)/100;
     total += (total * iva)/100;
-    document.getElementById("pago").innerHTML = "Total: $" + total;
+    document.getElementById("pago").innerHTML ="Descuento: " + descuento +'%<br>'+"IVA: " + iva +'%<br>'+ "Total: $" + total;
 }
