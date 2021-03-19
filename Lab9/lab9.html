@@ -25,21 +25,22 @@
         <button class="tablinks active flow-text" onclick="openTab(event, 'DescripInstr')">Home</a>
         <button class="tablinks flow-text" onclick="openTab(event, 'Password')">Password</a>
         <button class="tablinks flow-text" onclick="openTab(event, 'Tienda')">Tienda</a>
-        <button class="tablinks flow-text" onclick="openTab(event, 'Preguntas')">Preguntas y Referencias</a>
+        <button class="tablinks flow-text" onclick="openTab(event, 'Recursos')">Recursos</a>
      </nav>
     </div>
     <main class="container">
         <section class="tabcontent" id="DescripInstr" style="display: block;">
                 <h3 class="titulo_sec"> Descripción </h2>
                 <p class="flow-text">
-                    En esta actividad exploraremos algunos de los frameworks para desarrollo de Front-end de aplicaciones web, y aprenderás a usar uno de estos frameworks para mejorar la experiencia del usuario.
+                    En esta actividad haremos una introducción al desarrollo en el back-end con node.
                 </p>
                 <p>
                     <h3>Objetivos:</h3>
                     <ul>
-                        <li class="flow-text">Que conozcas frameworks para el desarrollo de front-end, y aprendas a usar uno de ellos.</li>
-                        <li class="flow-text">Desarrollar tu capacidad de autoaprendizaje.</li>
-                        <li class="flow-text">Que amplíes tu abanico de librerías para generar interfaces web amigables para el usuario.</li>
+                        <li class="flow-text">Entender cómo funcionan las aplicaciones web.</li>
+                        <li class="flow-text">Preparar el ambiente de trabajo para hacer desarrollo en el back-end.</li>
+                        <li class="flow-text">Instalar y ejecutar un servidor de aplicaciones web.</li>
+                        <li class="flow-text">Atender peticiones HTTP desde el servidor y mandar respuestas HTTP.</li>
                     </ul>
                 </p>
 
@@ -47,24 +48,30 @@
                 <p>
                     <ol>
                         <li class="flow-text">
-                            Revisa los siguientes enlaces a sitios de frameworks de Front-end:
+                            Sigue la demostración del profesor en la sesión de clase.
+                        </li></br>
+                        <li class="flow-text">
+                            Instala <a href="https://nodejs.org/en/">Node.js</a>. Node.js es un ambiente de ejecución de 
+                            JavaScript, el cual, a diferencia de js que se ejecuta en el navegador, permite tener acceso 
+                            al sistema de archivos de la computadora, y ejecutar programas como servidores web.
+                        </li></br>
+                        <li class="flow-text">
+                            Escribe, prueba y ejecuta con node, scripts de js para los siguientes ejercicios y problemas. 
+                            Muestra los resultados en consola:
                             <ul>
-                                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
-                                <li><a href="http://foundation.zurb.com/">Foundation</a></li>
-                                <li><a href="http://materializecss.com/">Materialize</a></li>
-                                <li><a href="https://bulma.io/">Bulma</a></li>
+                                <li>Una función que reciba un arreglo de números y devuelva su promedio.</li>
+                                <li>Una función que reciba un string y escriba el string en un archivo de texto. Apóyate del módulo fs.</li>
+                                <li>Escoge algún problema que hayas implementado en otro lenguaje de programación, y dale una solución
+                                     en js que se ejecute sobre node.</li>
                             </ul>
                         </li></br>
                         <li class="flow-text">
-                            Selecciona uno de los frameworks.
+                            Sigue la demostración del profesor en la sesión de clase sobre los ejemplos básicos para crear un servidor 
+                            web que se ejecute sobre node, reciba peticiones de un cliente, y le responda.
                         </li></br>
                         <li class="flow-text">
-                            Aplica el framework y sus componentes a alguno de tus laboratorios o 
-                            proyectos anteriores, al avance que lleves de tu proyecto actual, o 
-                            bien elabora una pequeña aplicación.
-                        </li></br>
-                        <li class="flow-text">
-                            Responde a las preguntas dentro de tu aplicación.
+                            Crea una pequeña aplicación web que al enviar una petición al servidor, devuelva una de las páginas que creaste 
+                            anteriormente en tus laboratorios.
                         </li></br>
                     </ol>
                 </p>
@@ -283,32 +290,13 @@
             
         </section>
     
-    <!-- Preguntas a responder -->
-        <section class="tabcontent" id="Preguntas" style="display: none;">
-            <h2  class="titulo_sec">Preguntas a responder</h2>
+    <!-- Recursos -->
+        <section class="tabcontent" id="Recursos" style="display: none;">
+            <h2  class="titulo_sec">Recursos útiles al llevar a cabo el laboratorio</h2>
             <ul>
-                <li class="pregunta flow-text">Describe Material design</li></br>
-                <p class="flow-text"> Material Design es un estándar de diseño con la finalidad de la compatibilidad 
-                    de visualización entre distintos dispositivos. Fue creado por Google para ayudar a un gran número
-                    de equipos de trabajo construir experiencias digitales de alta calidad. Este se aplica no solamente 
-                    para diseño web, sino tambien para Android, iOS, Flutter, etc.</p>
-            </ul>
-
-            <!-- Referencias -->
-            <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
-            <ul>
-                <il class="flow-text">
-                    https://www.materialpalette.com/
-                </il>
-                <li class="flow-text">
-                    http://materializecss.com/
-                </li>
-                <li class="flow-text">
-                    https://www.youtube.com/watch?v=Xk8S8yikcnA
-                </li>
-                <li class="flow-text">
-                    https://material.io/design
-                </li>
+                <li><a class="flow-text" href="https://nodejs.dev/learn/introduction-to-nodejs">Introduction to Node.js</a></li></br>
+                <li><a class="flow-text" href="https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/">Anatomy of an HTTP Transaction</a></li></br>
+                <li><a class="flow-text" href="https://nodejs.org/dist/latest-v14.x/docs/api/http.html#http_http">Documentación del módulo HTTP de Node.js</a></li></br>
             </ul><br><br>
         </section>
     </main>
@@ -316,17 +304,17 @@
     <footer class="page-footer">
         <div class="container">
           <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Laboratorio 7 - FrontEndFRameworks</h5>
+            <div class="col l7 s12">
+              <h4 class="white-text">Laboratorio 9 - Introducción al back-end</h4>
               <p class="grey-text text-lighten-4 flow-text">Se realizo esto usando materialize.</p>
             </div>
-            <div class="col l4 offset-l2 s12">
+            <div class="col l4 offset-l1 s12">
               <h5 class="white-text">Links</h5>
               <ul>
                 <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'DescripInstr')">Home</a></li>
                 <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Password')">Password</a></li>
                 <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Tienda')">Tienda</a></li>
-                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Preguntas')">Preguntas y Referencias</a></li>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Recursos')">Recursos</a></li>
               </ul>
             </div>
           </div>
