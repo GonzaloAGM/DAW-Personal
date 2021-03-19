@@ -1,0 +1,349 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Laboratorio 9: Introducción al back-end">
+        <title>Lab9 - Gonzalo García - DAW & BD</title>
+        <link type="text/css" rel="stylesheet" href="CSS/stylesheet.css">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+<body>
+    <header>
+        <h2 id="titulo_lab">
+            Laboratorio 9
+        </h2 id="subtitulo_lab">
+        <h3>INTRODUCCIÓN AL BACK-END</h3>
+    </header>
+    <div>
+     <nav id="pushpinNav" class="topnav nav-wrapper">
+        <button class="tablinks active flow-text" onclick="openTab(event, 'DescripInstr')">Home</a>
+        <button class="tablinks flow-text" onclick="openTab(event, 'Password')">Password</a>
+        <button class="tablinks flow-text" onclick="openTab(event, 'Tienda')">Tienda</a>
+        <button class="tablinks flow-text" onclick="openTab(event, 'Preguntas')">Preguntas y Referencias</a>
+     </nav>
+    </div>
+    <main class="container">
+        <section class="tabcontent" id="DescripInstr" style="display: block;">
+                <h3 class="titulo_sec"> Descripción </h2>
+                <p class="flow-text">
+                    En esta actividad exploraremos algunos de los frameworks para desarrollo de Front-end de aplicaciones web, y aprenderás a usar uno de estos frameworks para mejorar la experiencia del usuario.
+                </p>
+                <p>
+                    <h3>Objetivos:</h3>
+                    <ul>
+                        <li class="flow-text">Que conozcas frameworks para el desarrollo de front-end, y aprendas a usar uno de ellos.</li>
+                        <li class="flow-text">Desarrollar tu capacidad de autoaprendizaje.</li>
+                        <li class="flow-text">Que amplíes tu abanico de librerías para generar interfaces web amigables para el usuario.</li>
+                    </ul>
+                </p>
+
+                <h3 class="titulo_sec">Instrucciones</h2>
+                <p>
+                    <ol>
+                        <li class="flow-text">
+                            Revisa los siguientes enlaces a sitios de frameworks de Front-end:
+                            <ul>
+                                <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+                                <li><a href="http://foundation.zurb.com/">Foundation</a></li>
+                                <li><a href="http://materializecss.com/">Materialize</a></li>
+                                <li><a href="https://bulma.io/">Bulma</a></li>
+                            </ul>
+                        </li></br>
+                        <li class="flow-text">
+                            Selecciona uno de los frameworks.
+                        </li></br>
+                        <li class="flow-text">
+                            Aplica el framework y sus componentes a alguno de tus laboratorios o 
+                            proyectos anteriores, al avance que lleves de tu proyecto actual, o 
+                            bien elabora una pequeña aplicación.
+                        </li></br>
+                        <li class="flow-text">
+                            Responde a las preguntas dentro de tu aplicación.
+                        </li></br>
+                    </ol>
+                </p>
+        </section>
+
+        <!-- Actividad de validación de passwords -->
+
+        <section class="tabcontent" id="Password" style="display: none;">
+            <h2 class="titulo_sec">Validación de password</h2>
+            <div>
+                    <label for="password" class="flow-text">Introduce tu password:</label><br>
+                    <input type="password" name="password" id="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+                    minlength="8" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de 
+                    una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al 
+                    menor un dígito. Debe tener al menos 8 caracteres." onkeyup="password()"><br><br>
+                    <label for="passworcheck" class="flow-text">Confirma tu password:</label><br>
+                    <input type="password" name="passworcheck" id="passworcheck" value="" onkeyup="password()">
+                    <p id="MessagePasword" class="flow-text"></p>
+            </div>
+            <br>
+        </section>
+
+        <!-- Actividad de validación de Simular una tienda -->
+        <section class="tabcontent" id="Tienda" style="display: none;">
+            <h2 class="titulo_sec">Realiza una compra</h2>
+                <div class="row">
+                    <div class="col s12 m6 l8 xl9">
+                        <div class="col s12 m12 l6 xl4">
+                            <div class = "card blue-grey lighten-4">
+                            <div class = "card-image waves-effect waves-block waves-light">
+                                <img class = "activator responsive-img" src = "./CSS/img/naranja.png">                
+                            </div>
+                            
+                            <div class = "card-content activator">                  
+                                <p>NARANJA <br> Click para mas información.</p>
+                            </div>
+                            
+                            <div class = "card-reveal">
+                                <span class = "card-title grey-text text-darken-4">Naranja
+                                    <i class = "material-icons right">close</i></span>
+                                <p class="flow-text">Las naranjas brindan un aporte importante de vitamina C. <br><br> 
+                                    Promueve niveles saludables de azúcar en sangre.<br><br>
+                                    $12.00/k</p>
+                            </div>
+                            
+                            <div class = "card-action">
+                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(0); subtotal()">
+                                    <i class = "material-icons">add</i></button>
+                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(0); subtotal()">
+                                    <i class = "material-icons">remove</i></button></span>
+                                <p><br></p>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col s12 m12 l6 xl4">
+                            <div class = "card blue-grey lighten-4">
+                            <div class = "card-image waves-effect waves-block waves-light">
+                                <img class = "activator responsive-img" src = "./CSS/img/sandia.jpg">                
+                            </div>
+                            
+                            <div class = "card-content activator">                  
+                                <p>SANDIA <br> Click para mas información.</p>
+                            </div>
+                            
+                            <div class = "card-reveal">
+                                <span class = "card-title grey-text text-darken-4">Sandia
+                                    <i class = "material-icons right">close</i></span>
+                                <p class="flow-text">La sandía es una planta anual y la mayoría de las variedades 
+                                    se pueden cosechar 80-100 días después de la siembra. <br><br> 
+                                    Se cree que los egeipcios fueron los primero en cultivarla a gran escala.<br><br>
+                                    $35.00/k</p>
+                            </div>
+                            
+                            <div class = "card-action">
+                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(1); subtotal()">
+                                    <i class = "material-icons">add</i></button>
+                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(1); subtotal()">
+                                    <i class = "material-icons">remove</i></button></span>
+                                <p><br></p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col s12 m12 l6 xl4">
+                            <div class = "card blue-grey lighten-4">
+                            <div class = "card-image waves-effect waves-block waves-light">
+                                <img class = "activator" src = "./CSS/img/jicama.png">                
+                            </div>
+                            
+                            <div class = "card-content activator">                  
+                                <p>JICAMA <br> Click para mas información.</p>
+                            </div>
+                            
+                            <div class = "card-reveal">
+                                <span class = "card-title grey-text text-darken-4">Jícama
+                                    <i class = "material-icons right">close</i></span>
+                                <p class="flow-text">Es una legumbre, tambien llamada tubérculo.<br><br> 
+                                    Las vainas son tóxicas, pero la raiz es 100% comestible.<br><br>
+                                    lHay registros de su consumo de las culturas tolteca, mexica, maya y zapoteca.<br><br>
+                                    $23.00/k</p>
+                            </div>
+                            
+                            <div class = "card-action">
+                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(2); subtotal()">
+                                    <i class = "material-icons">add</i></button>
+                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(2); subtotal()">
+                                    <i class = "material-icons">remove</i></button></span>
+                                <p><br></p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col s12 m12 l6 xl4">
+                            <div class = "card blue-grey lighten-4">
+                            <div class = "card-image waves-effect waves-block waves-light">
+                                <img class = "activator" src = "./CSS/img/jitomate.jpg">                
+                            </div>
+                            
+                            <div class = "card-content activator">                  
+                                <p>JITOMATE <br> Click para mas información.</p>
+                            </div>
+                            
+                            <div class = "card-reveal">
+                                <span class = "card-title grey-text text-darken-4">Naranja
+                                    <i class = "material-icons right">close</i></span>
+                                <p class="flow-text">Las naranjas brindan un aporte importante de vitamina C. <br><br> 
+                                    Promueve niveles saludables de azúcar en sangre.<br><br>
+                                    $12.00/k</p>
+                            </div>
+                            
+                            <div class = "card-action">
+                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(3); subtotal()">
+                                    <i class = "material-icons">add</i></button>
+                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(3); subtotal()">
+                                    <i class = "material-icons">remove</i></button></span>
+                                <p><br></p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col s12 m12 l6 xl4">
+                            <div class = "card blue-grey lighten-4">
+                            <div class = "card-image waves-effect waves-block waves-light">
+                                <img class = "activator" src = "./CSS/img/chicharo.jpg">                
+                            </div>
+                            
+                            <div class = "card-content activator">                  
+                                <p>CHICHARO <br> Click para mas información.</p>
+                            </div>
+                            
+                            <div class = "card-reveal">
+                                <span class = "card-title grey-text text-darken-4">Naranja
+                                    <i class = "material-icons right">close</i></span>
+                                <p class="flow-text">Las naranjas brindan un aporte importante de vitamina C. <br><br> 
+                                    Promueve niveles saludables de azúcar en sangre.<br><br>
+                                    $12.00/k</p>
+                            </div>
+                            
+                            <div class = "card-action">
+                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(4); subtotal()">
+                                    <i class = "material-icons">add</i></button>
+                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(4); subtotal()">
+                                    <i class = "material-icons">remove</i></button></span>
+                                <p><br></p>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col s12 m12 l6 xl4">
+                            <div class = "card blue-grey lighten-4">
+                            <div class = "card-image waves-effect waves-block waves-light">
+                                <img class = "activator" src = "./CSS/img/espinaca.jpg">                
+                            </div>
+                            
+                            <div class = "card-content activator">                  
+                                <p>ESPINACA <br> Click para mas información.</p>
+                            </div>
+                            
+                            <div class = "card-reveal">
+                                <span class = "card-title grey-text text-darken-4">Naranja
+                                    <i class = "material-icons right">close</i></span>
+                                <p class="flow-text">Las naranjas brindan un aporte importante de vitamina C. <br><br> 
+                                    Promueve niveles saludables de azúcar en sangre.<br><br>
+                                    $12.00/k</p>
+                            </div>
+                            
+                            <div class = "card-action">
+                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(5); subtotal()">
+                                    <i class = "material-icons">add</i></button>
+                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(5); subtotal()">
+                                    <i class = "material-icons">remove</i></button></span>
+                                <p><br></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l4 xl3">
+                        <table>
+                            <tr><th>Articulo </th><th>Precio   </th><th>Cantidad</th></tr>
+                            <tr><td>Naranja</td> <td>$12</td><td id="art1">0</td></tr>
+                            <tr><td>Sandia</td>  <td>$35</td><td id="art2">0</td></tr>
+                            <tr><td>Jicama</td>  <td>$23</td><td id="art3">0</td></tr>
+                            <tr><td>Jitomate</td><td>$18</td><td id="art4">0</td></tr>
+                            <tr><td>Chicharo</td><td>$9 </td><td id="art5">0</td></tr>
+                            <tr><td>Espinaca</td><td>$15</td><td id="art6">0</td></tr>
+                            <tr><td>Descuento</td><td>%</td><td><input type="number" id="descuento" value="0" min="0" max="100"></td></tr>
+                            <tr><td>IVA</td><td>%</td><td><input type="number" id="iva" value="16" min="0" max="100"></td></tr>
+                        </table>
+                        <br>
+                        <p class="flow-text" id="subpago">Subtotal: </p>
+                        <p class="flow-text" id="pago">Total: </p>
+                        <button class = "btn waves-effect right waves-light blue" onclick="totalCompra()">Pagar</button>
+                    </div>
+                </div>
+            
+        </section>
+    
+    <!-- Preguntas a responder -->
+        <section class="tabcontent" id="Preguntas" style="display: none;">
+            <h2  class="titulo_sec">Preguntas a responder</h2>
+            <ul>
+                <li class="pregunta flow-text">Describe Material design</li></br>
+                <p class="flow-text"> Material Design es un estándar de diseño con la finalidad de la compatibilidad 
+                    de visualización entre distintos dispositivos. Fue creado por Google para ayudar a un gran número
+                    de equipos de trabajo construir experiencias digitales de alta calidad. Este se aplica no solamente 
+                    para diseño web, sino tambien para Android, iOS, Flutter, etc.</p>
+            </ul>
+
+            <!-- Referencias -->
+            <h2 class="titulo_sec" id="Referencia"> Referencias </h2>
+            <ul>
+                <il class="flow-text">
+                    https://www.materialpalette.com/
+                </il>
+                <li class="flow-text">
+                    http://materializecss.com/
+                </li>
+                <li class="flow-text">
+                    https://www.youtube.com/watch?v=Xk8S8yikcnA
+                </li>
+                <li class="flow-text">
+                    https://material.io/design
+                </li>
+            </ul><br><br>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Laboratorio 7 - FrontEndFRameworks</h5>
+              <p class="grey-text text-lighten-4 flow-text">Se realizo esto usando materialize.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'DescripInstr')">Home</a></li>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Password')">Password</a></li>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Tienda')">Tienda</a></li>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Preguntas')">Preguntas y Referencias</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          <p class="flow-text">© 2021 Tecnológico de estudios superiores de Monterrey, Campus Querétaro. <br> Departamento de tecnologias de la información.</p> 
+          <a class="grey-text text-lighten-4 right" href="lab7.html">Home</a>
+          </div>
+        </div>
+      </footer>
+   
+    <!--JavaScript at end of body for optimized loading-->
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="JS/materialize.min.js"></script>
+    <script type="text/javascript" src="JS/lab9.js"></script>
+</body>
+
+</html>
