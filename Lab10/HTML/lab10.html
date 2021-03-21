@@ -1,0 +1,115 @@
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Laboratorio 10: Rutas y formas">
+        <title>Lab10 - Gonzalo García - DAW & BD</title>
+        <link type="text/css" rel="stylesheet" href="./CSS/stylesheet.css">
+        <link rel="icon" href="data:,">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="./CSS/materialize.min.css"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+<body>
+    <header>
+        <h2 id="titulo_lab">
+            Laboratorio 10
+        </h2 id="subtitulo_lab">
+        <h3>RUTAS Y FORMAS</h3>
+    </header>
+    <div>
+     <nav id="pushpinNav" class="topnav nav-wrapper">
+        <button class="tablinks active flow-text"> <a href="/">Home</a>
+        <button class="tablinks flow-text"><a href="/RegPssw">Home</a>
+        <button class="tablinks flow-text"><a href="/ValidaPssw">Home</a>
+        <button class="tablinks flow-text"><a href="/Recursos">Home</a>
+     </nav>
+    </div>
+    <main class="container">
+        <section class="tabcontent" id="DescripInstr" style="display: block;">
+                <h3 class="titulo_sec"> Descripción </h2>
+                <p class="flow-text">
+                    En esta actividad haremos una introducción al desarrollo en el back-end con node.
+                </p>
+                <p>
+                    <h3>Objetivos:</h3>
+                    <ul>
+                        <li class="flow-text">Entender cómo funcionan las aplicaciones web.</li>
+                        <li class="flow-text">Preparar el ambiente de trabajo para hacer desarrollo en el back-end.</li>
+                        <li class="flow-text">Instalar y ejecutar un servidor de aplicaciones web.</li>
+                        <li class="flow-text">Atender peticiones HTTP desde el servidor y mandar respuestas HTTP.</li>
+                    </ul>
+                </p>
+
+                <h3 class="titulo_sec">Instrucciones</h2>
+                <p>
+                    <ol>
+                        <li class="flow-text">
+                            Sigue la demostración del profesor en la sesión de clase.
+                        </li></br>
+                        <li class="flow-text">
+                            Instala <a href="https://nodejs.org/en/">Node.js</a>. Node.js es un ambiente de ejecución de 
+                            JavaScript, el cual, a diferencia de js que se ejecuta en el navegador, permite tener acceso 
+                            al sistema de archivos de la computadora, y ejecutar programas como servidores web.
+                        </li></br>
+                        <li class="flow-text">
+                            Escribe, prueba y ejecuta con node, scripts de js para los siguientes ejercicios y problemas. 
+                            Muestra los resultados en consola:
+                            <ol>
+                                <li>Una función que reciba un arreglo de números y devuelva su promedio.</li>
+                                <li>Una función que reciba un string y escriba el string en un archivo de texto. Apóyate del módulo fs.</li>
+                                <li>Escoge algún problema que hayas implementado en otro lenguaje de programación, y dale una solución
+                                     en js que se ejecute sobre node.</li>
+                            </ol>
+                        </li></br>
+                        <li class="flow-text">
+                            Sigue la demostración del profesor en la sesión de clase sobre los ejemplos básicos para crear un servidor 
+                            web que se ejecute sobre node, reciba peticiones de un cliente, y le responda.
+                        </li></br>
+                        <li class="flow-text">
+                            Crea una pequeña aplicación web que al enviar una petición al servidor, devuelva una de las páginas que creaste 
+                            anteriormente en tus laboratorios.
+                        </li></br>
+                    </ol>
+                </p>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col l7 s12">
+              <h4 class="white-text">Laboratorio 10: Rutas y formas</h4>
+              <p class="grey-text text-lighten-4 flow-text">Se realizo esto usando materialize y node.js</p>
+            </div>
+            <div class="col l4 offset-l1 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'DescripInstr')">Home</a></li>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Password')">Password</a></li>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Tienda')">Tienda</a></li>
+                <li><a class="grey-text text-lighten-3" onclick="openTab(event, 'Recursos')">Recursos</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          <p class="flow-text">© 2021 Tecnológico de estudios superiores de Monterrey, Campus Querétaro. <br> Departamento de tecnologias de la información.</p> 
+          <a class="grey-text text-lighten-4 right" href="lab9.html">Home</a>
+          </div>
+        </div>
+      </footer>
+   
+    <!--JavaScript at end of body for optimized loading-->
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="JS/materialize.min.js"></script>
+    <script type="text/javascript" src="JS/lab9Funct.js"></script>
+</body>
+
+</html>

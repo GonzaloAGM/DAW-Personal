@@ -14,8 +14,18 @@ for (let item of arreglo) {
 
 const http = require('http');
 
-const requestHandler = require('./routes');
+const server = http.createServer( (request, response) => {
+    console.log('Honda');
+    console.log('Hola desde el servidor web');
+    console.log(request.url);
+    console.log('Prius C');
 
-const server = http.createServer( requestHandler );
+    response.setHeader('Content-Type', 'text/html');
+    response.write('<html>');
+    response.write('<head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title></head><body>');
+    response.write('<h1>Hola desde el servidor web</h1>');
+    response.write('</body></html>');
+    response.end();
+});
 
 server.listen(3000);
