@@ -4,6 +4,8 @@ const path = require('path');
 const requestHandler = (req, res) => {
     let specificPath = "";
     let notFound = false;
+
+    //Asignar filePath de donde recuperar el archivo html, lo que contenga dentro de él
     if(req.url === "/"){
         specificPath = "HTML/lab10.html";
     }else if(req.url === "/RegPssw"){
@@ -23,6 +25,7 @@ const requestHandler = (req, res) => {
         specificPath
     );
 
+    //Abre el archivo de la forma correcta
     let extName = path.extname(filePath);
     let contentType = 'text/html';
 
@@ -49,13 +52,20 @@ const requestHandler = (req, res) => {
             break;
     }
 
-    console.log(`File path: ${filePath}`);
-    console.log(`Content-Type: ${contentType}`);
+    //console.log(`File path: ${filePath}`);
+    //console.log(`Content-Type: ${contentType}`);
     console.log(req.url);
-
-    res.writeHead(200, {'Content-Type': contentType});
-
+    if(notFound === true){
+        filePath = path.join(
+            __dirname,
+            "../",
+            "HTML/Err404.html"
+        );
+    }
+    
     const readStream = fs.createReadStream(filePath);
+    
+    res.writeHead(200, {'Content-Type': contentType});
 
     //Aqui se hace el manejo de rutas
     if(req.url === "/"){

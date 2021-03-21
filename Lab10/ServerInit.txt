@@ -1,0 +1,3 @@
+Para iniciar el servidor en node.js, ingresar el siguiente comando:
+
+node Lab10/JS/server.js
