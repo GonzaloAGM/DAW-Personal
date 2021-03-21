@@ -1,3 +1,57 @@
+/*
+const numDeArticulos = () => {
+    numDeArticulos.length = 0;
+    for(let articulo of articulos){
+        numDeArticulos.push(articulo[1]);
+    }
+}*/
+
+//Ejercicio 1
+function promedio(){
+    let prom=0;
+    //let arrNum = numDeArticulos();
+    let arrNum = [5,8,9,4,4,9];
+    for(let n of arrNum){
+        prom = prom + n;
+    }
+    return prom/arrNum.length;
+  }
+  console.log("-----------------EL promedio de articulos seleccionado en la tienda es de " + promedio() + "-------------------");
+
+let userMensage = "Hola, no funciono el mensaje como esperaba";
+
+//Ejercicio 2
+const mensajeArchivo = (texto) =>{
+    //userMensage = window.prompt("Por favor ingrese un texto");
+    const file_system = require('fs');
+    file_system.writeFileSync('Lab9/lab9.txt', texto);
+    console.log('------------------------------Mensaje en lab.txt------------------------------------------------');
+}
+mensajeArchivo(userMensage);
+
+//Ejercicio3
+function contador(){
+    let n = 10;
+	let aregloNumeros = new Array(n);
+	let mayores = 0;
+	let menores = 0;
+    let ceros = 0;
+
+    for (let i = 0; i<n; i++){
+        aregloNumeros[i] = Math.round(Math.random()*10-5);
+        if(aregloNumeros[i] >0)     mayores++; else 
+        if(aregloNumeros[i] == 0)   ceros++;   else 
+                                    menores++;
+    }
+    console.table(aregloNumeros);
+    console.log("Mayores: "+mayores);
+    console.log("Menores: "+menores);
+    console.log("Ceros: "+ceros);
+}
+
+contador();
+
+//Ejercicio 4
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -31,9 +85,9 @@ const server = http.createServer((req, res) => {
             break;
     }
 
-    console.log(`File path: ${filePath}`);
-    console.log(`Content-Type: ${contentType}`);
-    console.log(req.url);
+    //console.log(`File path: ${filePath}`);
+    //console.log(`Content-Type: ${contentType}`);
+    //console.log(req.url);
 
     res.writeHead(200, {'Content-Type': contentType});
 

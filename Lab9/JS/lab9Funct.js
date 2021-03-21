@@ -134,3 +134,4 @@ function totalCompra(){
     total += (total * iva)/100;
     document.getElementById("pago").innerHTML ="Descuento: " + descuento +'%<br>'+"IVA: " + iva +'%<br>'+ "Total: $" + total;
 }
+
