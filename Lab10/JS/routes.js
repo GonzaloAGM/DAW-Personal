@@ -1,11 +1,9 @@
 const fs = require('fs');
-const { url } = require('inspector');
 const path = require('path');
 const port = process.env.PORT || 3000;
 
 const requestHandler = (req, res) => {
     let specificPath = "";
-    let notFound = false;
 
     if(req.url === "/"){
         specificPath = "lab10.html";
@@ -16,8 +14,7 @@ const requestHandler = (req, res) => {
     }else if(req.url === "/Recursos"){
         specificPath = "Recursos.html";
     }else{
-        notFound = true;
-        specificPath = re.url;
+        specificPath = req.url;
     }
 
     let filePath = path.join(
@@ -54,6 +51,20 @@ const requestHandler = (req, res) => {
     res.writeHead(200, {'Content-Type': contentType});
 
     const readStream = fs.createReadStream(filePath);
+
+    //Aqui se hace el manejo de rutas
+    if(specificPath === "lab10.html"){
+        console.log("en home");
+    }else if(specificPath === "RegPssw.html"){
+        console.log("Reg pass");
+    }else if(specificPath === "ValidaPssw.html"){
+        console.log("val pass");
+    }else if(specificPath === "Recursos.html"){
+        console.log("Recursos");
+    }else{
+        console.log("404");
+    }
+
     readStream.pipe(res);
 };
 
