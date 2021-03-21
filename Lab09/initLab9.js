@@ -24,7 +24,7 @@ let userMensage = "Hola, no funciono el mensaje como esperaba";
 const mensajeArchivo = (texto) =>{
     //userMensage = window.prompt("Por favor ingrese un texto");
     const file_system = require('fs');
-    file_system.writeFileSync('Lab9/lab9.txt', texto);
+    file_system.writeFileSync('Lab09/lab9.txt', texto);
     console.log('------------------------------Mensaje en lab.txt------------------------------------------------');
 }
 mensajeArchivo(userMensage);

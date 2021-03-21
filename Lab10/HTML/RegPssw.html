@@ -2,8 +2,8 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="Laboratorio 9: Introducción al back-end">
-        <title>Lab9 - Gonzalo García - DAW & BD</title>
+        <meta name="description" content="Laboratorio 10: Rutas y formas">
+        <title>Lab10 - Gonzalo García - DAW & BD</title>
         <link type="text/css" rel="stylesheet" href="./CSS/stylesheet.css">
         <link rel="icon" href="data:,">
         <!--Import Google Icon Font-->
@@ -17,69 +17,20 @@
 <body>
     <header>
         <h2 id="titulo_lab">
-            Laboratorio 9
+            Laboratorio 10
         </h2 id="subtitulo_lab">
-        <h3>INTRODUCCIÓN AL BACK-END</h3>
+        <h3>RUTAS Y FORMAS</h3>
     </header>
     <div>
      <nav id="pushpinNav" class="topnav nav-wrapper">
-        <button class="tablinks active flow-text" onclick="openTab(event, 'DescripInstr')">Home</a>
-        <button class="tablinks flow-text" onclick="openTab(event, 'Password')">Password</a>
-        <button class="tablinks flow-text" onclick="openTab(event, 'Tienda')">Tienda</a>
-        <button class="tablinks flow-text" onclick="openTab(event, 'Recursos')">Recursos</a>
+        <button class="tablinks active flow-text"> <a href="/">Home</a>
+        <button class="tablinks flow-text"><a href="/RegPssw">Home</a>
+        <button class="tablinks flow-text"><a href="/ValidaPssw">Home</a>
+        <button class="tablinks flow-text"><a href="/Recursos">Home</a>
      </nav>
     </div>
     <main class="container">
-        <section class="tabcontent" id="DescripInstr" style="display: block;">
-                <h3 class="titulo_sec"> Descripción </h2>
-                <p class="flow-text">
-                    En esta actividad haremos una introducción al desarrollo en el back-end con node.
-                </p>
-                <p>
-                    <h3>Objetivos:</h3>
-                    <ul>
-                        <li class="flow-text">Entender cómo funcionan las aplicaciones web.</li>
-                        <li class="flow-text">Preparar el ambiente de trabajo para hacer desarrollo en el back-end.</li>
-                        <li class="flow-text">Instalar y ejecutar un servidor de aplicaciones web.</li>
-                        <li class="flow-text">Atender peticiones HTTP desde el servidor y mandar respuestas HTTP.</li>
-                    </ul>
-                </p>
-
-                <h3 class="titulo_sec">Instrucciones</h2>
-                <p>
-                    <ol>
-                        <li class="flow-text">
-                            Sigue la demostración del profesor en la sesión de clase.
-                        </li></br>
-                        <li class="flow-text">
-                            Instala <a href="https://nodejs.org/en/">Node.js</a>. Node.js es un ambiente de ejecución de 
-                            JavaScript, el cual, a diferencia de js que se ejecuta en el navegador, permite tener acceso 
-                            al sistema de archivos de la computadora, y ejecutar programas como servidores web.
-                        </li></br>
-                        <li class="flow-text">
-                            Escribe, prueba y ejecuta con node, scripts de js para los siguientes ejercicios y problemas. 
-                            Muestra los resultados en consola:
-                            <ol>
-                                <li>Una función que reciba un arreglo de números y devuelva su promedio.</li>
-                                <li>Una función que reciba un string y escriba el string en un archivo de texto. Apóyate del módulo fs.</li>
-                                <li>Escoge algún problema que hayas implementado en otro lenguaje de programación, y dale una solución
-                                     en js que se ejecute sobre node.</li>
-                            </ol>
-                        </li></br>
-                        <li class="flow-text">
-                            Sigue la demostración del profesor en la sesión de clase sobre los ejemplos básicos para crear un servidor 
-                            web que se ejecute sobre node, reciba peticiones de un cliente, y le responda.
-                        </li></br>
-                        <li class="flow-text">
-                            Crea una pequeña aplicación web que al enviar una petición al servidor, devuelva una de las páginas que creaste 
-                            anteriormente en tus laboratorios.
-                        </li></br>
-                    </ol>
-                </p>
-        </section>
-
-        <!-- Actividad de validación de passwords -->
-
+        <!-- Registra password valido -->
         <section class="tabcontent" id="Password" style="display: none;">
             <h2 class="titulo_sec">Validación de password</h2>
             <div>
@@ -94,220 +45,14 @@
             </div>
             <br>
         </section>
-
-        <!-- Actividad de validación de Simular una tienda -->
-        <section class="tabcontent" id="Tienda" style="display: none;">
-            <h2 class="titulo_sec">Realiza una compra</h2>
-                <div class="row">
-                    <div class="col s12 m6 l8 xl9">
-                        <div class="col s12 m12 l6 xl4">
-                            <div class = "card blue-grey lighten-4">
-                            <div class = "card-image waves-effect waves-block waves-light">
-                                <img class = "activator responsive-img" src = "./CSS/img/naranja.png">                
-                            </div>
-                            
-                            <div class = "card-content activator">                  
-                                <p>NARANJA <br> Click para mas información.</p>
-                            </div>
-                            
-                            <div class = "card-reveal">
-                                <span class = "card-title grey-text text-darken-4">Naranja
-                                    <i class = "material-icons right">close</i></span>
-                                <p class="flow-text">Las naranjas brindan un aporte importante de vitamina C. <br><br> 
-                                    Promueve niveles saludables de azúcar en sangre.<br><br>
-                                    $12.00/k</p>
-                            </div>
-                            
-                            <div class = "card-action">
-                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(0); subtotal()">
-                                    <i class = "material-icons">add</i></button>
-                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(0); subtotal()">
-                                    <i class = "material-icons">remove</i></button></span>
-                                <p><br></p>
-                            </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col s12 m12 l6 xl4">
-                            <div class = "card blue-grey lighten-4">
-                            <div class = "card-image waves-effect waves-block waves-light">
-                                <img class = "activator responsive-img" src = "./CSS/img/sandia.jpg">                
-                            </div>
-                            
-                            <div class = "card-content activator">                  
-                                <p>SANDIA <br> Click para mas información.</p>
-                            </div>
-                            
-                            <div class = "card-reveal">
-                                <span class = "card-title grey-text text-darken-4">Sandia
-                                    <i class = "material-icons right">close</i></span>
-                                <p class="flow-text">La sandía es una planta anual y la mayoría de las variedades 
-                                    se pueden cosechar 80-100 días después de la siembra. <br><br> 
-                                    Se cree que los egeipcios fueron los primero en cultivarla a gran escala.<br><br>
-                                    $35.00/k</p>
-                            </div>
-                            
-                            <div class = "card-action">
-                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(1); subtotal()">
-                                    <i class = "material-icons">add</i></button>
-                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(1); subtotal()">
-                                    <i class = "material-icons">remove</i></button></span>
-                                <p><br></p>
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="col s12 m12 l6 xl4">
-                            <div class = "card blue-grey lighten-4">
-                            <div class = "card-image waves-effect waves-block waves-light">
-                                <img class = "activator" src = "./CSS/img/jicama.png">                
-                            </div>
-                            
-                            <div class = "card-content activator">                  
-                                <p>JICAMA <br> Click para mas información.</p>
-                            </div>
-                            
-                            <div class = "card-reveal">
-                                <span class = "card-title grey-text text-darken-4">Jícama
-                                    <i class = "material-icons right">close</i></span>
-                                <p class="flow-text">Es una legumbre, tambien llamada tubérculo.<br><br> 
-                                    Las vainas son tóxicas, pero la raiz es 100% comestible.<br><br>
-                                    lHay registros de su consumo de las culturas tolteca, mexica, maya y zapoteca.<br><br>
-                                    $23.00/k</p>
-                            </div>
-                            
-                            <div class = "card-action">
-                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(2); subtotal()">
-                                    <i class = "material-icons">add</i></button>
-                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(2); subtotal()">
-                                    <i class = "material-icons">remove</i></button></span>
-                                <p><br></p>
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="col s12 m12 l6 xl4">
-                            <div class = "card blue-grey lighten-4">
-                            <div class = "card-image waves-effect waves-block waves-light">
-                                <img class = "activator" src = "./CSS/img/jitomate.jpg">                
-                            </div>
-                            
-                            <div class = "card-content activator">                  
-                                <p>JITOMATE <br> Click para mas información.</p>
-                            </div>
-                            
-                            <div class = "card-reveal">
-                                <span class = "card-title grey-text text-darken-4">Naranja
-                                    <i class = "material-icons right">close</i></span>
-                                <p class="flow-text">Las naranjas brindan un aporte importante de vitamina C. <br><br> 
-                                    Promueve niveles saludables de azúcar en sangre.<br><br>
-                                    $12.00/k</p>
-                            </div>
-                            
-                            <div class = "card-action">
-                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(3); subtotal()">
-                                    <i class = "material-icons">add</i></button>
-                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(3); subtotal()">
-                                    <i class = "material-icons">remove</i></button></span>
-                                <p><br></p>
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="col s12 m12 l6 xl4">
-                            <div class = "card blue-grey lighten-4">
-                            <div class = "card-image waves-effect waves-block waves-light">
-                                <img class = "activator" src = "./CSS/img/chicharo.jpg">                
-                            </div>
-                            
-                            <div class = "card-content activator">                  
-                                <p>CHICHARO <br> Click para mas información.</p>
-                            </div>
-                            
-                            <div class = "card-reveal">
-                                <span class = "card-title grey-text text-darken-4">Naranja
-                                    <i class = "material-icons right">close</i></span>
-                                <p class="flow-text">Las naranjas brindan un aporte importante de vitamina C. <br><br> 
-                                    Promueve niveles saludables de azúcar en sangre.<br><br>
-                                    $12.00/k</p>
-                            </div>
-                            
-                            <div class = "card-action">
-                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(4); subtotal()">
-                                    <i class = "material-icons">add</i></button>
-                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(4); subtotal()">
-                                    <i class = "material-icons">remove</i></button></span>
-                                <p><br></p>
-                            </div>
-                            </div>
-                        </div>
-
-                        <div class="col s12 m12 l6 xl4">
-                            <div class = "card blue-grey lighten-4">
-                            <div class = "card-image waves-effect waves-block waves-light">
-                                <img class = "activator" src = "./CSS/img/espinaca.jpg">                
-                            </div>
-                            
-                            <div class = "card-content activator">                  
-                                <p>ESPINACA <br> Click para mas información.</p>
-                            </div>
-                            
-                            <div class = "card-reveal">
-                                <span class = "card-title grey-text text-darken-4">Naranja
-                                    <i class = "material-icons right">close</i></span>
-                                <p class="flow-text">Las naranjas brindan un aporte importante de vitamina C. <br><br> 
-                                    Promueve niveles saludables de azúcar en sangre.<br><br>
-                                    $12.00/k</p>
-                            </div>
-                            
-                            <div class = "card-action">
-                                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt(5); subtotal()">
-                                    <i class = "material-icons">add</i></button>
-                                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt(5); subtotal()">
-                                    <i class = "material-icons">remove</i></button></span>
-                                <p><br></p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6 l4 xl3">
-                        <table>
-                            <tr><th>Articulo </th><th>Precio   </th><th>Cantidad</th></tr>
-                            <tr><td>Naranja</td> <td>$12</td><td id="art1">0</td></tr>
-                            <tr><td>Sandia</td>  <td>$35</td><td id="art2">0</td></tr>
-                            <tr><td>Jicama</td>  <td>$23</td><td id="art3">0</td></tr>
-                            <tr><td>Jitomate</td><td>$18</td><td id="art4">0</td></tr>
-                            <tr><td>Chicharo</td><td>$9 </td><td id="art5">0</td></tr>
-                            <tr><td>Espinaca</td><td>$15</td><td id="art6">0</td></tr>
-                            <tr><td>Descuento</td><td>%</td><td><input type="number" id="descuento" value="0" min="0" max="100"></td></tr>
-                            <tr><td>IVA</td><td>%</td><td><input type="number" id="iva" value="16" min="0" max="100"></td></tr>
-                        </table>
-                        <br>
-                        <p class="flow-text" id="subpago">Subtotal: </p>
-                        <p class="flow-text" id="pago">Total: </p>
-                        <button class = "btn waves-effect right waves-light blue" onclick="totalCompra()">Pagar</button>
-                    </div>
-                </div>
-            
-        </section>
-    
-    <!-- Recursos -->
-        <section class="tabcontent" id="Recursos" style="display: none;">
-            <h2  class="titulo_sec">Recursos útiles al llevar a cabo el laboratorio</h2>
-            <ul>
-                <li><a class="flow-text" href="https://nodejs.dev/learn/introduction-to-nodejs">Introduction to Node.js</a></li></br>
-                <li><a class="flow-text" href="https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/">Anatomy of an HTTP Transaction</a></li></br>
-                <li><a class="flow-text" href="https://nodejs.org/dist/latest-v14.x/docs/api/http.html#http_http">Documentación del módulo HTTP de Node.js</a></li></br>
-            </ul><br><br>
-        </section>
     </main>
 
     <footer class="page-footer">
         <div class="container">
           <div class="row">
             <div class="col l7 s12">
-              <h4 class="white-text">Laboratorio 9 - Introducción al back-end</h4>
-              <p class="grey-text text-lighten-4 flow-text">Se realizo esto usando materialize.</p>
+              <h4 class="white-text">Laboratorio 10: Rutas y formas</h4>
+              <p class="grey-text text-lighten-4 flow-text">Se realizo esto usando materialize y node.js</p>
             </div>
             <div class="col l4 offset-l1 s12">
               <h5 class="white-text">Links</h5>
