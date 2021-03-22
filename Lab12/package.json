@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/GonzaloAGM/DAW-Personal-A01702956/issues"
   },
-  "homepage": "https://github.com/GonzaloAGM/DAW-Personal-A01702956#readme"
+  "homepage": "https://github.com/GonzaloAGM/DAW-Personal-A01702956#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
