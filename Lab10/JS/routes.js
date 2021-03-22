@@ -1,5 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const file_system = require('fs');
+
+const usuarios = [
+    {nombreUsuario: 'Admin', contrasena: '1234'}, 
+    {nombreUsuario: 'User', contrasena: 'noLeasEsto'}];
+
 
 const requestHandler = (req, res) => {
     let specificPath = "";
@@ -54,7 +60,7 @@ const requestHandler = (req, res) => {
 
     //console.log(`File path: ${filePath}`);
     //console.log(`Content-Type: ${contentType}`);
-    console.log(req.url);
+    //console.log(req.url);
     if(notFound === true){
         filePath = path.join(
             __dirname,
@@ -63,24 +69,103 @@ const requestHandler = (req, res) => {
         );
     }
     
-    const readStream = fs.createReadStream(filePath);
-    
-    res.writeHead(200, {'Content-Type': contentType});
-
     //Aqui se hace el manejo de rutas
     if(req.url === "/"){
+        res.writeHead(200, {'Content-Type': contentType});
+        const readStream = fs.createReadStream(filePath);
+        readStream.pipe(res);
         console.log("en home");
-    }else if(req.url === "/RegPssw"){
-        console.log("Reg pass");
-    }else if(req.url === "/ValidaPssw"){
-        console.log("val pass");
-    }else if(req.url === "/Recursos"){
-        console.log("Recursos");
-    }else if(notFound === true){
-        console.log("404");
+        res.statusCode = 200;
+        
     }
+    else if(req.url === "/RegPssw" && req.method === "GET"){
+        res.writeHead(200, {'Content-Type': contentType});
+        const readStream = fs.createReadStream(filePath);
+        readStream.pipe(res);
+        console.log("Reg pass");
+        console.log(usuarios);
+        res.statusCode = 200;
 
-    readStream.pipe(res);
+    }
+    else if(req.url === "/RegPssw" && req.method === "POST"){
+        const datos = [];
+          req.on('data', (dato) => {
+            //console.log(dato);
+            datos.push(dato);
+          });
+          return req.on('end', () => {
+            const datos_completos = Buffer.concat(datos).toString();
+            //console.log(datos_completos);
+            const username = datos_completos.split('=')[1].split('&')[0];
+            const pass = datos_completos.split('=')[2].split('&')[0];
+            usuarios.push({nombreUsuario: username, contrasena: pass});
+            let user = "";
+            user = "nombreUsuario: '" + username + "', contrasena: '" + pass + "\n";
+            file_system.writeFileSync('Lab10/login.txt', user, { 
+                encoding: "utf8", 
+                flag: "a+"
+              });
+            //console.log(usuarios);
+            res.statusCode = 302;
+            res.setHeader('Location', "/");
+            res.end();
+          });
+
+    }
+    else if(req.url === "/ValidaPssw" && req.method === "GET"){
+        res.writeHead(200, {'Content-Type': contentType});
+        const readStream = fs.createReadStream(filePath);
+        readStream.pipe(res);
+        console.log("val pass");
+        console.log(usuarios);
+        res.statusCode = 200;
+
+    }
+    else if(req.url === "/ValidaPssw" && req.method === "POST"){
+        const datos = [];
+          req.on('data', (dato) => {
+            //console.log(dato);
+            datos.push(dato);
+          });
+          return req.on('end', () => {
+            const datos_completos = Buffer.concat(datos).toString();
+            //console.log(datos_completos);
+            const username = datos_completos.split('=')[1].split('&')[0];
+            const pass = datos_completos.split('=')[2].split('&')[0];
+            const data = file_system.readFileSync('Lab10/login.txt');
+            if(data.includes("nombreUsuario: '"+ username +"', contrasena: '"+ pass)){
+                console.log("Acceso concedido");
+                res.statusCode = 302;
+            }else{
+                console.log("Acceso denegado");
+                res.statusCode = 302;
+            }
+            res.setHeader('Location', "/");
+            res.end();
+          });
+
+    }
+    else if(req.url === "/Recursos"){
+        res.writeHead(200, {'Content-Type': contentType});
+        const readStream = fs.createReadStream(filePath);
+        console.log("Recursos");
+        res.statusCode = 200;
+        readStream.pipe(res);
+
+    }
+    else if(notFound === true){
+        res.writeHead(404, {'Content-Type': contentType});
+        const readStream = fs.createReadStream(filePath);
+        console.log("404");
+        readStream.pipe(res);
+
+    }
+    else{
+        res.writeHead(200, {'Content-Type': contentType});
+        const readStream = fs.createReadStream(filePath);
+        readStream.pipe(res);
+
+    }
 };
 
 module.exports = requestHandler;

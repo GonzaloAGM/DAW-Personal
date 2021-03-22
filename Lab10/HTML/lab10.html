@@ -33,15 +33,19 @@
         <section class="tabcontent" id="DescripInstr">
                 <h3 class="titulo_sec"> Descripción </h2>
                 <p class="flow-text">
-                    En esta actividad haremos una introducción al desarrollo en el back-end con node.
+                    En esta actividad haremos una introducción al desarrollo en el back-end con node.En esta actividad 
+                    veremos cómo programar desde el servidor un módulo simple de ruteo y cómo mandarle datos al servidor.
                 </p>
                 <p>
                     <h3>Objetivos:</h3>
                     <ul>
-                        <li class="flow-text">Entender cómo funcionan las aplicaciones web.</li>
-                        <li class="flow-text">Preparar el ambiente de trabajo para hacer desarrollo en el back-end.</li>
-                        <li class="flow-text">Instalar y ejecutar un servidor de aplicaciones web.</li>
-                        <li class="flow-text">Atender peticiones HTTP desde el servidor y mandar respuestas HTTP.</li>
+                        <li class="flow-text">Entender cómo responder desde el servidor a las diferentes rutas para poder 
+                            diseñar y programar el ruteo de una aplicación.</li>
+                        <li class="flow-text">Preparar el ambiente de trabajo para hacer desarrollo en el back-end.Entender 
+                            las diferentes maneras de enviar datos a un servidor por medio de HTTP, para poder realizar un 
+                            procesamiento con estos datos.</li>
+                        <li class="flow-text">Entender cómo funciona el ambiente de ejecución de Node.js, y su forma asíncrona 
+                            de manejo de eventos.</li>
                     </ul>
                 </p>
 
@@ -52,27 +56,15 @@
                             Sigue la demostración del profesor en la sesión de clase.
                         </li></br>
                         <li class="flow-text">
-                            Instala <a href="https://nodejs.org/en/">Node.js</a>. Node.js es un ambiente de ejecución de 
-                            JavaScript, el cual, a diferencia de js que se ejecuta en el navegador, permite tener acceso 
-                            al sistema de archivos de la computadora, y ejecutar programas como servidores web.
-                        </li></br>
-                        <li class="flow-text">
-                            Escribe, prueba y ejecuta con node, scripts de js para los siguientes ejercicios y problemas. 
-                            Muestra los resultados en consola:
+                            Utilizando alguno de tus laboratorios anteriores (o si lo prefieres empieza de 0), elabora una aplicación 
+                            web con las siguientes características:
                             <ol>
-                                <li>Una función que reciba un arreglo de números y devuelva su promedio.</li>
-                                <li>Una función que reciba un string y escriba el string en un archivo de texto. Apóyate del módulo fs.</li>
-                                <li>Escoge algún problema que hayas implementado en otro lenguaje de programación, y dale una solución
-                                     en js que se ejecute sobre node.</li>
+                                <li>La aplicación debe poder responder al menos a 3 rutas diferentes, y mandar una respuesta HTTP 404 
+                                    cuando la ruta no existe.</li>
+                                <li>En alguna de las rutas, la aplicación debe contener al menos 1 forma que debe enviar datos al servidor 
+                                    por POST. El servidor debe reaccionar ante este envío y guardar los datos en un archivo de texto dentro 
+                                    del mismo servidor.</li>
                             </ol>
-                        </li></br>
-                        <li class="flow-text">
-                            Sigue la demostración del profesor en la sesión de clase sobre los ejemplos básicos para crear un servidor 
-                            web que se ejecute sobre node, reciba peticiones de un cliente, y le responda.
-                        </li></br>
-                        <li class="flow-text">
-                            Crea una pequeña aplicación web que al enviar una petición al servidor, devuelva una de las páginas que creaste 
-                            anteriormente en tus laboratorios.
                         </li></br>
                     </ol>
                 </p>

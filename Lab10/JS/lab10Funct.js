@@ -6,7 +6,7 @@ var pushpinNavOptions = {
 }
 var instancePushpinNav = M.Pushpin.init(pushpinNav,pushpinNavOptions);
 
-function password() {
+function passwordVal() {
     
     var password = document.getElementById("password").value;
     var passwordcheck = document.getElementById("passworcheck").value;
@@ -54,7 +54,7 @@ function password() {
       message="Los campos no coinciden";
     }
     else if(password === passwordcheck){
-      message = "Campo llenado correctamente";
+      message = '<br>';
     }
     document.getElementById("MessagePasword").innerHTML = message;
   }

@@ -32,16 +32,17 @@
     <main class="container">
         <!-- Registra password valido -->
         <section class="tabcontent" id="Password">
-            <h2 class="titulo_sec">Validación de password</h2>
+            <h2 class="titulo_sec">Logging</h2>
             <div>
-                    <label for="password" class="flow-text">Introduce tu password:</label><br>
-                    <input type="password" name="password" id="password" value="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
-                    minlength="8" title="Una contraseña válida es un conjuto de caracteres, donde cada uno consiste de 
-                    una letra mayúscula o minúscula, o un dígito. La contraseña debe empezar con una letra y contener al 
-                    menor un dígito. Debe tener al menos 8 caracteres." onkeyup="password()"><br><br>
-                    <label for="passworcheck" class="flow-text">Confirma tu password:</label><br>
-                    <input type="password" name="passworcheck" id="passworcheck" value="" onkeyup="password()">
-                    <p id="MessagePasword" class="flow-text"></p>
+                <form action="/ValidaPssw" method="POST" accept-charset="UTF-8">
+                    <label for="username" class="flow-text">Ingresa un nombre de usuario:</label><br>
+                    <input type="text" name="username" id="username" value="">
+
+                    <label for="pass" class="flow-text">Introduce tu password:</label><br>
+                    <input type="password" name="pass" id="pass" value="">
+                    <button class="btn waves-effect waves-light btn-large right" type="submit" name="action">Enviar
+                        <i class="material-icons right">send</i></button>
+                </form>
             </div>
             <br>
         </section>
