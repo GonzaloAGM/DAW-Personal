@@ -1,0 +1,24 @@
+{
+  "name": "lab12_npm",
+  "version": "1.0.0",
+  "description": "Laboratorio 12 de DAW-BD, donde se hara la introducción a las aplicaciones web",
+  "main": "Lab12/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GonzaloAGM/DAW-Personal-A01702956.git"
+  },
+  "keywords": [
+    "intro",
+    "webapp",
+    "holamundo"
+  ],
+  "author": "GonzaloAGM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GonzaloAGM/DAW-Personal-A01702956/issues"
+  },
+  "homepage": "https://github.com/GonzaloAGM/DAW-Personal-A01702956#readme"
+}
