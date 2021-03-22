@@ -2,7 +2,7 @@
   "name": "lab12_npm",
   "version": "1.0.0",
   "description": "Laboratorio 12 de DAW-BD, donde se hara la introducción a las aplicaciones web",
-  "main": "Lab12/app.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
