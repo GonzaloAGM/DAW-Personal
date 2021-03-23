@@ -1,0 +1,2 @@
+nombreUsuario: 'Admin', contrasena: '1234'
+nombreUsuario: 'User', contrasena: 'noLeasEsto'
