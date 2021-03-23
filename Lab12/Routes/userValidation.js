@@ -3,7 +3,7 @@ const router = express.Router();
 
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: false}));
+router.use(bodyParser.urlencoded({extended: false}));
 
 const fs = require('fs');
 const path = require('path');
@@ -34,7 +34,7 @@ router.use((request, response, next) => {
 
     filePath = path.join(
         __dirname,
-        "./",
+        "../",
         specificPath
     );
 
