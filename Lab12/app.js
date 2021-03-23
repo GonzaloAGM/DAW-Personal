@@ -26,7 +26,7 @@ app.use((request, response, next) => {
     filePath = "";
     //Asignar filePath de donde recuperar el archivo html, lo que contenga dentro de él
     if(request.url === "/"){
-        specificPath = "HTML/lab10.html";
+        specificPath = "HTML/lab12.html";
     }else if(request.url === "/RegPssw"){
         specificPath = "HTML/RegPssw.html";
     }else if(request.url === "/ValidaPssw"){
