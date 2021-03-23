@@ -2,12 +2,11 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 
+const rutaUserValidation = require('./routes/userValidation');
+const rutaTienda = require('./routes/tienda');
+
 const fs = require('fs');
 const path = require('path');
-
-const usuarios = [
-    {nombreUsuario: 'Admin', contrasena: '1234'}, 
-    {nombreUsuario: 'User', contrasena: 'noLeasEsto'}];
 
 const bodyParser = require('body-parser');
 
@@ -27,10 +26,6 @@ app.use((request, response, next) => {
     //Asignar filePath de donde recuperar el archivo html, lo que contenga dentro de él
     if(request.url === "/"){
         specificPath = "HTML/lab12.html";
-    }else if(request.url === "/RegPssw"){
-        specificPath = "HTML/RegPssw.html";
-    }else if(request.url === "/ValidaPssw"){
-        specificPath = "HTML/ValidaPssw.html";
     }else if(request.url === "/Recursos"){
         specificPath = "HTML/Recursos.html";
     }else{
@@ -81,77 +76,40 @@ app.use((request, response, next) => {
     next();
 });
 
-app.get('/', (request, response, next) => {
-    response.writeHead(200, {'Content-Type': contentType});
-    const readStream = fs.createReadStream(filePath);
-    readStream.pipe(response);
-    console.log("en home");
-    response.statusCode = 200;
-});
+app.use('/login', rutaUserValidation);
 
-app.get('/RegPssw', (request, response, next) => {
-    response.writeHead(200, {'Content-Type': contentType});
-    const readStream = fs.createReadStream(filePath);
-    readStream.pipe(response);
-    console.log("Reg pass");
-    console.log(usuarios);
-    response.statusCode = 200;
-});
-
-app.post('/RegPssw', (request, response, next) => {
-    console.log(request.body.username);
-    console.log(request.body.pass);
-    usuarios.push({nombreUsuario: username, contrasena: pass});
-    user = "nombreUsuario: '" + username + "', contrasena: '" + pass + "\n";
-    fs.writeFileSync('Lab12/login.txt', user, {encoding: "utf8", flag: "a+"});
-    response.statusCode = 302;
-    response.setHeader('Location', "/");
-    response.end();
-});
-
-app.get('/ValidaPssw', (request, response, next) => {
-    response.writeHead(200, {'Content-Type': contentType});
-    const readStream = fs.createReadStream(filePath);
-    readStream.pipe(response);
-    console.log("val pass");
-    console.log(usuarios);
-    response.statusCode = 200;
-});
-
-app.post('/ValidaPssw', (request, response, next) => {
-    console.log(request.body.username);
-    console.log(request.body.pass);
-    const data = fs.readFileSync('Lab12/login.txt');
-    if(data.includes("nombreUsuario: '"+ username +"', contrasena: '"+ pass)){
-        console.log("Acceso concedido");
-        response.statusCode = 302;
-    }else{
-        console.log("Acceso denegado");
-        response.statusCode = 302;
-    }
-    response.setHeader('Location', "/");
-    response.end();
-});
+app.use('/tienda', rutaTienda);
 
 app.use('/Recursos', (request, response, next) => {
     response.writeHead(200, {'Content-Type': contentType});
     const readStream = fs.createReadStream(filePath);
     console.log("Recursos");
-    response.statusCode = 200;
+    response.status(200);
     readStream.pipe(response);
+});
+
+app.get('/', (request, response, next) => {
+    response.writeHead(200, {'Content-Type': contentType});
+    const readStream = fs.createReadStream(filePath);
+    readStream.pipe(response);
+    console.log("en home");
+    response.status(200);
 });
 
 app.use((request, response, next) => {
     if(notFound === true){
         response.writeHead(404, {'Content-Type': contentType});
         const readStream = fs.createReadStream(filePath);
+        response.status(404);
         console.log("404");
         readStream.pipe(response);
     }else{
         response.writeHead(200, {'Content-Type': contentType});
         const readStream = fs.createReadStream(filePath);
+        response.status(302);
         readStream.pipe(response);
     }
+    //response.send('Petición terminada');
 });
 
 app.listen(3000);
