@@ -169,4 +169,5 @@ code {
 pre {
   padding: 1em;
   border-left: 2px solid #69c;
+  font-size: 0.65em !important;
 }

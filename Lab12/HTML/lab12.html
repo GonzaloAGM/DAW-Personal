@@ -70,34 +70,35 @@
                         <li class="flow-text">
                             Estructura básica de una aplicación con express:
                             <pre>
-                                <span class="string">const express = require('express')</span>;
-                                <span class="string">const app = express()</span>;
+  <span class="string">const express = require('express')</span>;
+  <span class="string">const app = express()</span>;
 
-                                <span class="string">//Middleware</span>
-                                <span class="string">app.use((request, response, next) =></span>{
-                                <span class="string">console.log('Middleware!')</span>;
-                                <span class="string">next(); //Le permite a la petición avanzar hacia el siguiente middleware</span>
-                                });
+  <span class="string">//Middleware</span>
+  <span class="string">app.use((request, response, next) =></span>{
+      <span class="string">console.log('Middleware!')</span>;
+      //Le permite a la petición avanzar hacia el siguiente middleware
+      <span class="string">next();</span>
+  });
 
-                                <span class="string">//Middleware</span>
-                                <span class="string">app.use((request, response, next) =></span>{
-                                <span class="string">console.log('Otro middleware!')</span>;
-                                <span class="string">response.send('¡Hola mundo!'); //Manda la respuesta</span>
-                                });
+  <span class="string">//Middleware</span>
+  <span class="string">app.use((request, response, next) =></span>{
+      <span class="string">console.log('Otro middleware!')</span>;
+      <span class="string">response.send('¡Hola mundo!'); //Manda la respuesta</span>
+  });
 
-                                <span class="string">app.listen(3000);</span>
+  <span class="string">app.listen(3000);</span>
                             </pre>
                         </li></br>
                         <li class="flow-text">
                             Para agregar rutas:
                             <pre>
-                                <span class="string">app.use('/ruta', (request, response, next) => </span>{
-                                <span class="string">response.send('Respuesta de la ruta "/ruta"')</span>;
-                                });
+  <span class="string">app.use('/ruta', (request, response, next) => </span>{
+      <span class="string">response.send('Respuesta de la ruta "/ruta"')</span>;
+  });
                             </pre>
                         </li></br>
                         <li class="flow-text">
-                            Para limitar las rutas a un tipo de petición en particular, en lugar de <code>use(</code>), puedes usar, 
+                            Para limitar las rutas a un tipo de petición en particular, en lugar de <code>use()</code>, puedes usar, 
                             por ejemplo, <code>get()</code> o <code>post()</code>.
                         </li></br>
                         <li class="flow-text">
@@ -105,29 +106,29 @@
                             más fáciles de mantener. Puedes separar un archivo en express utilizando el ruteador de express. Por 
                             convención, crearemos el nuevo archivo en una carpeta routes:
                             <pre>
-                                <span class="string">const express = require('express')</span>;
+  <span class="string">const express = require('express')</span>;
 
-                                <span class="string">const router = express.Router()</span>;
+  <span class="string">const router = express.Router()</span>;
 
-                                <span class="string">router.get('/ruta', (request, response, next) =></span>{
-                                <span class="string">response.send('Respuesta de la ruta "/modulo/ruta"')</span>;
-                                });
+  <span class="string">router.get('/ruta', (request, response, next) =></span>{
+      <span class="string">response.send('Respuesta de la ruta "/modulo/ruta"')</span>;
+  });
 
-                                <span class="string">module.exports = router</span>;
-                            </pre>
+  <span class="string">module.exports = router</span>;
+</pre>
 
                             Y el archivo principal quedaría:
 
                             <pre>
-                                <span class="string">const express = require('express')</span>;
+  <span class="string">const express = require('express')</span>;
 
-                                <span class="string">const router = express.Router()</span>;
+  <span class="string">const router = express.Router()</span>;
 
-                                <span class="string">const misRutas = require('./routes/nombre_archivo')</span>;
+  <span class="string">const misRutas = require('./routes/nombre_archivo')</span>;
 
-                                <span class="string">app.use('/modulo', misRutas)</span>;
+  <span class="string">app.use('/modulo', misRutas)</span>;
 
-                                <span class="string">app.listen(3000)</span>;
+  <span class="string">app.listen(3000)</span>;
                             </pre>
 
                         </li></br>
