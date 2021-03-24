@@ -1,0 +1,90 @@
+-------------Ejercicio 1---------------
+
+Tablas creadas correctamente
+Tablas volcadas correctamente
+
+-------------Ejercicio 2---------------
+
+P.-Revisa el contenido de la tabla materiales y determina si existe alguna inconsistencia 
+   en el contenido de la tabla. ¿Cuál es? ¿A qué se debe?
+
+    En la primera parte hay una inconsistencia, pues hay una duplicación 
+    de registros, porque no se ha declarado una primary key.
+
+P.-¿Qué ocurrió?
+
+    Posteriormente, al modificar la tabla de Materiales, para que esta tuviera 
+    clave como una llave primaria , marcó un error al intentar hacer un nuevo registro-
+
+    Específicamente el gestor devolvió el siguiente error:
+    Violation of PRIMARY KEY constraint 'llaveMateriales'. Cannot insert duplicate key 
+    in object 'a1702956.Materiales'. The duplicate key value is (1000).
+
+P.-¿Qué información muestra esta consulta? (sp_helpconstraint materiales)
+
+    Devuelve información acerca de los constrains que existen en la tabla de materiales.
+    Especificamente, devuelve una tabla de una sola tupla, con los siguientes valores y campos:
+
+    constrain_type          constrain_name  delete_action   update_action   status_enabled  status_for_replication  constrain_keys
+    PRIMARY KEY (clustered)	llaveMateriales	(n/a)	        (n/a)	        (n/a)	        (n/a)	                Clave
+
+P.-¿Qué sentencias utilizaste para definir las llaves primarias?
+
+    Se emplearon los siguientes comandos para que de manera análoga, modificar las tablas:
+    ALTER TABLE Proveedores add constraint RFCProveedores PRIMARY KEY (RFC)
+    ALTER TABLE Proyectos add constraint numeroProyecto PRIMARY KEY (Numero)
+
+P.- ¿Qué sentencias utilizaste para definir este constrait?
+    
+    Para la tabla entregas se realizó de la siguiente forma:
+    ALTER TABLE Entregan add constraint llaveRFCNumeroFechaEntregan PRIMARY KEY (Clave, RFC, Numero, Fecha)
+
+-------------Ejercicio 3---------------
+
+P.-¿Qué particularidad observas en los valores para clave, rfc y numero?
+   ¿Cómo responde el sistema a la inserción de este registro?
+
+    Los valores de Clave, RFC y número no concuerdan con el formato establecido, 
+    ni existen en las tablas de Proovedores, proyectos o entregan
+
+P.-¿Qué significa el mensaje que emite el sistema?
+   ¿Qué significado tiene la sentencia anterior?
+
+    El mensaje que el sistema devuelve es el siguiente:
+    The INSERT statement conflicted with the FOREIGN KEY constraint "cfentreganclave". 
+    The conflict occurred in database "a1702956", table "a1702956.Materiales", column 'Clave'.
+    Y significa que el nuevo registro no respeta los parámetros de clave de la tabla de Materiales
+
+P.- ¿Qué significan las columnas de esas consultas? (sp_helpconstraint tableName, en este caso -> Entregan)
+
+    constrain_type          constrain_name      delete_action   update_action   status_enabled  status_for_replication  constrain_keys
+    FOREIGN KEY	            cfentreganclave	    No Action	    No Action	    Enabled	        Is_For_Replication	    Clave                   
+                                                                                                                        REFERENCES a1702956.a1702956.Materiales (Clave)
+    FOREIGN KEY	            cfentreganNumProy	No Action	    No Action	    Enabled	        Is_For_Replication	    Numero
+ 	 	 	 	 	 	                                                                                                REFERENCES a1702956.a1702956.Proyectos (Numero)
+    FOREIGN KEY	            cfentreganRFCProv	No Action	    No Action	    Enabled	        Is_For_Replication	    RFC
+ 	 	 	 	 	 	                                                                                                REFERENCES a1702956.a1702956.Proveedores (RFC)
+    PRIMARY KEY (clustered)	llaveRFCNumeroFechaEntregan	(n/a)	(n/a)	        (n/a)	        (n/a)	                Clave, RFC, Numero, Fecha
+
+    Significan el tipo de restricción, el nombre de ésta, acciones que debe de hacerse con esta 
+    cuando se remueve o actualiza un registro, si esta activa y si hace referencia a otra tabla.
+
+------------- Ejercicio 4 ---------------
+
+P.- ¿Qué uso se le está dando a GETDATE()? ¿Tiene sentido el valor del campo de cantidad?
+    
+    Le esta dando la fecha en el que se realiza el registro pero no, no tiene 
+    sentido el valor de 0 en el campo de cantidad
+
+P.- Intenta insertar un registro con cantidad igual o menor que 0. ¿Cómo responde el sistema?
+    ¿Qué significa el mensaje?
+
+    El mensaje que el sistema devuelve es el siguiente:
+    The INSERT statement conflicted with the CHECK constraint "cantidad". The conflict occurred 
+    in database "a1702956", table "a1702956.Entregan", column 'Cantidad'.
+    Y significa que la restricción esta funcionando y revisa cada ves que se realiza un nuevo 
+    registro que la cantida sea mayor a cero.
+
+------------- Integridad referencial ---------------
+
+    
