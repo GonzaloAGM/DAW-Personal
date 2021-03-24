@@ -1,0 +1,11 @@
+Para iniciar el servidor con node.js y pnm, instalar node.js y pnm
+
+Luego situarse en el directorio de Lab12 y asegurarse de que esten instaladas las dependencias con: 
+
+-----npm install
+
+Si todo esta bien configurado, ya debería de tener la carpeta "node_modules".
+
+Por último, solo ejecutar el comando: 
+
+-----npm start

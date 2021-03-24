@@ -1,5 +1,2 @@
 nombreUsuario: 'Admin', contrasena: '1234'
 nombreUsuario: 'User', contrasena: 'noLeasEsto'
-nombreUsuario: 'GonzaloAGM', contrasena: 'A9=aaaaa
-nombreUsuario: 'hola', contrasena: 'A9=aaaaa
-nombreUsuario: 'hola', contrasena: 'A9=aaaaa
