@@ -87,4 +87,11 @@ P.- Intenta insertar un registro con cantidad igual o menor que 0. ¿Cómo respo
 
 ------------- Integridad referencial ---------------
 
-    
+    La integridad referencial es un sistema de reglas que utilizan la mayoría de las bases de datos 
+    relacionales para asegurarse que los registros de tablas relacionadas son válidos y que no se 
+    borren o cambien datos relacionados de forma accidental produciendo errores de integridad.
+
+    https://support.microsoft.com/es-es/office/mantener-la-integridad-referencial-en-diagramas-de-modelo-de-base-de-datos-80f60e10-1238-48f7-ab59-2bd31b2f047a
+
+    Es decir que las reglas de integridad referencial evitan que los usuarios de bases de datos 
+    accidentalmente eliminen asignaciones entre columnas relacionadas.
