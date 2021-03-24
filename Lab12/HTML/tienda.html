@@ -31,7 +31,7 @@
     </div>
     <main class="container">
         <section class="tabcontent" id="Tienda">
-            <h2 class="titulo_sec">Realiza una compra</h2>
+            <h2 class="titulo_sec" name="titulo_h2">Realiza una compra</h2>
                 <div class="row">
                     <div class="col s12 m6 l8 xl9">
                         <div class="col s12 m12 l6 xl4">
@@ -205,21 +205,23 @@
                         </div>
                     </div>
                     <div class="col s12 m6 l4 xl3">
-                        <table>
-                            <tr><th>Articulo </th><th>Precio   </th><th>Cantidad</th></tr>
-                            <tr><td>Naranja</td> <td>$12</td><td id="art1">0</td></tr>
-                            <tr><td>Sandia</td>  <td>$35</td><td id="art2">0</td></tr>
-                            <tr><td>Jicama</td>  <td>$23</td><td id="art3">0</td></tr>
-                            <tr><td>Jitomate</td><td>$18</td><td id="art4">0</td></tr>
-                            <tr><td>Chicharo</td><td>$9 </td><td id="art5">0</td></tr>
-                            <tr><td>Espinaca</td><td>$15</td><td id="art6">0</td></tr>
-                            <tr><td>Descuento</td><td>%</td><td><input type="number" id="descuento" value="0" min="0" max="100"></td></tr>
-                            <tr><td>IVA</td><td>%</td><td><input type="number" id="iva" value="16" min="0" max="100"></td></tr>
-                        </table>
-                        <br>
-                        <p class="flow-text" id="subpago">Subtotal: </p>
-                        <p class="flow-text" id="pago">Total: </p>
-                        <button class = "btn waves-effect right waves-light blue" onclick="totalCompra()">Pagar</button>
+                        <form action="/tienda" method="POST">
+                            <table>
+                                <tr><th>Articulo </th><th>Precio   </th><th>Cantidad</th></tr>
+                                <tr><td>Naranja</td> <td>$12</td><td id="art1" name="art1">0</td></tr>
+                                <tr><td>Sandia</td>  <td>$35</td><td id="art2" name="art2">0</td></tr>
+                                <tr><td>Jicama</td>  <td>$23</td><td id="art3" name="art3">0</td></tr>
+                                <tr><td>Jitomate</td><td>$18</td><td id="art4" name="art4">0</td></tr>
+                                <tr><td>Chicharo</td><td>$9 </td><td id="art5" name="art5">0</td></tr>
+                                <tr><td>Espinaca</td><td>$15</td><td id="art6" name="art6">0</td></tr>
+                                <tr><td>Descuento</td><td>%</td><td><input type="number" id="descuento" name="descuento" value="0" min="0" max="100"></td></tr>
+                                <tr><td>IVA</td><td>%</td><td><input type="number" id="iva" name ="iva" value="16" min="0" max="100"></td></tr>
+                            </table>
+                            <br>
+                            <p class="flow-text" id="subpago">Subtotal: </p>
+                            <button class="btn waves-effect waves-light blue btn-large right" type="submit" name="action">Pagar
+                                <i class="material-icons right">attach_money</i></button>
+                        </form>
                     </div>
                 </div>
             

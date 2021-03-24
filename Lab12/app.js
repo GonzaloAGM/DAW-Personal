@@ -112,4 +112,6 @@ app.use((request, response, next) => {
     //response.send('Petición terminada');
 });
 
-app.listen(3000);
+app.listen(3000, function(){
+    console.log("server is running in port 3000");
+  });
