@@ -35,8 +35,7 @@ router.post('/RegPssw', (request, response, next) => {
     user = "nombreUsuario: '" + username + "', contrasena: '" + pass + "\n";
     fs.writeFileSync('login.txt', user, {encoding: "utf8", flag: "a+"});
     response.status(302);
-    response.setHeader('Location', "/login");
-    response.end();
+    response.redirect('/login');
 });
 
 router.get('/ValidaPssw', (request, response, next) => {
@@ -58,12 +57,14 @@ router.post('/ValidaPssw', (request, response, next) => {
     if(data.includes("nombreUsuario: '"+ username +"', contrasena: '"+ pass)){
         console.log("Acceso concedido");
         response.status(302);
-        response.setHeader('Location', "/tienda");
+        //window.alert("Contraseña correcta");
+        response.redirect('/tienda');
     }else{
         console.log("nombreUsuario: '"+ username +"', contrasena: '"+ pass);
         console.log("Acceso denegado");
-        response.status(403);
-        response.setHeader('Location', "/");
+        response.status(302);
+        //window.alert("Contraseña incorrecta");
+        response.redirect('/login/ValidaPssw');
     }
     response.end();
 });

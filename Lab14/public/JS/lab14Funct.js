@@ -67,37 +67,69 @@ function passwordVal() {
     });
   });
 
- var articulos =  [
-    ['Naranja', 0],
-    ['Sandia', 0],
-    ['Jicama', 0],
-    ['Jitomate', 0],
-    ['Chicharo', 0],
-    ['Espinaca',0]
-];
+const listaArti = [
+        {
+        nombre: 'Naranja', 
+        cantidad : 0, 
+        precio: 12
+        },
+        {
+        nombre: 'Sandia', 
+        cantidad : 0, 
+        precio: 35
+        },
+        {
+        nombre: 'Jicama', 
+        cantidad : 0, 
+        precio: 23
+        },
+        {
+        nombre: 'Jitomate', 
+        cantidad : 0, 
+        precio: 18
+        },
+        {
+        nombre: 'Chicharo', 
+        cantidad : 0, 
+        precio: 9
+        },
+        {
+        nombre: 'Espinaca', 
+        cantidad : 0, 
+        precio: 15
+        },
+    ];
 
-console.table(articulos);
+console.table(listaArti);
 
 function addArt(artNum){
-    let nombre = "art" + (artNum+1);
-    articulos[artNum][1] +=1;
-    document.getElementById(nombre).innerHTML=articulos[artNum][1];
-    console.table(articulos);
+    let nombre = "" + artNum;
+    let nombreInput = "input" + artNum;
+    console.log(nombreInput);
+    listaArti[artNum].cantidad +=1;
+    document.getElementById(nombre).innerHTML=listaArti[artNum].cantidad;
+    document.getElementsByName(nombreInput).value=listaArti[artNum].cantidad;
+    console.table(listaArti);
 }
 
 function subtractArt(artNum){
-    let nombre = "art" + (artNum+1);
-    if(articulos[artNum][1] !== 0)
-        articulos[artNum][1] -=1;
-    document.getElementById(nombre).innerHTML=articulos[artNum][1];
-    console.table(articulos);
+    let nombre = "" + artNum;
+    let nombreInput = "input" + artNum;
+    if(listaArti[artNum].cantidad !== 0)
+    listaArti[artNum].cantidad -=1;
+    document.getElementById(nombre).innerHTML=listaArti[artNum].cantidad;
+    document.getElementById(nombreInput).value=listaArti[artNum].cantidad;
+    console.table(listaArti);
 }
 
 function subtotal(){
-    const precios = [12,35,23,18,9,15];
     let subtotal=0;
+    for(let art of listaArti){
+        subtotal += art.cantidad*art.precio;
+    }
 
-    subtotal = articulos[0][1]*precios[0] + articulos[1][1]*precios[1] + articulos[2][1]*precios[2] +articulos[3][1]*precios[3]+articulos[4][1]*precios[4]+articulos[5][1]*precios[5];
+    document.getElementById("subtinput").value = subtotal;
+    console.log(document.getElementById("subtinput").value);
     document.getElementById("subpago").innerHTML = "Subtotal: $" + subtotal;
     return subtotal;
 }
