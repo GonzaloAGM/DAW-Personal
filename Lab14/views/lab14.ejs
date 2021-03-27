@@ -4,14 +4,13 @@
 <section class="tabcontent" id="DescripInstr">
     <h3 class="titulo_sec"> Descripción </h2>
     <p class="flow-text">
-        En esta actividad instalaremos y exploraremos Express, un framework de Node.js para hacer desarrollo en el back-end.
+        En esta actividad instalaremos y exploraremos cómo generar HTML dinámico desde el back-end.
     </p>
     <p>
         <h3>Objetivos:</h3>
         <ul>
-            <li class="flow-text">Preparar el ambiente de trabajo con Node.js + NPM + Express</li>
-            <li class="flow-text">Entender lo que son los frameworks de desarrollo web de back-end.</li>
-            <li class="flow-text">Explorar Node.js + Express</li>
+            <li class="flow-text">Generar desde el back-end, interfaces dinámicas HTML5 para el cliente por 
+                medio de un motor de templates y que incorporen partials.</li>
         </ul>
     </p>
 
@@ -19,104 +18,124 @@
     <p>
         <ol>
             <li class="flow-text">
-                Verifica que ya cuentes con npm ejecutando el comando <code>npm -V</code>. En caso negativo, instala npm y node.
+                Recuerda que para generar una aplicación es necesario inicializar el proyecto con npm init, e instalar express y 
+                body-parser con <code>npm install --save [nombre_paquete]</code>. Si es necesario, recuerda configurar el archivo 
+                package.json para incluir el script que quieres que se ejecute con <code>npm start</code>.
             </li></br>
-            <li class="flow-text">
-                Haz que tu trabajo sea un proyecto de npm ejecutando <code>npm init</code> desde tu carpeta de trabajo, y sigue 
-                las indicaciones del comando. <br>
-                Observa y analiza el contenido del archivo <code>package.json</code>.
-            </li></br>
-            <li class="flow-text">
-                Si deseas instalar nuevos paquetes, utiliza <code>npm install [nombre_paquete]</code>. Puedes probar con 
-                <code>npm install --save-dev nodemon</code>, un paquete que sirve para que automáticamente se reinicie el 
-                servidor cada vez que haces un cambio en un archivo. <br>
-                El argumento <code>--save-dev</code>  sirve para que sólo se instale el paquete mientras te encuentras en el 
-                entorno de desarrollo. Observa nuevamente el archivo <code>package.json</code>, y notarás que algunas líneas 
-                ahora incluyen <em>nodemon</em>, particularmente <code>"start": "nodemon app.js"</code>. Si no existe, modifica 
-                la sección scripts para incluirla. Ahora podrás iniciar el servidor con npm start, que iniciará <em>nodemon</em>.
-            </li></br>
+
             <li class="flow-text">
                 Sigue la demostración del profesor en la sesión de clase.
             </li></br>
+
             <li class="flow-text">
-                Estructura básica de una aplicación con express:
+                Para devolver como respuesta un archivo html desde express, se requiere el módulo path, puedes incorporarlo con 
+                <code>const path = require('path')</code>; al inicio de tus archivos de código. <br>
+                Por convención, los archivos HTML se guardan en un directorio llamado <strong>views</strong>, en referencia a la
+                capa de la vista de un estilo arquitectónio MVC. Para devolver un archivo HTML, se realiza de la siguiente forma:
                 <pre>
-<span class="string">const express = require('express')</span>;
-<span class="string">const app = express()</span>;
-
-<span class="string">//Middleware</span>
-<span class="string">app.use((request, response, next) =></span>{
-<span class="string">console.log('Middleware!')</span>;
-//Le permite a la petición avanzar hacia el siguiente middleware
-<span class="string">next();</span>
-});
-
-<span class="string">//Middleware</span>
-<span class="string">app.use((request, response, next) =></span>{
-<span class="string">console.log('Otro middleware!')</span>;
-<span class="string">response.send('¡Hola mundo!'); //Manda la respuesta</span>
-});
-
-<span class="string">app.listen(3000);</span>
-                </pre>
+router.get('/una-ruta', (request, response, next) => {
+    response.sendFile(path.join(__dirname, '..', 'views', 'el-archivo.html'));
+});</pre>
+                La función <strong>join</strong> sirve para armar la ruta, y la ventaja que tiene sobre hacerlo manualmente, es 
+                que considera el sistema operativo donde el código resida para que no tengas problemas si estás en MacOS, 
+                Linux o Windows. <br>
+                La variable global <code>__dirname</code>, contiene el directorio del sistema de archivos donde se encuentra tu 
+                aplicación, y el resto de los argumentos son cada uno de los directorios para llegar al archivo. Observa que después 
+                de <code>__dirname</code>, el argumento es <code>'..'</code> debido a que si estás en una carpeta de alguno de tus 
+                módulos, subirás un nivel en los directorios para llegar al nivel raíz y de ahí viajar a la carpeta views, para 
+                finalmente llegar al archivo <strong>el-archivo.html</strong>.
             </li></br>
+
             <li class="flow-text">
-                Para agregar rutas:
-                <pre>
-<span class="string">app.use('/ruta', (request, response, next) => </span>{
-<span class="string">response.send('Respuesta de la ruta "/ruta"')</span>;
-});
-                </pre>
-            </li></br>
+                Por defecto, nuestro servidor no puede entregar un CSS como respuesta, entonces es necesario decirle que cuando un 
+                documento HTML requiere de un CSS, este archivo se mande de manera estática. Para ello debemos de configurar una carpeta 
+                de archivos estáticos, por conveción la llamaremos public, y al folder donde pondremos los archivos css lo llamaremos css. 
+                Para poder incluirlos dentro de los HTML lo podemos hacer con el método static de express:
+                <pre>app.use(express.static(path.join(__dirname, 'public')));</pre>
+            </li><br>
+
             <li class="flow-text">
-                Para limitar las rutas a un tipo de petición en particular, en lugar de <code>use()</code>, puedes usar, 
-                por ejemplo, <code>get()</code> o <code>post()</code>.
-            </li></br>
-            <li class="flow-text">
-                Si los archivos comienzan a crecer, es importante reestructurarlos semánticamente en módulos para que sean 
-                más fáciles de mantener. Puedes separar un archivo en express utilizando el ruteador de express. Por 
-                convención, crearemos el nuevo archivo en una carpeta routes:
-                <pre>
-<span class="string">const express = require('express')</span>;
-
-<span class="string">const router = express.Router()</span>;
-
-<span class="string">router.get('/ruta', (request, response, next) =></span>{
-<span class="string">response.send('Respuesta de la ruta "/modulo/ruta"')</span>;
-});
-
-<span class="string">module.exports = router</span>;
-</pre>
-
-                Y el archivo principal quedaría:
-
-                <pre>
-<span class="string">const express = require('express')</span>;
-
-<span class="string">const router = express.Router()</span>;
-
-<span class="string">const misRutas = require('./routes/nombre_archivo')</span>;
-
-<span class="string">app.use('/modulo', misRutas)</span>;
-
-<span class="string">app.listen(3000)</span>;
-                </pre>
-
-            </li></br>
-            <li class="flow-text">
-                Para determinar el estado HTTP de una respuesta, puedes utilizar el método <code>status()</code> en el 
-                objeto de la respuesta.
-            </li></br>
-            <li class="flow-text">
-                Utilizando alguno de tus laboratorios anteriores (o si lo prefieres empieza de 0), elabora una aplicación 
-                web con las siguientes características: <br>
+                Utilizando alguno de tus laboratorios anteriores (o si lo prefieres empieza de 0), elabora una aplicación web con las 
+                siguientes características:<br>
                 <ol>
-                    <li>La aplicación debe poder responder al menos a 5 rutas diferentes, distribuidas en al menos 2 
-                        módulos, y mandar una respuesta HTTP 404 cuando la ruta no existe.</li><br>
-                    <li>En alguna de las rutas, la aplicación debe contener al menos 1 forma que debe enviar datos al 
-                        servidor por POST. El servidor debe reaccionar ante este envío y guardar los datos en un archivo 
-                        de texto dentro del mismo servidor.</li>
+                    <li>La aplicación debe poder responder al menos a 5 rutas diferentes, distribuidas en al menos 2 módulos, y mandar 
+                        una respuesta HTTP 404 cuando la ruta no existe.</li><br>
+                    <li>En alguna de las rutas, la aplicación debe contener al menos 1 forma que debe enviar datos al servidor por POST.
+                        El servidor debe reaccionar ante este envío y guardar los datos en un archivo de texto dentro del mismo servidor.</li>
                 </ol>
+            </li></br>
+
+            <li class="flow-text">
+                Vamos a utilizar <a href="https://ejs.co/">EJS</a> como motor de <strong>templates</strong> para generar html de manera 
+                dinámica. Este motor lo estaremos usando en los ejemplos, pero eres libre de utilizar alguno diferente en tus laboratorios
+                 y proyecto.
+            </li></br>
+
+            <li class="flow-text">
+                Para instalar EJS: <code>npm install --save ejs</code>.
+            </li></br>
+------------------------------------------------------------------------
+
+            <li class="flow-text">
+                Para configurar EJS en Express, debemos indicarle a Express que vamos a utilizar como motor para la capa de las vistas EJS, 
+                y en seguida indicar por medio de una variable de configuración de Express, la carpeta donde estarán almacenados los archivos 
+                html correspondientes a las vistas, por convención, utilizaremos la carpeta views:
+                <pre>
+app.set('view engine', 'ejs');
+app.set('views', 'views');</pre>
+            </li></br>
+
+            <li class="flow-text">
+                Los archivos EJS (.ejs), son archivos que en su mayoría contienen código HTML, pero que también permiten escribir código JS, 
+                utilizando tags con el símbolo % de la siguiente forma:  <pre>< % código de javascript % ></pre>
+                Para desplegar un template de EJS, lo hacemos con el método <strong>render</strong>, y como argumento ponemos el nombre del 
+                archivo .ejs sin poner la extensión del arhivo:
+                <pre>
+router.get('/una-ruta', (request, response, next) => {
+    response.render('vista_ejs');
+});</pre>
+                Para escribir una variable en la vista, primero debemos de pasarle a la vista un objeto de javascript con los nombres y 
+                valores de las variables:
+                <pre> 
+router.get('/una-ruta', (request, response, next) => {
+    response.render('vista_ejs', {variable: valor});
+});</pre>
+                Y finalmente, para imprimir la variable en la vista utilizamos el operador =: <pre>< $ nombre_variable % ></pre>
+            </li></br>
+            <li class="flow-text">
+                Así como imprimimos variables, también podemos poner código de estructuras de control, por ejemplo:
+                <pre>
+< % if (arreglo.length > 0) { % >
+    < ul>
+        < % for (let elemento of arreglo) { % >
+            < li>< %= elemento.atributo % >< / li>
+        < % } % >
+    < / ul>
+< % } else { % >
+    < h 1>El arreglo está vacío< /h 1>
+< % } % > 
+            </li></br>
+
+            <li class="flow-text">
+                Refactoriza tu aplicación para que mantenga la funcionalidad pero ahora trabaje con un motor de vistas.
+            </li></br>
+
+            <li class="flow-text">
+                Como has podido experimentar, mantener las 5 páginas implica estar copiando y pegando pedazos de código 
+                HTML, lo cual es un proceso propenso a errores. Los motores de vistas como EJS, permiten reutilizar código
+                sin la necesidad de estar copiando y pegando. Una estrategia para ello, es la utilización de 
+                <strong>partials</strong>, que son pedazos reutilizables de código de una vista. Por convención, dentro de 
+                la carpeta <strong>views</strong>, crearemos una carpeta <strong>includes</strong> en donde pondremos 
+                nuestros partials. <br>
+                Para incluir un partial en una vista:
+                <pre>< % include('includes/head.ejs') % ></pre>
+                Observa el operador -. A diferencia del operador = que te protege de una inyección de código, el operador 
+                - no lo hace, pero esto es lo que permite que se inserte el código HTML de nuestro partial.
+            </li></br>
+
+            <li class="flow-text">
+                Refactoriza tu aplicación para hacer un uso efectivo de los partials con aspectos como el código del head 
+                de tu aplicación, y quizás de la barra de navegación (si cuentas con una) y del footer.
             </li></br>
         </ol>
     </p>
