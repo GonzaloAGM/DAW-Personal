@@ -1,0 +1,124 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navTab.ejs') %>
+
+<section class="tabcontent" id="DescripInstr">
+    <h3 class="titulo_sec"> Descripción </h2>
+    <p class="flow-text">
+        En esta actividad instalaremos y exploraremos Express, un framework de Node.js para hacer desarrollo en el back-end.
+    </p>
+    <p>
+        <h3>Objetivos:</h3>
+        <ul>
+            <li class="flow-text">Preparar el ambiente de trabajo con Node.js + NPM + Express</li>
+            <li class="flow-text">Entender lo que son los frameworks de desarrollo web de back-end.</li>
+            <li class="flow-text">Explorar Node.js + Express</li>
+        </ul>
+    </p>
+
+    <h3 class="titulo_sec">Instrucciones</h2>
+    <p>
+        <ol>
+            <li class="flow-text">
+                Verifica que ya cuentes con npm ejecutando el comando <code>npm -V</code>. En caso negativo, instala npm y node.
+            </li></br>
+            <li class="flow-text">
+                Haz que tu trabajo sea un proyecto de npm ejecutando <code>npm init</code> desde tu carpeta de trabajo, y sigue 
+                las indicaciones del comando. <br>
+                Observa y analiza el contenido del archivo <code>package.json</code>.
+            </li></br>
+            <li class="flow-text">
+                Si deseas instalar nuevos paquetes, utiliza <code>npm install [nombre_paquete]</code>. Puedes probar con 
+                <code>npm install --save-dev nodemon</code>, un paquete que sirve para que automáticamente se reinicie el 
+                servidor cada vez que haces un cambio en un archivo. <br>
+                El argumento <code>--save-dev</code>  sirve para que sólo se instale el paquete mientras te encuentras en el 
+                entorno de desarrollo. Observa nuevamente el archivo <code>package.json</code>, y notarás que algunas líneas 
+                ahora incluyen <em>nodemon</em>, particularmente <code>"start": "nodemon app.js"</code>. Si no existe, modifica 
+                la sección scripts para incluirla. Ahora podrás iniciar el servidor con npm start, que iniciará <em>nodemon</em>.
+            </li></br>
+            <li class="flow-text">
+                Sigue la demostración del profesor en la sesión de clase.
+            </li></br>
+            <li class="flow-text">
+                Estructura básica de una aplicación con express:
+                <pre>
+<span class="string">const express = require('express')</span>;
+<span class="string">const app = express()</span>;
+
+<span class="string">//Middleware</span>
+<span class="string">app.use((request, response, next) =></span>{
+<span class="string">console.log('Middleware!')</span>;
+//Le permite a la petición avanzar hacia el siguiente middleware
+<span class="string">next();</span>
+});
+
+<span class="string">//Middleware</span>
+<span class="string">app.use((request, response, next) =></span>{
+<span class="string">console.log('Otro middleware!')</span>;
+<span class="string">response.send('¡Hola mundo!'); //Manda la respuesta</span>
+});
+
+<span class="string">app.listen(3000);</span>
+                </pre>
+            </li></br>
+            <li class="flow-text">
+                Para agregar rutas:
+                <pre>
+<span class="string">app.use('/ruta', (request, response, next) => </span>{
+<span class="string">response.send('Respuesta de la ruta "/ruta"')</span>;
+});
+                </pre>
+            </li></br>
+            <li class="flow-text">
+                Para limitar las rutas a un tipo de petición en particular, en lugar de <code>use()</code>, puedes usar, 
+                por ejemplo, <code>get()</code> o <code>post()</code>.
+            </li></br>
+            <li class="flow-text">
+                Si los archivos comienzan a crecer, es importante reestructurarlos semánticamente en módulos para que sean 
+                más fáciles de mantener. Puedes separar un archivo en express utilizando el ruteador de express. Por 
+                convención, crearemos el nuevo archivo en una carpeta routes:
+                <pre>
+<span class="string">const express = require('express')</span>;
+
+<span class="string">const router = express.Router()</span>;
+
+<span class="string">router.get('/ruta', (request, response, next) =></span>{
+<span class="string">response.send('Respuesta de la ruta "/modulo/ruta"')</span>;
+});
+
+<span class="string">module.exports = router</span>;
+</pre>
+
+                Y el archivo principal quedaría:
+
+                <pre>
+<span class="string">const express = require('express')</span>;
+
+<span class="string">const router = express.Router()</span>;
+
+<span class="string">const misRutas = require('./routes/nombre_archivo')</span>;
+
+<span class="string">app.use('/modulo', misRutas)</span>;
+
+<span class="string">app.listen(3000)</span>;
+                </pre>
+
+            </li></br>
+            <li class="flow-text">
+                Para determinar el estado HTTP de una respuesta, puedes utilizar el método <code>status()</code> en el 
+                objeto de la respuesta.
+            </li></br>
+            <li class="flow-text">
+                Utilizando alguno de tus laboratorios anteriores (o si lo prefieres empieza de 0), elabora una aplicación 
+                web con las siguientes características: <br>
+                <ol>
+                    <li>La aplicación debe poder responder al menos a 5 rutas diferentes, distribuidas en al menos 2 
+                        módulos, y mandar una respuesta HTTP 404 cuando la ruta no existe.</li><br>
+                    <li>En alguna de las rutas, la aplicación debe contener al menos 1 forma que debe enviar datos al 
+                        servidor por POST. El servidor debe reaccionar ante este envío y guardar los datos en un archivo 
+                        de texto dentro del mismo servidor.</li>
+                </ol>
+            </li></br>
+        </ol>
+    </p>
+</section>
+<%- include('includes/footer.ejs') %>
