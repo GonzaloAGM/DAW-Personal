@@ -3,12 +3,9 @@ const router = express.Router();
 
 const path = require('path');
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
-
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: false}));
+router.use(bodyParser.urlencoded({extended: false}));
 
 const fs = require('fs');
 
@@ -16,40 +13,10 @@ const usuarios = [
     {nombreUsuario: 'Admin', contrasena: '1234'}, 
     {nombreUsuario: 'User', contrasena: 'noLeasEsto'}];
 
-let contentType = 'text/html';
-let filePath = "";
-
-router.use((request, response, next) => {
-    contentType = 'text/html';
-    filePath = '';
-
-    filePath = path.join(__dirname,'..',request.url);
-
-    let extName = path.extname(request.url);
-
-    switch (extName) {
-        case '.css':
-            contentType = 'text/css';
-            break;
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.json':
-            contentType = 'application/json';
-            break;
-        case '.png':
-            contentType = 'image/png';
-            break;
-        case '.jpg':
-            contentType = 'image/jpg';
-            break;
-    }
-
-    next();
-});
+//Enviar archivos estáticos en carpeta public
+router.use(express.static(path.join(__dirname,'..', 'public')));
 
 router.get('/RegPssw', (request, response, next) => {
-    response.writeHead(200, {'Content-Type': contentType})
     response.render('RegPssw', {
         titulo: "Lab14-login-GAGM-DAW & BD",
         act1: "",
@@ -57,7 +24,8 @@ router.get('/RegPssw', (request, response, next) => {
         act3: "",
         act4: "",
     });
-    console.log("Reg Pssw");    
+    console.log("Reg Pssw");
+    response.status(200);
 });
 
 router.post('/RegPssw', (request, response, next) => {
@@ -72,7 +40,6 @@ router.post('/RegPssw', (request, response, next) => {
 });
 
 router.get('/ValidaPssw', (request, response, next) => {
-    response.writeHead(200, {'Content-Type': contentType})
     response.render('ValidaPssw', {
         titulo: "Lab14-login-GAGM-DAW & BD",
         act1: "",
@@ -80,7 +47,8 @@ router.get('/ValidaPssw', (request, response, next) => {
         act3: "",
         act4: "",
     });
-    console.log("Valida Pssw");    
+    console.log("Valida Pssw");
+    response.status(200);    
 });
 
 router.post('/ValidaPssw', (request, response, next) => {
@@ -101,7 +69,6 @@ router.post('/ValidaPssw', (request, response, next) => {
 });
 
 router.get('/', (request, response, next) => {
-    response.writeHead(200, {'Content-Type': contentType})
     response.render('login', {
         titulo: "Lab14-login-GAGM-DAW & BD",
         act1: "",
@@ -111,6 +78,7 @@ router.get('/', (request, response, next) => {
     });
     console.log("login");    
     console.log(usuarios);
+    response.status(200);
 });
 
 module.exports = router;

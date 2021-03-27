@@ -54,7 +54,6 @@ app.use('/login', rutaUserValidation);
 app.use('/tienda', rutaTienda);
 
 app.use('/Recursos', (request, response, next) => {
-    response.writeHead(200, {'Content-Type': contentType})
     response.render('Recursos', {
         titulo: "Lab14-Recursos-GAGM-DAW & BD",
         act1: "",
@@ -63,13 +62,13 @@ app.use('/Recursos', (request, response, next) => {
         act4: "active",
     });
     console.log("Recursos");
+    response.status(200);
 });
 
 app.get('/', (request, response, next) => {
     //filePath = path.join(__dirname,'..','views','lab14.html');
     //response.writeHead(200, {'Content-Type': contentType});
     //response.sendFile(filePath);
-    response.writeHead(200, {'Content-Type': contentType})
     response.render('lab14', {
         titulo: "Lab14-GAGM-DAW & BD",
         act1: "active",
@@ -78,10 +77,10 @@ app.get('/', (request, response, next) => {
         act4: "",
     });
     console.log("en home");
+    response.status(200);
 });
 
 app.use((request, response, next) => {
-    response.writeHead(404, {'Content-Type': contentType})
     response.render('Err404', {
         titulo: "Lab14-404-GAGM-DAW & BD",
         act1: "",
@@ -90,6 +89,7 @@ app.use((request, response, next) => {
         act4: "",
     });
     console.log("404");
+    response.status(404);
 });
 
 app.listen(3000, function(){

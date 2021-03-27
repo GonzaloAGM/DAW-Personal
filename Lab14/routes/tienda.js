@@ -3,12 +3,9 @@ const router = express.Router();
 
 const path = require('path');
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
-
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: false}));
+router.use(bodyParser.urlencoded({extended: false}));
 
 let descuento = 0;
 let iva = 0;
@@ -60,40 +57,10 @@ const articulos = [
     },
 ];
 
-let contentType = 'text/html';
-let filePath = "";
-
-router.use((request, response, next) => {
-        contentType = 'text/html';
-        filePath = '';
-    
-        filePath = path.join(__dirname,'..',request.url);
-    
-        let extName = path.extname(request.url);
-    
-        switch (extName) {
-            case '.css':
-                contentType = 'text/css';
-                break;
-            case '.js':
-                contentType = 'text/javascript';
-                break;
-            case '.json':
-                contentType = 'application/json';
-                break;
-            case '.png':
-                contentType = 'image/png';
-                break;
-            case '.jpg':
-                contentType = 'image/jpg';
-                break;
-        }
-    next();
-});
+//Enviar archivos estáticos en carpeta public
+router.use(express.static(path.join(__dirname,'..', 'public')));
 
 router.use('/Total', (request, response, next) => {
-    
-    response.writeHead(200, {'Content-Type': contentType})
     response.render('TotalTienda', {
         titulo: "Lab14-Tienda-GAGM-DAW & BD",
         act1: "",
@@ -113,7 +80,6 @@ router.use('/Total', (request, response, next) => {
 
 
 router.get('/', (request, response, next) => {
-    response.writeHead(200, {'Content-Type': contentType})
     response.render('tienda', {
         titulo: "Lab14-Tienda-GAGM-DAW & BD",
         act1: "",
@@ -123,6 +89,7 @@ router.get('/', (request, response, next) => {
         articulos: articulos
     });
     console.log("Tienda");
+    response.status(200);
 });
 
 router.post('/', (request, response, next) => {
