@@ -68,7 +68,6 @@ const articulos = [
     },
 ];
 
-
 //Enviar archivos estáticos en carpeta public
 router.use(express.static(path.join(__dirname,'..', 'public')));
 
@@ -88,7 +87,6 @@ router.use('/Total', (request, response, next) => {
     //console.log("Descuento: " + descuento + " | IVA: " + iva +" | Total: $" + total);
     response.status(201);
 });
-
 
 router.get('/', (request, response, next) => {
     response.render('tienda', {
