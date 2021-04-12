@@ -33,7 +33,7 @@ exports.getValPass = (request, response, next) => {
 };
 
 exports.postValPass = (request, response, next) => {
-    const newUser = new Usuario (request.body.username, request.body.password);
+    const newUser = new Usuario (request.body.username, request.body.pass);
 
     if(newUser.check()){
         console.log("Acceso concedido");

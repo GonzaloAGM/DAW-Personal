@@ -15,7 +15,7 @@ module.exports = class Usuario {
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
         usuarios.push(this);
-        userText = this.toString() + "\n";
+        let userText = this.toString() + "\n";
         fs.writeFileSync('login.txt', userText, {encoding: "utf8", flag: "a+"});
     }
 
