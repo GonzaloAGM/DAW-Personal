@@ -1,8 +1,4 @@
-const fs = require('fs');
-
-const usuarios = [
-    {nombreUsuario: 'Admin', contrasena: '1234'}, 
-    {nombreUsuario: 'User', contrasena: 'noLeasEsto'}];
+const Usuario = require('../models/usuario');
 
 exports.getRegPass = (request, response, next) => {
     response.render('RegPssw', {
@@ -17,11 +13,9 @@ exports.getRegPass = (request, response, next) => {
 };
 
 exports.postRegPass = (request, response, next) => {
-    let username = request.body.username;
-    let pass = request.body.password;
-    usuarios.push({nombreUsuario: username, contrasena: pass});
-    user = "nombreUsuario: '" + username + "', contrasena: '" + pass + "\n";
-    fs.writeFileSync('login.txt', user, {encoding: "utf8", flag: "a+"});
+    const newUser = new Usuario (request.body.username, request.body.password);
+    newUser.save();
+
     response.status(302);
     response.redirect('/login');
 };
@@ -39,16 +33,15 @@ exports.getValPass = (request, response, next) => {
 };
 
 exports.postValPass = (request, response, next) => {
-    let username = request.body.username;
-    let pass = request.body.pass;
-    const data = fs.readFileSync('login.txt');
-    if(data.includes("nombreUsuario: '"+ username +"', contrasena: '"+ pass)){
+    const newUser = new Usuario (request.body.username, request.body.password);
+
+    if(newUser.check()){
         console.log("Acceso concedido");
         response.status(302);
         //window.alert("Contraseña correcta");
         response.redirect('/tienda');
     }else{
-        console.log("nombreUsuario: '"+ username +"', contrasena: '"+ pass);
+        console.log(newUser.toString());
         console.log("Acceso denegado");
         response.status(302);
         //window.alert("Contraseña incorrecta");
@@ -66,6 +59,6 @@ exports.getLogin = (request, response, next) => {
         act4: "",
     });
     console.log("login");    
-    console.log(usuarios);
+    console.log(Usuario.fetchAll());
     response.status(200);
 };
