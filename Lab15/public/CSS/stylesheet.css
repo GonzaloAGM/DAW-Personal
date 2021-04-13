@@ -72,6 +72,7 @@ th, td {
 .topnav {
   overflow: hidden;
   background-color: #333;
+  z-index: 2;
 }
 
 .topnav button {
