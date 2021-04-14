@@ -85,6 +85,16 @@ AND Pel.Titulo = E.Titulo
 AND Pel.año = E.año
 AND E.Nombre = 'Sharon Stone'
 
+-- Con pocas Subconsultas
+SELECT nombre 
+FROM Productores
+WHERE idproductor IN (  SELECT idproductor
+			FROM Elenco E, Pelicula P
+                        WHERE P.titulo = E.titulo
+                        AND P.año = E.año
+                        AND E.nombre = ‘Sharon Stone’ )
+
+
 -- Con Subconsultas
 SELECT Nombre
 FROM Productor
