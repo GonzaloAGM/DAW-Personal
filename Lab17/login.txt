@@ -1,0 +1,3 @@
+nombreUsuario: 'hola', contrasena: 'A9=aaaaa
+nombreUsuario: 'GonzaloAGM', contrasena: 'A9=aaaaa
+nombreUsuario: 'hola', contrasena: 'A9=aaaaa

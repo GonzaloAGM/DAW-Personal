@@ -1,0 +1,29 @@
+<div class="col s12 m6 l8 xl9">
+    <% for (let articulo of articulos) { %>
+        <div class="col s12 m12 l6 xl4">
+            <div class = "card blue-grey lighten-4">
+            <div class = "card-image waves-effect waves-block waves-light">
+                <img class = "activator responsive-img" src = "<%= articulo.imagen %>">                
+            </div>
+            
+            <div class = "card-content activator">                  
+                <p> <%= articulo.nombreMayus %> <br> Click para mas información.</p>
+            </div>
+            
+            <div class = "card-reveal">
+                <span class = "card-title grey-text text-darken-4"> <%= articulo.nombre %>
+                    <i class = "material-icons right">close</i></span>
+                <p class="flow-text"><%= articulo.descripcion %></p>
+            </div>
+            
+            <div class = "card-action">
+                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt( <%= articulo.num %> ); subtotal()">
+                    <i class = "material-icons">add</i></button>
+                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt( <%= articulo.num %> ); subtotal()">
+                    <i class = "material-icons">remove</i></button></span>
+                <p><br></p>
+            </div>
+            </div>
+        </div>
+    <% } %>
+</div>
