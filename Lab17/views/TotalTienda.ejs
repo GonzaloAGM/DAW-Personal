@@ -2,7 +2,8 @@
 <%- include('includes/navTab.ejs') %>
 
         <section class="tabcontent" id="Tienda">
-            <h2 class="titulo_sec">Gracias por realizar tu compra</h2>
+            <h2 class="titulo_sec">Gracias por realizar tu compra con nosotros <%= nombreUser %></h2>
+            <p class="flow-text"><%= mensaje %></p>
                 <div class="row">
                     <div>
                         <br><p class="flow-text" id="subtotal">Subtotal: $<%= Subtotal %></p>
@@ -11,7 +12,7 @@
                         <p class="flow-text" id="total">Total: $<%= Total %></p>
                     </div>
                 </div>
-            
+            <p class="flow-text">Vuelve pronto</p>
         </section>
 
 <%- include('includes/footer.ejs') %>

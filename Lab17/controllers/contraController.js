@@ -1,15 +1,23 @@
 const Usuario = require('../models/usuario');
 
 exports.getRegPass = (request, response, next) => {
-    response.render('RegPssw', {
-        titulo: "Lab15-login-GAGM-DAW & BD",
-        act1: "",
-        act2: "active",
-        act3: "",
-        act4: "",
-    });
-    console.log("Reg Pssw");
-    response.status(200);
+    let state = request.session.sesionLoginUser === undefined ? false : true;
+    if(state){
+        console.log("Ya loggeado intentando Reg Pssw");
+        response.redirect('/');
+        response.status(202);
+    }else{
+        response.render('RegPssw', {
+            titulo: "Lab17-login-GAGM-DAW & BD",
+            logged : state,
+            act1: "",
+            act2: "active",
+            act3: "",
+            act4: "",
+        });
+        console.log("Reg Pssw");
+        response.status(200);
+    }
 };
 
 exports.postRegPass = (request, response, next) => {
@@ -21,21 +29,35 @@ exports.postRegPass = (request, response, next) => {
 };
 
 exports.getValPass = (request, response, next) => {
-    response.render('ValidaPssw', {
-        titulo: "Lab15-login-GAGM-DAW & BD",
-        act1: "",
-        act2: "active",
-        act3: "",
-        act4: "",
-    });
-    console.log("Valida Pssw");
-    response.status(200);    
+    let state = request.session.sesionLoginUser === undefined ? false : true;
+    if(state){
+        console.log("Ya loggeado intentando Val Pssw");
+        response.redirect('/');
+        response.status(202);
+    }else{
+        response.render('ValidaPssw', {
+            titulo: "Lab17-Validate-GAGM-DAW & BD",
+            logged : state,
+            act1: "",
+            act2: "active",
+            act3: "",
+            act4: "",
+        });
+        console.log("Valida Pssw");
+        response.status(200);    
+    }  
 };
 
 exports.postValPass = (request, response, next) => {
-    const newUser = new Usuario (request.body.username, request.body.pass);
+    var nombreUsuario = request.body.username;
+    const newUser = new Usuario (nombreUsuario, request.body.pass);
+
+    response.setHeader('Set-Cookie', 'userNameCook='+ nombreUsuario +'; HttpOnly');
+
+    console.log(request.cookies.userNameCook);
 
     if(newUser.check()){
+        request.session.sesionLoginUser = nombreUsuario;
         console.log("Acceso concedido");
         response.status(302);
         //window.alert("Contraseña correcta");
@@ -51,14 +73,22 @@ exports.postValPass = (request, response, next) => {
 };
 
 exports.getLogin = (request, response, next) => {
-    response.render('login', {
-        titulo: "Lab14-login-GAGM-DAW & BD",
-        act1: "",
-        act2: "active",
-        act3: "",
-        act4: "",
-    });
-    console.log("login");    
-    console.log(Usuario.fetchAll());
-    response.status(200);
+    let state = request.session.sesionLoginUser === undefined ? false : true;
+    if(state){
+        console.log("Ya loggeado intentando login");
+        response.redirect('/');
+        response.status(202);
+    }else{
+        response.render('login', {
+            titulo: "Lab17-Enter-GAGM-DAW & BD",
+            logged : state,
+            act1: "",
+            act2: "active",
+            act3: "",
+            act4: "",
+        });
+        console.log("login");    
+        console.log(Usuario.fetchAll());
+        response.status(200);
+    }
 };

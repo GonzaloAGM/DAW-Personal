@@ -4,14 +4,16 @@
     <div class="container">
       <div class="row">
         <div class="col l7 s12">
-            <h4 class="white-text">Laboratorio 15: MVC</h4>
+            <h4 class="white-text">Laboratorio 17: Manejo de sesiones y cookies</h4>
             <p class="grey-text text-lighten-4 flow-text">Se realizo esto usando materialize, NPM, express y ejs</p>
         </div>
         <div class="col l4 offset-l1 s12">
           <h5 class="white-text">Links</h5>
           <ul>
             <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
-            <li><a class="grey-text text-lighten-3" href="/login">Log-in</a></li>
+            <% if(!logged){ %> 
+              <li><a class="grey-text text-lighten-3" href="/login">Log-in</a></li>
+            <% } %> 
             <li><a class="grey-text text-lighten-3" href="/tienda">Tienda</a></li>
             <li><a class="grey-text text-lighten-3" href="/Recursos">Recursos y pregunta</a></li>
           </ul>
