@@ -4,14 +4,14 @@
 <section class="tabcontent" id="DescripInstr">
     <h3 class="titulo_sec"> Descripción </h2>
     <p class="flow-text">
-        En esta actividad exploraremos el estilo arquitectónico Modelo-Vista-Controlador y lo implementaremos con node+express.
+        En esta actividad exploraremos el manejo de sesiones y cookies con node+express.
     </p>
     <p>
         <h3>Objetivos:</h3>
         <ul>
-            <li class="flow-text">Entender el estilo arquitectónico Modelo-Vista-Controlador.</li>
-            <li class="flow-text">Diseñar aplicaciones con un estilo arquitectónico Modelo-Vista-Controlador.</li>
-            <li class="flow-text">Implementar aplicaciones con un estilo arquitectónico Modelo-Vista-Controlador.</li>
+            <li class="flow-text">Entender la manera en que funcionan las sesiones.</li>
+            <li class="flow-text">Entender la manera en que funcionan las cookies.</li>
+            <li class="flow-text">Implementar aplicaciones web que mantengan los datos a través de diferentes peticiones.</li>
         </ul>
     </p>
 
@@ -20,7 +20,7 @@
         <ol>
             <li class="flow-text">
                 Atiende a la explicación del profesor del 
-                <a href="https://docs.google.com/presentation/d/13_mWmuGt7FA8GZy3P6fyT98zJAmg2aW8frDKuoO8ag8/edit?usp=sharing">tema MVC</a>
+                <a href="https://docs.google.com/presentation/d/1PpcMLEKKr0H8inRs11hdadQSfR8a17yaO5qzIWX-uwM/edit?usp=sharing">tema sesiones y cookies</a>
                 y pregunta tus dudas.
             </li></br>
 
@@ -31,71 +31,82 @@
             </li></br>
 
             <li class="flow-text">
-                Por convención, nuestros controladores los pondremos en una carpeta controllers. Comenzaremos a mover la lógica 
-                que antes habíamos puesto en las vistas, hacia una variable que exportaremos del controlador. Utilizaremos de 
-                ejemplo el controlador <code>a_controller.js</code>:
+                Las cookies viajan en el header de la respuesta, por lo que para definir una cookie, lo podemos hacer en la capa del 
+                controlador por medio del método <code>setHeader('Set-Cookie')</code> de la respuesta HTTP:
                 <pre>
-exports.action = (request, response, next) => {
-    response.render('view_file', { 
-        atribute_1: 'Data 1', 
-        atribute_2: 'Data 2'
+exports.accion = (request, response, next) => {
+    response.setHeader('Set-Cookie', 'nombre_cookie', 'valor_cookie');
+}</pre>
+                A partir de que definimos una cookie, el navegador mandará en el header de la petición, todas las cookies que 
+                corresponden al sitio. Para acceder a las cookies en el controlador, lo podemos hacer por medio del header 
+                'Cookie' de la petición:
+                <pre>
+exports.accion = (request, response, next) => {
+    request.get('Cookie');
+}</pre>
+                Para acceder a un valor de una cookie en particular, puedes hacer manipulando el string, por ejemplo con 
+                <code>request.get('Cookie').split(';')[1].trim().split('=')[1];</code> o bien, con instalando algún módulo 
+                como <code>cookie-parser</code>.
+            </li></br>
+
+            <li class="flow-text">
+                Además del valor, puedes agregarle más propiedades a la cookie como fecha de expiración, segundos de vida, 
+                el dominio al que quieres que se envíe, o la propiedad Secure, que sólo enviará la cookie si viaja por HTTPS. <br>
+                Es importante tener cuidado con el uso de las cookies, ya que los usuarios pueden editarlas desde el navegador. 
+                Para que la cookie no pueda ser leída por el código js del navegador, se le puede agregar la propiedad HttpOnly. 
+                Esto protege de ataques XSS.
+                <pre>
+exports.accion = (request, response, next) => {
+    response.setHeader('Set-Cookie', 'nombre_cookie=valor_cookie; HttpOnly');
+}</pre>
+            </li><br>
+
+            <li class="flow-text">
+                Para manejar sesiones de manera muy práctica, instalaremos el paquete <code>express-session</code>.
+            </li><br>
+
+            <li class="flow-text"></li>
+                Para preparar el entorno para trabajar con sesiones, agregamos como middleware el manejo de sesiones:
+                <pre>
+const session = require('express-session');
+
+app.use(session({
+    secret: 'mi string secreto que debe ser un string aleatorio muy largo, no como éste', 
+    resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
+    saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
+}));</pre>
+            </li></br>
+
+            <li class="flow-text"></li>
+                Para utilizar las variables de sesión en un controlador:
+                <pre>
+exports.action = (request, response, next) {
+    request.session.nombre_variable = valor;
+};</pre>
+                Si revisas la consola desde el navegador, podrás observar una cookie con tu variable 
+                de sesión y con el valor encriptado.
+            </li></br>
+
+            <li class="flow-text"></li>
+            Para eliminar una sesión, lo cual es principalmente útil cuando un usuario sale de la aplicación, 
+            puedes hacerlo de la siguiente forma:
+                <pre>
+exports.logout = (request, response, next) => {
+    request.session.destroy(() => {
+        response.redirect('/'); //Este código se ejecuta cuando la sesión se elimina.
     });
 };</pre>
             </li></br>
 
             <li class="flow-text">
-                El archivo con la ruta quedará más ligero, ya que únicamente tendrán nuestra ruta y la referencia hacia el controlador 
-                que utilizarán, quedando de la siguiente forma:
-                <pre>const aController = require('../controllers/a_controller');
-
-router.get('/add-mascota', aController.action);</pre>
-            </li><br>
-
-            <li class="flow-text">
-                Para implementar la capa del modelo, por convención, utilizaremos una carpeta models. Ahí pondremos cada uno de los archivos 
-                de nuestro modelo. Es común tener un archivo de modelo por tabla de la base de datos. Un archivo de modelo, típicamente tiene 
-                la siguiente estructura:
-                <pre>
-module.exports = class Mascota {
-
-    //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
-    constructor(my_value) {
-        this.attribute_1 = my_value;
-    }
-
-    //Este método servirá para guardar de manera persistente el nuevo objeto. 
-    save() {
-        
-    }
-
-    //Este método servirá para devolver los objetos del almacenamiento persistente.
-    static fetchAll() {
-        
-    }
-
-}</pre>
-            Para usar el modelo en el controlador:
-            <pre>
-const Mascota = require('../models/mascota');
-
-//Para crear un objeto de nuestro modelo
-const mascota = new Mascota('Punky');
-mascota.save();
-
-//Para recuperar la lista de objetos del modelo
-const mascotas = Mascota.fetchAll();</pre>
-            
-            Por el momento, podemos utilizar un arreglo para almacenar la información, entonces en al archivo del modelo podemos crear un 
-            arreglo <code>const mascotas = []</code> , llenar en método <code>save()</code> con <code>mascotas.push(this);</code> y 
-            <code>fetchAll()</code> con <code>return mascotas;</code>
-            </li></br>
-
-            <li class="flow-text">
-            Refactoriza alguno de tus laboratorios anteriores o el avance de tu proyecto utilizando un estilo arquitectónico MVC. Otra 
-            opción es que crees una nueva aplicación utilizando este patrón.
+                Mejora alguno de tus laboratorios anteriores o avanza en tu proyecto haciendo un uso 
+                pertinente de sesiones y cookies. Otra opción es que crees una nueva aplicación para 
+                que explores la aplicación de estos conceptos.
             </li></br>
             <li class="flow-text">
-            Agrega una nueva funcionalidad que toque todos los puntos clave de la arquitectura.
+                En ocasiones, como por ejemplo para mandar mensajes de error al usuario, deseamos utilizar 
+                variables de sesión que tengan un tiempo de vida de sólo 1 petición. Estas variables se 
+                llaman flash. Si deseas utilizarlas, el paquete connect-flash lo hace sencillo.
             </li></br>
         </ol>
     </p>
