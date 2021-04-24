@@ -1,0 +1,41 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navTab.ejs') %>
+
+      <!-- Pregutnas -->
+      <section class="tabcontent" id="Preguntas">
+        <h2  class="titulo_sec">Preguntas a responder</h2>
+            <div>
+                <p class="pregunta flow-text">¿Qué beneficios encuentras en el estilo MVC?</p>
+                <p class="flow-text">Sirve sobre todo para minimizar la responsabilidad de cada módulo con respecto 
+                    a la función que cumple en el sistema. Esto con el fin de que el desarrollo sea mas simple y sencillo 
+                    pues existe una gran cantidad de divisiones, lo cual lo facilita.
+                </p><br>
+    
+                <p class="pregunta flow-text">¿Encuentras alguna desventaja en el estilo arquitectónico MVC?</p>
+                <p class="flow-text">La cantidad de archivos que se generan es muy grande, sobre todo para sitios con una 
+                    gran cantidad de páginas. Se necesita un muy buen sistema de documentación y estandarización, para 
+                    saber como usarlo y como mantenerlo. Por último, ocupa mucho espacio en almacenamiento.
+                </p>
+            </div>
+            <!-- No hay referencias
+            <div>
+                <h3>Referencias</h3>
+                <a href="">Una referencia</a>
+            </div> -->
+      </section>
+
+      <!-- Recursos -->
+      <section class="tabcontent" id="Recursos">
+          <h2  class="titulo_sec">Recursos útiles al llevar a cabo el laboratorio</h2>
+          <ul>
+              <li><a class="flow-text" href="https://en.wikipedia.org/wiki/HTTP_cookie">HTTP cookie</a></li></br>
+              <li><a class="flow-text" href="https://www.npmjs.com/package/cookie-parser">cookie-parser</a></li></br>
+              <li><a class="flow-text" href="https://medium.com/@ethantcollins98/setting-and-using-cookies-with-a-node-js-express-server-49479673d043">Setting and Using Cookies with a Node.js / Express Server</a></li></br>
+              <li><a class="flow-text" href="https://www.geeksforgeeks.org/http-cookies-in-node-js/">HTTP Cookies in Node.js</a></li></br>
+              <li><a class="flow-text" href="https://owasp.org/www-community/attacks/xss/">XSS</a></li></br>
+              <li><a class="flow-text" href="https://www.npmjs.com/package/express-session">express-session</a></li></br>
+              <li><a class="flow-text" href="https://www.npmjs.com/package/connect-flash">connect-flash</a></li></br>
+          </ul><br><br>
+      </section>
+
+<%- include('includes/footer.ejs') %>
