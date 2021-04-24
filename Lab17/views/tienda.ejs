@@ -22,11 +22,11 @@
                                     <td><%= articulo.nombre %></td> 
                                     <td>$<%= articulo.precio %></td>
                                     <td id="<%= articulo.num %>" name="<%= articulo.num %>">0</td>
-                                    <td display="none"><input type="number" name="<%= "input" + articulo.num %>" id="<%= "input" + articulo.num %>" value="0" min="0"></td>
+                                    <td style="display: none;"><input type="number" name="<%= "input" + articulo.num %>" id="<%= "input" + articulo.num %>" value="0" min="0"></td>
                                 </tr>
                             <% } %>
-                            <tr><td>Descuento</td><td>%</td><td><input type="number" id="descuento" name="descuento" value="0" min="0" max="100"></td></tr>
-                            <tr><td>IVA</td><td>%</td><td><input type="number" id="iva" name ="iva" value="16" min="0" max="100"></td></tr>
+                            <tr><td>Descuento</td><td><%= Descuento %>%</td></tr>
+                            <tr><td>IVA</td><td>16%</td></tr>
                         </table>
                         <br>
                         <p class="flow-text" id="subpago">Subtotal: </p>

@@ -8,31 +8,65 @@ exports.useTotal = (request, response, next) => {
     if(state){
         let cantidad = 0;
         let mensaje = '';
-        if (req.cookies.totalCompras === undefined){
+
+        if (request.cookies.totalCompras === undefined){
             response.setHeader('Set-Cookie', 'totalCompras='+ cuenta.getTotal() +'; HttpOnly');
+            response.render('TotalTienda', {
+                titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                logged : state,
+                act1: "",
+                act2: "",
+                act3: "active",
+                act4: "",
+                Descuento: cuenta.getDescuento(),
+                IVA: cuenta.getIva(),
+                Subtotal: cuenta.getSubtot(),
+                Total: cuenta.getTotal(),
+                mensaje: mensaje,
+                nombreUser: request.session.sesionLoginUser
+            });
+            cuenta.setDescuento(0);
         }else{
-            cantidad = (request.cookies.totalCompras + cuenta.getTotal());
-            response.cookie('totalCompras', cantidad);
-        }
-        if(request.cookies.totalCompras > 500){
-            response.cookie('totalCompras', 0);
-            mensaje = 'En tu proxima compra, tendrás un cupon del 10%';
+            cantidad = (parseInt(request.cookies.totalCompras) + cuenta.getTotal());
+            response.setHeader('Set-Cookie', 'totalCompras='+ cantidad +'; HttpOnly');
+            if(request.cookies.totalCompras > 500){
+                response.setHeader('Set-Cookie', 'totalCompras=0; HttpOnly');
+                mensaje = 'En tu proxima compra, tendrás un cupon del 10%';
+                response.render('TotalTienda', {
+                    titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                    logged : state,
+                    act1: "",
+                    act2: "",
+                    act3: "active",
+                    act4: "",
+                    Descuento: cuenta.getDescuento(),
+                    IVA: cuenta.getIva(),
+                    Subtotal: cuenta.getSubtot(),
+                    Total: cuenta.getTotal(),
+                    mensaje: mensaje,
+                    nombreUser: request.session.sesionLoginUser
+                });
+                cuenta.setDescuento(10);
+            }else
+            {
+                response.render('TotalTienda', {
+                    titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                    logged : state,
+                    act1: "",
+                    act2: "",
+                    act3: "active",
+                    act4: "",
+                    Descuento: cuenta.getDescuento(),
+                    IVA: cuenta.getIva(),
+                    Subtotal: cuenta.getSubtot(),
+                    Total: cuenta.getTotal(),
+                    mensaje: mensaje,
+                    nombreUser: request.session.sesionLoginUser
+                });
+                cuenta.setDescuento(0);
+            }
         }
         
-        response.render('TotalTienda', {
-            titulo: "Lab17-Tienda-GAGM-DAW & BD",
-            logged : state,
-            act1: "",
-            act2: "",
-            act3: "active",
-            act4: "",
-            Descuento: cuenta.getDescuento(),
-            IVA: cuenta.getIva(),
-            Subtotal: cuenta.getSubtot(),
-            Total: cuenta.getTotal(),
-            mensaje: mensaje,
-            nombreUser: request.session.sesionLoginUser
-        });
         console.log("Total tienda");
         //console.log("Descuento: " + descuento + " | IVA: " + iva +" | Total: $" + total);
         response.status(201);
@@ -54,6 +88,7 @@ exports.getTienda = (request, response, next) => {
         act3: "active",
         act4: "",
         articulos: Articulo.fetchAll(),
+        Descuento : cuenta.getDescuento(),
         nombreUser: request.session.sesionLoginUser
     });
     console.log("Tienda");
@@ -61,8 +96,8 @@ exports.getTienda = (request, response, next) => {
 };
 
 exports.postTienda = (request, response, next) => {
-    cuenta.setDescuento(request.body.descuento);
-    cuenta.setIva(request.body.iva);
+    //cuenta.setIva(request.body.iva);
+    cuenta.setIva(16);
     cuenta.setSubtot(request.body.subtinput);
     cuenta.calculaTotal();
 
