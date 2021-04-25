@@ -1,0 +1,33 @@
+Laboratorio 2: Control de versiones
+
+Descripción:
+
+En esta actividad configurarás tu sistema de control de versiones con git, el cual servirá para que realices 
+todas tus entregas individuales del semestre.
+
+Objetivos de aprendizaje
+
+Comprender los principios sobre los que trabajan los sistemas de control de versiones
+Controlar las versiones del trabajo individual por medio de git. Particularmente dominar los comandos clone, add, commit y push.
+
+Instrucciones
+
+1.- Revisa junto con tu profesor la presentación Control de versiones (https://ejuarez.bitbucket.io/daw/documentos/versionControl.pptx).
+2.- Crea con tu correo del Tec, una cuenta en BitBucket, en GitHub o en GitLab.
+3.- Crea un repositorio remoto y asegúrate de que tu repositorio sea público para que tus compañeros y profesores puedan tener acceso a él.
+4.- Instala y configura git en tu entorno de desarrollo y sincroniza tu repositorio local con tu repositorio remoto.
+5.- Agrega el laboratorio 1 a tu repositorio local, y posteriormente sincroniza tu repositorio local con tu repositorio remoto.
+6.- Comparte el enlace y nombre de usuario en el canal de slack #daw_repos_labs, para que se pueda revisar y retroalimentar tu trabajo. 
+    Realizar esta acción es indispensable para tener calificación en los laboratorios. No realizarla implica 0 en TODAS las actividades que 
+    se entregan por medio del repositorio individual.
+
+Recursos
+
+- Control de versiones (https://ejuarez.bitbucket.io/daw/documentos/versionControl.pptx)
+- Try github (http://try.github.io/)
+- How not to be afraid of git anymore (https://medium.freecodecamp.org/how-not-to-be-afraid-of-git-anymore-fe1da7415286)
+- The Ultimate Git Command Tutorial for Beginners - Everything You Need to Know (https://www.freecodecamp.org/news/git-commands/)
+- Getting started with Git and GitHub: the complete beginner’s guide (https://towardsdatascience.com/getting-started-with-git-and-github-6fcd0f2d4ac6)
+- First Impressions Count - Why Doesn’t Your Github Repo Have a ReadMe File? (https://medium.com/@ratracegrad/first-impressions-count-why-doesnt-your-github-repo-have-a-readme-file-f240961a8fca)
+- 10 Important Git Commands that Every Developer Should Know (https://www.freecodecamp.org/news/10-important-git-commands-that-every-developer-should-know/)
+- The beginner’s guide to Git & GitHub (https://www.freecodecamp.org/news/the-beginners-guide-to-git-github/)
