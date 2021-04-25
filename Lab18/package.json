@@ -4,6 +4,7 @@
   "description": "Laboratorio 18: Interacción con la base de datos - DAW-BD Feb-Jun 2021",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -23,6 +24,7 @@
     "cookie-parser": "^1.4.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-session": "^1.17.1"
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5"
   }
 }

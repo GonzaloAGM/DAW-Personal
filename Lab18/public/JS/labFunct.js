@@ -68,6 +68,10 @@ function passwordVal() {
   });
 
 const listaArti = [
+        {nombre: 'Desconocido', 
+        cantidad: 0, 
+        precio: -1
+        },
         {
         nombre: 'Naranja', 
         cantidad : 0, 
@@ -116,7 +120,7 @@ function subtractArt(artNum){
     let nombre = "" + artNum;
     let nombreInput = "input" + artNum;
     if(listaArti[artNum].cantidad !== 0)
-    listaArti[artNum].cantidad -=1;
+        listaArti[artNum].cantidad -=1;
     document.getElementById(nombre).innerHTML=listaArti[artNum].cantidad;
     document.getElementById(nombreInput).value=listaArti[artNum].cantidad;
     console.table(listaArti);

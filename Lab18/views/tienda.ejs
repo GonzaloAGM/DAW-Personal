@@ -21,8 +21,8 @@
                                 <tr>
                                     <td><%= articulo.nombre %></td> 
                                     <td>$<%= articulo.precio %></td>
-                                    <td id="<%= articulo.num %>" name="<%= articulo.num %>">0</td>
-                                    <td style="display: none;"><input type="number" name="<%= "input" + articulo.num %>" id="<%= "input" + articulo.num %>" value="0" min="0"></td>
+                                    <td id="<%= articulo.idArticulo %>" name="<%= articulo.idArticulo %>">0</td>
+                                    <td style="display: none;"><input type="number" name="<%= "input" + articulo.idArticulo %>" id="<%= "input" + articulo.idArticulo %>" value="0" min="0"></td>
                                 </tr>
                             <% } %>
                             <tr><td>Descuento</td><td><%= Descuento %>%</td></tr>

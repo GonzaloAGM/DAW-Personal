@@ -16,7 +16,7 @@ const rutaTienda = require('./routes/tienda');
 const rutaUsuarios = require('./routes/usuarios');
 
 //Controladores
-const homeController = require('./controllers/lab17_controller');
+const homeController = require('./controllers/lab18_controller');
 
 //Activa bodyparser
 app.use(bodyParser.urlencoded({extended: false}));

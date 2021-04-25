@@ -3,11 +3,11 @@
         <div class="col s12 m12 l6 xl4">
             <div class = "card blue-grey lighten-4">
             <div class = "card-image waves-effect waves-block waves-light">
-                <img class = "activator responsive-img" src = "<%= articulo.imagen %>">                
+                <img class = "activator responsive-img" src = "<%= articulo.dirImagen %>">                
             </div>
             
             <div class = "card-content activator">                  
-                <p> <%= articulo.nombreMayus %> <br> Click para mas información.</p>
+                <p> <%- articulo.nombre.toUpperCase() %> <br> Click para mas información.</p>
             </div>
             
             <div class = "card-reveal">
@@ -17,9 +17,9 @@
             </div>
             
             <div class = "card-action">
-                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt( <%= articulo.num %> ); subtotal()">
+                <span><button class = "btn waves-effect right waves-light blue" onclick="addArt( <%= articulo.idArticulo %> ); subtotal()">
                     <i class = "material-icons">add</i></button>
-                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt( <%= articulo.num %> ); subtotal()">
+                <button class = "btn waves-effect right waves-light blue" onclick="subtractArt( <%= articulo.idArticulo %> ); subtotal()">
                     <i class = "material-icons">remove</i></button></span>
                 <p><br></p>
             </div>

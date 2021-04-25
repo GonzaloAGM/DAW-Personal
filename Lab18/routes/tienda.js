@@ -23,6 +23,8 @@ router.use(express.static(path.join(__dirname,'..', 'public')));
 
 router.use('/Total', tiendaController.useTotal);
 
+router.use('/:Articulos_nombre',tiendaController.getArticulo);
+
 router.get('/', tiendaController.getTienda);
 
 router.post('/', tiendaController.postTienda);

@@ -65,7 +65,7 @@ exports.accion = (request, response, next) => {
                 Para manejar sesiones de manera muy práctica, instalaremos el paquete <code>express-session</code>.
             </li><br>
 
-            <li class="flow-text"></li>
+            <li class="flow-text">
                 Para preparar el entorno para trabajar con sesiones, agregamos como middleware el manejo de sesiones:
                 <pre>
 const session = require('express-session');
@@ -77,7 +77,7 @@ app.use(session({
 }));</pre>
             </li></br>
 
-            <li class="flow-text"></li>
+            <li class="flow-text">
                 Para utilizar las variables de sesión en un controlador:
                 <pre>
 exports.action = (request, response, next) {
@@ -87,7 +87,7 @@ exports.action = (request, response, next) {
                 de sesión y con el valor encriptado.
             </li></br>
 
-            <li class="flow-text"></li>
+            <li class="flow-text">
             Para eliminar una sesión, lo cual es principalmente útil cuando un usuario sale de la aplicación, 
             puedes hacerlo de la siguiente forma:
                 <pre>

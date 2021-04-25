@@ -22,10 +22,14 @@ exports.getRegPass = (request, response, next) => {
 
 exports.postRegPass = (request, response, next) => {
     const newUser = new Usuario (request.body.username, request.body.password);
-    newUser.save();
-
-    response.status(302);
-    response.redirect('/login');
+    newUser.save()
+        .then(() => {
+            response.redirect('/login');
+            response.status(302);
+        }).catch(err => {
+            console.log(err);
+            response.redirect('/login/RegPssw');
+        });    
 };
 
 exports.getValPass = (request, response, next) => {
@@ -51,25 +55,31 @@ exports.getValPass = (request, response, next) => {
 exports.postValPass = (request, response, next) => {
     var nombreUsuario = request.body.username;
     const newUser = new Usuario (nombreUsuario, request.body.pass);
-
     response.setHeader('Set-Cookie', 'userNameCook='+ nombreUsuario +'; HttpOnly');
 
     console.log(request.cookies.userNameCook);
 
-    if(newUser.check()){
-        request.session.sesionLoginUser = nombreUsuario;
-        console.log("Acceso concedido");
-        response.status(302);
-        //window.alert("Contraseña correcta");
-        response.redirect('/tienda');
-    }else{
-        console.log(newUser.toString());
-        console.log("Acceso denegado");
-        response.status(302);
-        //window.alert("Contraseña incorrecta");
-        response.redirect('/login/ValidaPssw');
-    }
-    response.end();
+    newUser.check()
+        .then(([rows, fieldData]) => {
+            if(rows.length !== 0){
+                request.session.sesionLoginUser = rows[0].userName;
+                console.log("Acceso concedido");
+                response.redirect('/tienda');
+                response.status(302);
+                //window.alert("Contraseña correcta");
+                
+            }else{
+                //console.log(newUser.toString());
+                console.log("Acceso denegado");
+                
+                //window.alert("Contraseña incorrecta");
+                response.redirect('/login/ValidaPssw');
+                response.status(302);
+            }
+        }).catch(err => {
+            console.log(err);
+            response.redirect('/login/ValidaPssw');
+        }); 
 };
 
 exports.getLogin = (request, response, next) => {
@@ -87,8 +97,12 @@ exports.getLogin = (request, response, next) => {
             act3: "",
             act4: "",
         });
-        console.log("login");    
-        console.log(Usuario.fetchAll());
-        response.status(200);
+        console.log("login");
+        /*Usuario.fetchAll()    
+            .then(([rows, fieldData]) => {
+                console.log(rows);
+            })
+            .catch(err => console.log(err));
+        response.status(200);*/
     }
 };

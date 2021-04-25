@@ -80,17 +80,24 @@ exports.useTotal = (request, response, next) => {
 
 exports.getTienda = (request, response, next) => {
     let state = request.session.sesionLoginUser === undefined ? false : true;
-    response.render('tienda', {
-        titulo: "Lab17-Tienda-GAGM-DAW & BD",
-        logged : state,
-        act1: "",
-        act2: "",
-        act3: "active",
-        act4: "",
-        articulos: Articulo.fetchAll(),
-        Descuento : cuenta.getDescuento(),
-        nombreUser: request.session.sesionLoginUser
-    });
+    Articulo.fetchAll()
+        .then(([rows, fieldData]) => {
+            response.render('tienda', {
+                titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                logged : state,
+                act1: "",
+                act2: "",
+                act3: "active",
+                act4: "",
+                articulos: rows,
+                Descuento : cuenta.getDescuento(),
+                nombreUser: request.session.sesionLoginUser
+            })
+        })
+        .catch(err => {
+                console.log(err);
+                response.redirect('/Err404');
+            });    
     console.log("Tienda");
     response.status(200);
 };
@@ -106,3 +113,27 @@ exports.postTienda = (request, response, next) => {
     response.status(302);
     response.end();
 };
+
+exports.getArticulo = (request, response, next) => {
+    let state = request.session.sesionLoginUser === undefined ? false : true;
+    const nombre_art = request.params.Articulos_nombre;
+    Articulo.fetchOne(nombre_art)
+        .then(([rows, fieldData]) => {
+            response.render('tienda', {
+                titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                logged : state,
+                act1: "",
+                act2: "",
+                act3: "active",
+                act4: "",
+                articulos: rows,
+                Descuento : cuenta.getDescuento(),
+                nombreUser: request.session.sesionLoginUser
+            })
+        })
+        .catch(err => {
+                console.log(err);
+                response.redirect('/Err404');
+            });
+    //Resto del código del controlador...
+}

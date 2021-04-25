@@ -3,7 +3,7 @@ exports.useHome = (request, response, next) => {
     //response.writeHead(200, {'Content-Type': contentType});
     //response.sendFile(filePath);
     let state = request.session.sesionLoginUser === undefined ? false : true;
-    response.render('lab17', {
+    response.render('lab18', {
         titulo: "Lab17-GAGM-DAW & BD",
         logged : state,
         act1: "active",
