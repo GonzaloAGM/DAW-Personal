@@ -1,0 +1,48 @@
+
+<%- include('includes/header.ejs') %>
+<%- include('includes/navTab.ejs') %>
+
+        <section class="tabcontent" id="Tienda">
+            <% if(logged) {%> 
+                <h2 class="titulo_sec" name="titulo_h2">Hola <%= nombreUser %> ¿Que comprarás hoy?</h2>
+            <% } else { %>
+                <h2 class="titulo_sec" name="titulo_h2">Previsualiza una compra</h2>
+            <% } %> 
+            
+            <div class="row">
+                
+                <%- include('includes/tarjetasTienda.ejs') %>
+
+                <div class="col s12 m6 l4 xl3">
+                    <form action="/tienda" method="POST">
+                        <table>
+                            <tr><th>Articulo </th><th>Precio   </th><th>Cantidad</th></tr>
+                            <% for (let articulo of articulos) { %>
+                                <tr>
+                                    <td><%= articulo.nombre %></td> 
+                                    <td>$<%= articulo.precio %></td>
+                                    <td id="<%= articulo.idArticulo %>" name="<%= articulo.idArticulo %>">0</td>
+                                    <td style="display: none;"><input type="number" name="<%= "input" + articulo.idArticulo %>" id="<%= "input" + articulo.idArticulo %>" value="0" min="0"></td>
+                                </tr>
+                            <% } %>
+                            <tr><td>Descuento</td><td><%= Descuento %>%</td></tr>
+                            <tr><td>IVA</td><td>16%</td></tr>
+                        </table>
+                        <br>
+                        <p class="flow-text" id="subpago">Subtotal: </p>
+                        <div style="display: none;">
+                            <input type="number" id="subtinput" name="subtinput" value="0" min="0">
+                        </div>
+                        <% if(logged) {%> 
+                        <button class="btn waves-effect waves-light blue btn-large right" type="submit" name="action">Pagar
+                            <i class="material-icons right">attach_money</i></button>
+                        <% } else { %>
+                            <p> Por favor ingrese para poder realizar su compra.</p>
+                        <% } %> 
+                    </form>
+                </div>
+            </div>
+            
+        </section>
+
+<%- include('includes/footer.ejs') %>

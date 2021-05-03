@@ -8,7 +8,7 @@ exports.getRegPass = (request, response, next) => {
         response.status(202);
     }else{
         response.render('RegPssw', {
-            titulo: "Lab17-login-GAGM-DAW & BD",
+            titulo: "Lab18-login-GAGM-DAW & BD",
             logged : state,
             act1: "",
             act2: "active",
@@ -40,7 +40,7 @@ exports.getValPass = (request, response, next) => {
         response.status(202);
     }else{
         response.render('ValidaPssw', {
-            titulo: "Lab17-Validate-GAGM-DAW & BD",
+            titulo: "Lab18-Validate-GAGM-DAW & BD",
             logged : state,
             act1: "",
             act2: "active",
@@ -90,7 +90,7 @@ exports.getLogin = (request, response, next) => {
         response.status(202);
     }else{
         response.render('login', {
-            titulo: "Lab17-Enter-GAGM-DAW & BD",
+            titulo: "Lab18-Enter-GAGM-DAW & BD",
             logged : state,
             act1: "",
             act2: "active",

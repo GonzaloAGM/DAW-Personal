@@ -1,0 +1,31 @@
+
+<%- include('includes/header.ejs') %>
+<%- include('includes/navTab.ejs') %>
+
+        <!-- Registra password valido -->
+        <section class="tabcontent" id="Password">
+            <div>
+                <h2 class="titulo_sec">Login</h2>
+            </div>
+            <div>
+                <% if(error !== false) { %>
+                    <span class = "red"> <%= error %></span>
+                <% } %>
+            </div>
+            <div>
+                <form action="ValidaPssw" method="POST" accept-charset="UTF-8">
+                    <label for="username" class="flow-text">Ingresa un nombre de usuario:</label><br>
+                    <input type="text" name="username" id="username" value="">
+
+                    <label for="pass" class="flow-text">Introduce tu password:</label><br>
+                    <input type="password" name="pass" id="pass" value="">
+                    <br><br>
+                    <button class="btn waves-effect waves-light btn-large right" type="submit" name="action">Enviar
+                        <i class="material-icons right">send</i></button>
+                </form>
+                <br><br><br>
+            </div>
+            
+        </section>
+
+<%- include('includes/footer.ejs') %>

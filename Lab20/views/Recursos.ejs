@@ -1,0 +1,44 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navTab.ejs') %>
+
+      <!-- Pregutnas -->
+      <section class="tabcontent" id="Preguntas">
+        <h2  class="titulo_sec">Preguntas a responder</h2>
+            <div>
+                <p class="pregunta flow-text">¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</p>
+                <p class="flow-text">Que es facil de encontrar, editar y modificar si llega a ser necesario.
+                </p><br>
+    
+                <p class="pregunta flow-text">¿Qué es SQL injection y cómo se puede prevenir?</p>
+                <p class="flow-text">Sucede cuando en una petición de datos al usuario con el fin de ingresar datos a la base de 
+                    datos, se ingresa código en una entrada donde solo debería existir una entrada determinada, provocando cambios
+                    en la base de datos. Principalmente cambios que no se espera que los usuarios puedan hacer, y muchas veces siendo
+                    dañinos. <br> La forma de prevenir estos ataques es sanitizando las entradas, es decir, que no se ingresen los 
+                    datos directamente como los ingresa el usuario sino que pasen por un método intermedio que los verifique y filtre. 
+                    Por ejemplo, en el laboratorio se usó <code>db.execute()</code> que obtiene la consulta y los valores ingresados con 
+                    un signo de interrogación y los valores del usuario como parametros de un arreglo. El método ya se encarga de filtrar
+                    la información para que solo pasen datos y no código a nuestra base de datos.
+                </p>
+            </div>
+            <!-- No hay referencias
+            <div>
+                <h3>Referencias</h3>
+                <a href="">Una referencia</a>
+            </div> -->
+      </section>
+
+      <!-- Recursos -->
+      <section class="tabcontent" id="Recursos">
+          <h2  class="titulo_sec">Recursos útiles al llevar a cabo el laboratorio</h2>
+          <ul>
+              <li><a class="flow-text" href="https://www.npmjs.com/package/mysql2">mysql2</a></li></br>
+              <li><a class="flow-text" href="https://www.andreafortuna.org/2016/05/16/sql-injection-in-a-nutshell/">SQL Injection in a Nutshell</a></li></br>
+              <li><a class="flow-text" href="https://medium.com/visually-explained/sql-injection-attacks-visually-explained-c71b5f9e1af2">SQL Injection Attacks, Visually Explained</a></li></br>
+              <li><a class="flow-text" href="https://www.youtube.com/watch?v=pypTYPaU7mM">OWASP Appsec Tutorial Series - Episode 2: SQL Injection</a></li></br>
+              <li><a class="flow-text" href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">SQL Injection Prevention Cheat Sheet</a></li></br>
+              <li><a class="flow-text" href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/05-Testing_for_SQL_Injection">Testing for SQL Injection (OTG-INPVAL-005)</a></li></br>
+              <li><a class="flow-text" href="https://medium.com/codeep-io/common-security-issues-in-web-applications-part-1-af339360c646">Common Security Issues in Web Applications. Part 1</a></li></br>
+          </ul><br><br>
+      </section>
+
+<%- include('includes/footer.ejs') %>

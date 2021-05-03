@@ -1,10 +1,7 @@
 exports.useHome = (request, response, next) => {
-    //filePath = path.join(__dirname,'..','views','lab14.html');
-    //response.writeHead(200, {'Content-Type': contentType});
-    //response.sendFile(filePath);
-    let state = request.session.sesionLoginUser === undefined ? false : true;
-    response.render('lab18', {
-        titulo: "Lab18-GAGM-DAW & BD",
+    let state = request.session.isLoggedIn === undefined ? false : true;
+    response.render('lab20', {
+        titulo: "Lab20-GAGM-DAW & BD",
         logged : state,
         act1: "active",
         act2: "",
@@ -16,9 +13,9 @@ exports.useHome = (request, response, next) => {
 };
 
 exports.useRecursos = (request, response, next) => {
-    let state = request.session.sesionLoginUser === undefined ? false : true;
+    let state = request.session.isLoggedIn === undefined ? false : true;
     response.render('Recursos', {
-        titulo: "Lab18-Recursos-GAGM-DAW & BD",
+        titulo: "Lab20-Recursos-GAGM-DAW & BD",
         logged : state,
         act1: "",
         act2: "",
@@ -30,9 +27,9 @@ exports.useRecursos = (request, response, next) => {
 };
 
 exports.useNotFound = (request, response, next) => {
-    let state = request.session.sesionLoginUser === undefined ? false : true;
+    let state = request.session.isLoggedIn === undefined ? false : true;
     response.render('Err404', {
-        titulo: "Lab18-404-GAGM-DAW & BD",
+        titulo: "Lab20-404-GAGM-DAW & BD",
         logged : state,
         act1: "",
         act2: "",

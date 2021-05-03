@@ -12,7 +12,7 @@ exports.useTotal = (request, response, next) => {
         if (request.cookies.totalCompras === undefined){
             response.setHeader('Set-Cookie', 'totalCompras='+ cuenta.getTotal() +'; HttpOnly');
             response.render('TotalTienda', {
-                titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                titulo: "Lab18-Tienda-GAGM-DAW & BD",
                 logged : state,
                 act1: "",
                 act2: "",
@@ -33,7 +33,7 @@ exports.useTotal = (request, response, next) => {
                 response.setHeader('Set-Cookie', 'totalCompras=0; HttpOnly');
                 mensaje = 'En tu proxima compra, tendrás un cupon del 10%';
                 response.render('TotalTienda', {
-                    titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                    titulo: "Lab18-Tienda-GAGM-DAW & BD",
                     logged : state,
                     act1: "",
                     act2: "",
@@ -50,7 +50,7 @@ exports.useTotal = (request, response, next) => {
             }else
             {
                 response.render('TotalTienda', {
-                    titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                    titulo: "Lab18-Tienda-GAGM-DAW & BD",
                     logged : state,
                     act1: "",
                     act2: "",
@@ -83,7 +83,7 @@ exports.getTienda = (request, response, next) => {
     Articulo.fetchAll()
         .then(([rows, fieldData]) => {
             response.render('tienda', {
-                titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                titulo: "Lab18-Tienda-GAGM-DAW & BD",
                 logged : state,
                 act1: "",
                 act2: "",
@@ -120,7 +120,7 @@ exports.getArticulo = (request, response, next) => {
     Articulo.fetchOne(nombre_art)
         .then(([rows, fieldData]) => {
             response.render('tienda', {
-                titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                titulo: "Lab18-Tienda-GAGM-DAW & BD",
                 logged : state,
                 act1: "",
                 act2: "",
