@@ -5,6 +5,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const csrf = require('csurf');
+const csrfProtection = csrf();
 
 //EJS
 app.set('view engine', 'ejs');
@@ -31,6 +33,8 @@ app.use(session({
 
 //Enviar archivos estáticos en carpeta public
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(csrfProtection); 
 
 app.use('/login', isAlreadAuth, rutaUserValidation);
 

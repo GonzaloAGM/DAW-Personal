@@ -114,7 +114,7 @@ exports.getArticulo = (request, response, next) => {
     Articulo.fetchOne(nombre_art)
         .then(([rows, fieldData]) => {
             response.render('tienda', {
-                titulo: "Lab17-Tienda-GAGM-DAW & BD",
+                titulo: "Lab20-Tienda-GAGM-DAW & BD",
                 logged : state,
                 act1: "",
                 act2: "",

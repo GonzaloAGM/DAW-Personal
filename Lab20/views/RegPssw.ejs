@@ -13,6 +13,7 @@
             </div>
             <div>
                 <form action="RegPssw" method="POST" accept-charset="UTF-8">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
                     <label for="username" class="flow-text">Ingresa un nombre de usuario:</label><br>
                     <input type="text" name="username" id="username" value="">
 

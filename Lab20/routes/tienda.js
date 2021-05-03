@@ -5,7 +5,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+
+//imports
 const isAuth = require('../util/is-auth');
+const csurfMiddleware = require('../util/csurfjs');
 
 //Controladores
 const tiendaController = require('../controllers/tiendaController');
@@ -21,6 +24,8 @@ router.use(session({
 
 //Enviar archivos estáticos en carpeta public
 router.use(express.static(path.join(__dirname,'..', 'public')));
+
+router.use(csurfMiddleware);
 
 router.use('/Total', isAuth, tiendaController.useTotal);
 

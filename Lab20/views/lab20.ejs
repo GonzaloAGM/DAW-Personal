@@ -4,13 +4,15 @@
 <section class="tabcontent" id="DescripInstr">
     <h3 class="titulo_sec"> Descripción </h2>
     <p class="flow-text">
-        En esta actividad comenzaremos con la interacción con una base de datos desde node.
+        En esta actividad exploraremos el proceso de autentificación de usuarios. Ademas de la protección contra ataques de Cross-Side Request Forgery (CSRF).
     </p>
     <p>
         <h3>Objetivos:</h3>
         <ul>
-            <li class="flow-text">Entender cómo interactúa una aplicación web con una base de datos.</li>
-            <li class="flow-text">Desarrollar aplicaciones web que interactúen con bases de datos.</li>
+            <li class="flow-text">Entender cómo funciona la autentificación de usuarios.</li>
+            <li class="flow-text">Desarrollar aplicaciones web con autentificación de usuarios.</li>
+            <li class="flow-text">Entender cómo funciona la autentificación de usuarios.</li>
+            <li class="flow-text">Desarrollar aplicaciones web protegidas contra ataques CSRF.</li>
         </ul>
     </p>
 
@@ -18,121 +20,121 @@
     <p>
         <ol>
             <li class="flow-text">
-                Para interactuar con una base de datos, debemos crear la base de datos. Para este laboratorio usaremos MySQL, 
-                sin embargo, la lógica es muy similar si decides trabajar con cualquier otro motor de bases de datos. Crea tu 
-                base de datos y crea algunas tablas y ponles algunos datos, de manera similar a la demostración del profesor.
+                Revisa junto con el profesor la presentación sobre 
+                <a href="https://docs.google.com/presentation/d/1aDxfQzo8-GToBXJwlzsa9mAic2AlC3gs495dKYh0VS0/edit?usp=sharing">Autentificación</a> 
             </li></br>
 
             <li class="flow-text">
-                Para poder interactuar con el manejador de base de datos MySQL, ocuparemos el paquete <code>mysql2</code>.
+                Crea la funcionalidad para registrar nuevos usuarios. Recuerda validar que el usuario no exista. Es importante 
+                que cuando se guarda un password, lo encriptemos con un método no desencriptable, para que si alguien tiene acceso 
+                a la base de datos, no pueda descifrar el password. Un paquete que nos puede servir para ello es <code>bcryptjs</code>, 
+                por lo que hay que instalarlo con <code>npm install --save bcryptjs</code>. <br>
+                Para encriptar los passwords:
+
+                <pre>
+//En un modelo
+const bcrypt = require('bcryptjs');
+
+//Dentro del método del modelo que crea el usuario
+//El segundo argumento es el número de veces que se aplica el algoritmo, actualmente 12 se considera un valor seguro
+//El código es asíncrono, por lo que hay que regresar la promesa
+return bcrypt.hash(password, 12);</pre>
             </li></br>
 
             <li class="flow-text">
-                Para poder conectarnos con la base de datos, utilizaremos el archivo <code>database.js</code>, el cual 
-                crearemos dentro de un folder con nuestras librerías de apoyo, típicamente nombrado <strong>util</strong>. El 
-                archivo se encargará de manejar las conexiones con nuestra base de datos:
+                Crea la funcionalidad para que un usuario se autentifique. Para ello deberás realizar una consulta a la base de 
+                datos recuperando el usuario (si es que existe)y posteriormente, comparar el password introducido por el usuario 
+                con el password encriptado en la base de datos. Esto se puede lograr en el controlador de la siguiente forma:
                 <pre>
-const mysql = require('mysql2');
-
-const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    database: 'database_name',
-    password: 'el_password_de_tu_usuario_de_la_bd'
-});
-
-module.exports = pool.promise();</pre>
-
-                Asegúrate de cambiar los valores de los atributos del objeto de js para que coincidan con los de tu base de 
-                datos. Como podrás observar, se exporta una promesa. Las promesas permiten manejar fácilmente código que se 
-                ejecuta de manera asíncrona.
-            </li></br>
-
-            <li class="flow-text">
-                Para conectarnos con la base de datos y ejecutar consultas desde nuestra aplicación:
-                <pre>
-const db = require('./util/database');
-
-db.execute('Consulta SQL por ejemplo: SELECT * FROM mi_tabla');</pre>
-
-                Ahora, debido a que en database.js devolvimos una promesa, esto nos permite hacer algo después de que ejecutamos 
-                la consulta con el método <code>.then()</code>, e incluso manejar los errores con el método <code>.catch()</code>. 
-                Por ejemplo, si queremos recuperar los registros de la tabla mascotas:
-                <pre>
-db.execute('SELECT * FROM mascotas')
-.then(([rows, fieldData]) => {
-    console.log(rows);
-})
-.catch(err => {
-    console.log(err);
+bcrypt.compare(request.body.password, user.password)
+.then(doMatch => {
+    if (doMatch) {
+        request.session.isLoggedIn = true;
+        request.session.user = user;
+        return request.session.save(err => {
+            response.redirect('/');
+        });
+    }
+    response.redirect('/login');
+}).catch(err => {
+    response.redirect('/login');
 });</pre>
-                En la varibale <code>rows</code> tendremos cada uno de de los registros de nuestra consulta. 
-            </li><br>
-
-            <li class="flow-text">
-                El código de interacción con la base de datos, si seguimos buenas prácticas, lo escribiremos siempre en nuestros 
-                modelos. Por lo que normalmente, el método <code>fetchAll()</code> de nuestros modelos quedaría con el siguiente 
-                formato:
-                <pre>
-static fetchAll() {
-    return db.execute('SELECT * FROM mascotas');
-}</pre>
-
-                Y el código del controlador (asumiendo que tenemos un template de la vista llamado 'vista.html' que despliega el 
-                contenido de un arreglo de js llamado mascotas):
-                <pre>
-exports.getMascotas = (request, response, next) => {
-    Mascota.fetchAll()
-        .then(([rows, fieldData]) => {
-            response.render('vista', {
-                mascotas: rows
-            })
-        })
-        .catch(err => console.log(err));
-}</pre> 
-            </li><br>
-
-            <li class="flow-text">
-                Ahora, para insertar un registro en la base de datos, nuestro código del método save() en los modelos, tendría el siguiente formato:
-                <pre>
-save() {
-    return db.execute('INSERT INTO mascotas (nombre_columna_1, nombre_columna_2) VALUES (?, ?)',
-        [this.variable_valor_1, this.variable_valor_2]
-    );
-
-}</pre>
-            Como podrás ver, no se insertan los valores directamente en el string, sino se pone un signo de interrogación, esto es para evitar ataques 
-            de inyección de SQL, ya que el método execute, al pasar estos datos en un arreglo como segundo argumento, evita que si se inserta código 
-            SQL, éste no se ejecute y simplemente sea interpretado como un string. <br> El código del controlador quedaría con el siguiente formato:
-            <pre>
-exports.insertarMascota = (request, response, next) => {
-    const mascota = new Mascota(request.body.nombre, request.body.descripcion);
-    mascota.save().then(() => {
-        response.redirect('/');
-    }).catch(err => console.log(err));
-};</pre>
             </li></br>
 
             <li class="flow-text">
-                En ocasiones es necesario recuperar un registro en particular de la base de datos, y muchas veces queremos que esto pueda realizarse 
-                desde las rutas. Para indicarle al ruteador de express que un valor en una ruta es una varibale, podemos hacerlo agregando como 
-                prefijo el símbolo  <code> : </code> seguido del nombre que le queremos dar a la variable:
+                Para mejorar la seguridad de nuestro sitio, es importante proteger las rutas. En el código anterior definimos una 
+                variables de sesión (<strong>isLoggedIn</strong>) para indicar que el usuario está autentificado. Esta variable nos 
+                puede ayudar en los controladores para proteger una ruta en particular:
                 <pre>
-router.get('/mascotas/:mascota_id', controllerMascotas.getMascota);
-                    
-Y en el controlador para hacer uso de la variable:
-export.getMascota = (request, response, next) => {
-    const id = request.params.mascota_id;
-    //Resto del código del controlador...
+exports.ruta = (request, response, next) => {
+    if (!request.session.isLoggedIn) {
+        return response.redirect('/login');
+    }
+    //Resto del código de la ruta...
 }</pre>
+
+                Una alternativa más elegante y sin repetición de código, es implementando la protección en un middleware. Esto lo 
+                podemos hacer en un nuevo archivo, por ejemplo, <code>is-auth.js</code>:
+                <pre>
+module.exports = (request, response, next) => {
+    if (!request.session.isLoggedIn) {
+        return response.redirect('/login');
+    }
+    next();
+}</pre>
+                Para usar nuestro middleware, basta con ir a cualquier archivo de rutas o nuestro archivo principal y agregar:
+                <pre>
+const isAuth = require('./is-auth.js');
+
+router.get('/miRuta', isAuth, miControlador.miAccion);</pre>
+            </li><br>
+
+            <li class="flow-text">
+                Nuestro trabajo hasta ahora, ha sido suficientemente bueno para usuarios de confianza. Sin embargo, la web no es 
+                un lugar seguro. Por ello es importante preparar nuestras aplicaciones para protegernos contra usuarios malintencionados. 
+                Un ataque común es el <strong>Cross-Site Request Forgery (CSRF)</strong>, el cual implica aprovecharse de una sesión de 
+                otro usuario, comúnmente perpretado desde una página que parece la oficial pero que en realidad no lo es. <br><br>
+
+                Para evitar ataques de CSRF, tenemos que asegurar que nuestros usuarios estén trabajando sobre las vistas que nosotros 
+                proveemos. Esto lo podemos lograr por medio de un Token CSRF en nuestras formas y con ayuda de la instalación del 
+                paquete <code>csurf</code>. <br><br>
+
+                Para usar el paquete en nuestra aplicación: <br> 
+                1) tenemos que configurar el middleware, lo cual automaticamente protegerá todas nuestras peticiones POST:
+                <pre>
+const csrf = require('csurf');
+const csrfProtection = csrf();
+
+//...Y después del código para inicializar la sesión... 
+app.use(csrfProtection); </pre>
+
+                    Al proteger las peticiones <strong>POST</strong>, nuestra aplicación deja parcialmente de funcionar porque no estamos 
+                    mandando el <strong>token CSRF</strong> desde nuestras formas, por ello tenemos que <br> 
+                    2) Mandarle el token a las vistas desde el controlador:
+                <pre>
+exports.getAccion = (request, response, next) => {
+    response.render('/ruta', {
+        csrfToken: request.csrfToken()
+    });
+}</pre> 
+                    3) tenemos que desplegarlo en la vista:
+                <pre>
+&ltform action="ruta" method="POST"&gt
+&ltinput type="hidden" name="_csrf" value="&lt%= csrfToken %&gt"&gt</pre>
+            </li></br>
+
+            <li class="flow-text">
+                Una alternativa elegante al paso 2) del apartado anterior, es utilizando Middleware y variables locales de las vistas:
+                <pre>
+app.use((request, response, next) => {
+    response.locals.csrfToken = request.csrfToken();
+    next();
+});</pre>
             </li></br>
             
             <li class="flow-text">
-                Continúa mejorando tus laboratorios anteriores o tu proyecto agregándoles interacción 
-                con la base de datos. Asegúrate de al menos realizar una consulta que devuelva varios 
-                registros, una consulta que devuelva 1 sólo registro, una inserción, y una edición de 
-                un registro de la base de datos. Recuerda que siempre tienes también la opción de crear 
-                una nueva aplicación.
+                Continúa mejorando tus laboratorios anteriores o tu proyecto, esta vez agregándoles autentificación de usuarios, protección 
+                de rutas y protección contra ataques CSRF. Recuerda que siempre tienes también la opción de crear una nueva aplicación.
             </li></br>
         </ol>
     </p>

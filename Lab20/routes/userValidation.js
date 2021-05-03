@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+//imports
+const csurfMiddleware = require('../util/csurfjs');
+
 //Controladores
 const contraController = require('../controllers/contraController');
 
@@ -21,8 +24,7 @@ router.use(session({
 //Enviar archivos estáticos en carpeta public
 router.use(express.static(path.join(__dirname,'..', 'public')));
 
-//Enviar archivos estáticos en carpeta public
-router.use(express.static(path.join(__dirname,'..', 'public')));
+router.use(csurfMiddleware);
 
 router.get('/RegPssw', contraController.getRegPass);
 
