@@ -1,0 +1,33 @@
+Laboratorio 21: Usabilidad
+
+Descripción:
+
+En esta actividad haremos un análisis de heurísticas de usabilidad.
+
+Objetivos de aprendizaje
+
+Reconocer las heurísticas de usabilidad propuestas por Nielsen.
+Aprender a realizar evaluaciones heurísticas de usabilidad.
+Documentar los hallazgos de la evaluación de usabilidad por medio de Reportes de Aspecto de Usabilidad (UAR, por sus siglas en inglés).
+
+Instrucciones
+
+1.- Revisa junto con el profesor la presentación Usabilidad (https://docs.google.com/presentation/d/1r59yR-n3067Ku9otR-rWpk-FA5c57eIO4HlMf3rHIAc/edit?usp=sharing).
+2.- Con su equipo, lleven a cabo un análisis heurístico del proyecto de otro equipo.
+3.- Cada integrante deberá identificar al menos dos aspectos de usabilidad y deberán reportarlos a través de un Usability Aspect Report (UAR) 
+    al equipo correspondiente. Recuerda que en el UAR debes incluir:
+    a.- La heurística de usabilidad que se está evaluando.
+    b.- La explicación sobre por qué se está violando la heurística o por qué es una buena práctica de la heurística.
+    c.- La evidencia de la heurística (captura de pantalla o diseño de la interfaz).
+    d.- La severidad del problema o impacto del beneficio.
+    e.- Si es un problema, su posible solución o desventajas potenciales.
+5.- Envía tu UAR al equipo que estás evaluando y también entrégala en tu repositorio personal o de equipo.
+
+Recursos
+- 10 Usability Heuristics for User Interface Design (http://www.nngroup.com/articles/ten-usability-heuristics/)
+- How to Conduct a Heuristic Evaluation (http://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/)
+- The Psychology of Color in Web Design (https://medium.com/wd-tips-tricks/the-psychology-of-color-in-web-design-dba7df0eb21b#.9cqjvbwwl)
+
+REPOSITORIO
+
+https://github.com/GonzaloAGM/DAW-Personal-A01702956/
