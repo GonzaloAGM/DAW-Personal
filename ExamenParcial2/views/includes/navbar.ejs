@@ -1,0 +1,16 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">Incident System Velociraptor</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if(state) { %>
+            <li><a href="#profile">Cuenta</a></li> 
+            <li><a href="/">Registrar</a></li> 
+            <li><a href="#Admin">Admin</a></li> 
+            <li><a href="#logout">Salir <i class="small material-icons">exit_to_app</i></a></li>
+        <% } else { %>
+            <li><a href="/Usuarios/new">Registro</a></li> 
+            <li><a href="/Usuarios/login">Entrar</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>

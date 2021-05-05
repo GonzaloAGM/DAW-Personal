@@ -1,0 +1,34 @@
+<div id="modal1" class="modal modal-fixed-footer">
+    <form action="/" method="POST">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+        <div class="modal-content">
+        <h4>Registrar incidente</h4>
+        <div class="input-field col s12">
+            <select name="idLugar" idn="idLugar" required>
+              <option value="" disabled selected>Selecciona lugar</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+            <label>Materialize Select</label>
+        </div>
+        <div class="input-field col s12">
+            <select name="idIncidente" id="idIncidente" required >
+              <option value="" disabled selected>Selecciona tio de incidente</option>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+            <label>Materialize Select</label>
+        </div>
+        
+        <textarea id="descIncidente" name="descIncidente" class="materialize-textarea"></textarea>
+        <label for="descIncidente">Descripción de Incidente</label>
+
+        </div>
+        <div class="modal-footer">
+        <button type="submit"></button>
+        <a class="waves-effect waves-light btn" href="#modal1" onclick="registrarIncidente()"><i class="material-icons right">add</i>Registrar</a>
+        </div>
+    </form>
+  </div>
