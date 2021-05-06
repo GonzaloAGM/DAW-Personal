@@ -17,8 +17,8 @@ app.set('views', 'views');
 //const isAuth = require('./util/is-auth');
 
 //Controladores
-const regController = require('./controllers/registrarIncidente'); //------------------------------------------------
-const consController = require('./controllers/consultarIncidente'); //------------------------------------------------
+const regController = require('./controllers/registrarIncidente'); 
+const consController = require('./controllers/consultarIncidente'); 
 const csrfMiddleware = require('./util/csurfjs');
 
 //Activa bodyparser
@@ -37,11 +37,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(csrfProtection);
 app.use(csrfMiddleware);
 
+app.get('/buscar/:criterio', consController.getBuscar);
+
 app.get('/', regController.getHome);
 
 app.post('/', consController.regIncidente);
-
-app.get('/buscar/:criterio', consController.getBuscar);
 
 app.use(regController.useNotFound);
 

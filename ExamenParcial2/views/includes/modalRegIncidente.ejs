@@ -2,33 +2,36 @@
     <form action="/" method="POST">
     <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
         <div class="modal-content">
-        <h4>Registrar incidente</h4>
-        <div class="input-field col s12">
-            <select name="idLugar" idn="idLugar" required>
-              <option value="" disabled selected>Selecciona lugar</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
-            <label>Materialize Select</label>
-        </div>
-        <div class="input-field col s12">
-            <select name="idIncidente" id="idIncidente" required >
-              <option value="" disabled selected>Selecciona tio de incidente</option>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </select>
-            <label>Materialize Select</label>
-        </div>
-        
-        <textarea id="descIncidente" name="descIncidente" class="materialize-textarea"></textarea>
-        <label for="descIncidente">Descripción de Incidente</label>
-
+            <br><br>
+            <h4>Registrar incidente</h4>
+            <br><br>
+            <div class="input-field col s10 offset-s1">
+                <select name="idLugarIn" idn="idLugarIn" required>
+                <option value="0" disabled selected>Selecciona lugar</option>
+                <% for(let lugar of Lugares) { %>
+                    <option value="<%= lugar.idLugar %>"> <%= lugar.nombre %> </option>
+                <% } %>
+                </select>
+                <label for="idLugarIn">Lugar</label>
+            </div>
+            <br><br> <br>
+            <div class="input-field col s10 offset-s1">
+                <select name="idTIncidenteIn" id="idTIncidenteIn" required >
+                <option value="0" disabled selected>Selecciona tipo de incidente</option>
+                <% for(let tipo of Tipos) { %>
+                    <option value="<%= tipo.idTipoIncidente %>"> <%= tipo.nombre %> </option>
+                <% } %>
+                </select>
+                <label for="idTIncidenteIn">Tipo de incidente</label>
+            </div>
+            <br><br><br>
+            <div class="col s10 offset-s1">
+                <textarea id="descIncidente" name="descIncidente"  class="materialize-textarea"></textarea>
+                <label class="active" for="descIncidente">Descripción de Incidente</label>
+            </div>
         </div>
         <div class="modal-footer">
-        <button type="submit"></button>
-        <a class="waves-effect waves-light btn" href="#modal1" onclick="registrarIncidente()"><i class="material-icons right">add</i>Registrar</a>
+            <button class="waves-effect waves-light modal-close btn" onclick="registrarIncidente()"><i class="material-icons right">add</i>Registrar</button>
         </div>
     </form>
   </div>

@@ -1,22 +1,24 @@
 const db = require('../util/database');
 
-module.exports = class Mascota {
+module.exports = class Incidente {
 
     //Constructor de la clase. Sirve para crear un nuevo objeto, y en él se definen las propiedades del modelo
-    constructor(nombre, descripcion, imagen) {
-        this.nombre = nombre;
+    constructor(idLugar, idTipoIncidente, descripcion) {
+        this.idLugar = idLugar;
+        this.idTipoIncidente = idTipoIncidente;
         this.descripcion = descripcion;
-        this.imagen = imagen;
         //this.fecha = new Date().toLocaleString('ES');
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        return db.execute('SELECT MAX(I.idIncidente) FROM incidentes I')
-        .then((idincidente) => {
-            return db.execute('INSERT INTO `incidentes` (`idIncidente`, `idTipoIncidente`, `idLugar`, `tiempo`, `descripcion`) VALUES (, ?, ?, current_timestamp(), NULL)',
-            [idincidente+1,this.idTipoIncidente, this.idLugar, this.descripcion]
-        );
+        console.log(this);
+        return db.execute('SELECT MAX(I.idIncidente) AS `num` FROM incidentes I')
+        .then(([rows, fieldData]) => {
+            let idincidente = rows[0].num;
+            return db.execute('INSERT INTO `incidentes` (`idIncidente`, `idTipoIncidente`, `idLugar`, `descripcion`) VALUES (?, ?, ?, ?)',
+                    [parseInt(idincidente) + 1,this.idTipoIncidente, this.idLugar, this.descripcion]
+                );
         }).catch(err => {
             console.log(err);
         });
@@ -25,7 +27,8 @@ module.exports = class Mascota {
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return db.execute('SELECT I.idIncidente, L.nombre AS `lugarNombre`, T.nombre AS `nombreTipo`, I.descripcion, I.tiempo FROM incidentes I, lugares L, tipo_incidentes T WHERE I.idTipoIncidente = T.idTipoIncidente AND L.idLugar = I.idLugar ');
+        console.log("Recupera todos registros")
+        return db.execute('SELECT I.idIncidente, L.nombre AS `lugarNombre`, T.nombre AS `nombreTipo`, I.descripcion, I.tiempo FROM incidentes I, lugares L, tipo_incidentes T WHERE I.idTipoIncidente = T.idTipoIncidente AND L.idLugar = I.idLugar ORDER BY I.tiempo DESC');
     }
 
     static fetchOne(id) {
@@ -33,7 +36,8 @@ module.exports = class Mascota {
     }
 
     static fetch(criterio) {
-        return db.execute('SELECT I.idIncidente, I.idLugar AS `lugarNombre`, I.idTipoIncidente AS `nombreTipo`, I.descripcion, I.tiempo FROM incidentes I, lugares L, tipo_incidentes T WHERE I.idTipoIncidente = T.idTipoIncidente AND L.idLugar = I.idLugar AND ( I.descripcion LIKE ? OR L.descripcion LIKE ? OR T.descripcion LIKE ? OR L.nombre LIKE ? OR T.nombre LIKE ?)', 
+        console.log("busqueda de registros")
+        return db.execute('SELECT I.idIncidente, L.nombre AS `lugarNombre`, T.nombre AS `nombreTipo`, I.descripcion, I.tiempo FROM incidentes I, lugares L, tipo_incidentes T WHERE I.idTipoIncidente = T.idTipoIncidente AND L.idLugar = I.idLugar AND ( I.descripcion LIKE ? OR L.descripcion LIKE ? OR T.descripcion LIKE ? OR L.nombre LIKE ? OR T.nombre LIKE ?) ORDER BY I.tiempo DESC', 
         ['%'+criterio+'%','%'+criterio+'%','%'+criterio+'%','%'+criterio+'%','%'+criterio+'%']);
     }
 
