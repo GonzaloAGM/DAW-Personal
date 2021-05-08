@@ -1,0 +1,142 @@
+<%- include('includes/header.ejs') %>
+<%- include('includes/navTab.ejs') %>
+
+<section class="tabcontent" id="DescripInstr">
+    <h3 class="titulo_sec"> Descripción </h2>
+    <p class="flow-text">
+        En esta actividad exploraremos el proceso de autentificación de usuarios. Ademas de la protección contra ataques de Cross-Side Request Forgery (CSRF).
+    </p>
+    <p>
+        <h3>Objetivos:</h3>
+        <ul>
+            <li class="flow-text">Entender cómo funciona la autentificación de usuarios.</li>
+            <li class="flow-text">Desarrollar aplicaciones web con autentificación de usuarios.</li>
+            <li class="flow-text">Entender cómo funciona la autentificación de usuarios.</li>
+            <li class="flow-text">Desarrollar aplicaciones web protegidas contra ataques CSRF.</li>
+        </ul>
+    </p>
+
+    <h3 class="titulo_sec">Instrucciones</h2>
+    <p>
+        <ol>
+            <li class="flow-text">
+                Revisa junto con el profesor la presentación sobre 
+                <a href="https://docs.google.com/presentation/d/1aDxfQzo8-GToBXJwlzsa9mAic2AlC3gs495dKYh0VS0/edit?usp=sharing">Autentificación</a> 
+            </li></br>
+
+            <li class="flow-text">
+                Crea la funcionalidad para registrar nuevos usuarios. Recuerda validar que el usuario no exista. Es importante 
+                que cuando se guarda un password, lo encriptemos con un método no desencriptable, para que si alguien tiene acceso 
+                a la base de datos, no pueda descifrar el password. Un paquete que nos puede servir para ello es <code>bcryptjs</code>, 
+                por lo que hay que instalarlo con <code>npm install --save bcryptjs</code>. <br>
+                Para encriptar los passwords:
+
+                <pre>
+//En un modelo
+const bcrypt = require('bcryptjs');
+
+//Dentro del método del modelo que crea el usuario
+//El segundo argumento es el número de veces que se aplica el algoritmo, actualmente 12 se considera un valor seguro
+//El código es asíncrono, por lo que hay que regresar la promesa
+return bcrypt.hash(password, 12);</pre>
+            </li></br>
+
+            <li class="flow-text">
+                Crea la funcionalidad para que un usuario se autentifique. Para ello deberás realizar una consulta a la base de 
+                datos recuperando el usuario (si es que existe)y posteriormente, comparar el password introducido por el usuario 
+                con el password encriptado en la base de datos. Esto se puede lograr en el controlador de la siguiente forma:
+                <pre>
+bcrypt.compare(request.body.password, user.password)
+.then(doMatch => {
+    if (doMatch) {
+        request.session.isLoggedIn = true;
+        request.session.user = user;
+        return request.session.save(err => {
+            response.redirect('/');
+        });
+    }
+    response.redirect('/login');
+}).catch(err => {
+    response.redirect('/login');
+});</pre>
+            </li></br>
+
+            <li class="flow-text">
+                Para mejorar la seguridad de nuestro sitio, es importante proteger las rutas. En el código anterior definimos una 
+                variables de sesión (<strong>isLoggedIn</strong>) para indicar que el usuario está autentificado. Esta variable nos 
+                puede ayudar en los controladores para proteger una ruta en particular:
+                <pre>
+exports.ruta = (request, response, next) => {
+    if (!request.session.isLoggedIn) {
+        return response.redirect('/login');
+    }
+    //Resto del código de la ruta...
+}</pre>
+
+                Una alternativa más elegante y sin repetición de código, es implementando la protección en un middleware. Esto lo 
+                podemos hacer en un nuevo archivo, por ejemplo, <code>is-auth.js</code>:
+                <pre>
+module.exports = (request, response, next) => {
+    if (!request.session.isLoggedIn) {
+        return response.redirect('/login');
+    }
+    next();
+}</pre>
+                Para usar nuestro middleware, basta con ir a cualquier archivo de rutas o nuestro archivo principal y agregar:
+                <pre>
+const isAuth = require('./is-auth.js');
+
+router.get('/miRuta', isAuth, miControlador.miAccion);</pre>
+            </li><br>
+
+            <li class="flow-text">
+                Nuestro trabajo hasta ahora, ha sido suficientemente bueno para usuarios de confianza. Sin embargo, la web no es 
+                un lugar seguro. Por ello es importante preparar nuestras aplicaciones para protegernos contra usuarios malintencionados. 
+                Un ataque común es el <strong>Cross-Site Request Forgery (CSRF)</strong>, el cual implica aprovecharse de una sesión de 
+                otro usuario, comúnmente perpretado desde una página que parece la oficial pero que en realidad no lo es. <br><br>
+
+                Para evitar ataques de CSRF, tenemos que asegurar que nuestros usuarios estén trabajando sobre las vistas que nosotros 
+                proveemos. Esto lo podemos lograr por medio de un Token CSRF en nuestras formas y con ayuda de la instalación del 
+                paquete <code>csurf</code>. <br><br>
+
+                Para usar el paquete en nuestra aplicación: <br> 
+                1) tenemos que configurar el middleware, lo cual automaticamente protegerá todas nuestras peticiones POST:
+                <pre>
+const csrf = require('csurf');
+const csrfProtection = csrf();
+
+//...Y después del código para inicializar la sesión... 
+app.use(csrfProtection); </pre>
+
+                    Al proteger las peticiones <strong>POST</strong>, nuestra aplicación deja parcialmente de funcionar porque no estamos 
+                    mandando el <strong>token CSRF</strong> desde nuestras formas, por ello tenemos que <br> 
+                    2) Mandarle el token a las vistas desde el controlador:
+                <pre>
+exports.getAccion = (request, response, next) => {
+    response.render('/ruta', {
+        csrfToken: request.csrfToken()
+    });
+}</pre> 
+                    3) tenemos que desplegarlo en la vista:
+                <pre>
+&ltform action="ruta" method="POST"&gt
+&ltinput type="hidden" name="_csrf" value="&lt%= csrfToken %&gt"&gt</pre>
+            </li></br>
+
+            <li class="flow-text">
+                Una alternativa elegante al paso 2) del apartado anterior, es utilizando Middleware y variables locales de las vistas:
+                <pre>
+app.use((request, response, next) => {
+    response.locals.csrfToken = request.csrfToken();
+    next();
+});</pre>
+            </li></br>
+            
+            <li class="flow-text">
+                Continúa mejorando tus laboratorios anteriores o tu proyecto, esta vez agregándoles autentificación de usuarios, protección 
+                de rutas y protección contra ataques CSRF. Recuerda que siempre tienes también la opción de crear una nueva aplicación.
+            </li></br>
+        </ol>
+    </p>
+</section>
+<%- include('includes/footer.ejs') %>

@@ -1,0 +1,174 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+.pin-top {
+  position: relative;
+}
+
+.pin-bottom {
+  position: relative;
+}
+
+.pinned {
+  position: fixed !important;
+}
+
+header{
+    background-color: #263d36;
+    background-image: url("../IMG/Daw_header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    line-height: 1;
+    padding: 1vw 2em;
+    vertical-align: center;
+    text-align: center;
+    color:whitesmoke;
+    height: 300px;
+    max-width: 100%;
+}
+
+body{
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    background-color: lightcyan;
+    color: #566b78;
+}
+
+main{
+  margin: 0 auto;
+  max-width: 70% !important;
+  line-height: 1.5;
+}
+
+section{
+  margin: 0 auto;
+  max-width: 100%;
+  line-height: 1.5;
+}
+
+h2 {
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+header h1 {
+    color: whitesmoke;
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
+footer{
+    background-color: #333 !important;
+    width: 100%;
+    padding: 3vw 2em;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+th, td {
+    text-align: center;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  z-index: 2;
+}
+
+.topnav button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #f2f2f2;
+  transition: 0.3s;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  height: 100%;
+}
+
+.topnav button:hover {
+  background-color: #ddd;
+  color: rgb(26, 26, 26);
+}
+  
+.topnav button.active {
+  background-color: #2552e4;
+  color: white;
+}
+
+.tabcontent {
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+a {
+  color: #2f7fe7;
+}
+
+a:hover {
+  background:  #2f7fe7;
+  color: white;
+}
+
+.titulo_sec{
+  font-weight: 700;
+}
+
+.pregunta{
+  font-weight: 595;
+}
+
+.pregunta:hover{
+  font-weight: 700;
+  color:lightsalmon;
+}
+
+table{
+  width: 70%;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+code,
+pre {
+  background: #f5f7f9;
+  border-bottom: 1px solid #d8dee9;
+  color: #a7adba;
+}
+
+code {
+  padding: 2px 4px;
+  vertical-align: text-bottom;
+}
+
+pre {
+  padding: 1em;
+  border-left: 2px solid #69c;
+  font-size: 0.65em !important;
+}
