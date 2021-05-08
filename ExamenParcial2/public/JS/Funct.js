@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   M.AutoInit();
 
-const registrarIncidente = () => {
+function registrarIncidente(){
     const csrf = document.getElementById('_csrf').value;
     
-    const lugar = document.getElementById('idLugarIn').value;
-    const tipo = document.getElementById('idTIncidenteIn').value;
-    const desc = document.getElementById('descIncidente').value;
+    const lugar = document.getElementById("idLugarIn").value;
+    const tipo = document.getElementById("idTIncidenteIn").value;
+    const desc = document.getElementById("descIncidente").value;
 
     let data = {
         idLugar : lugar,
@@ -23,17 +23,16 @@ const registrarIncidente = () => {
         descripcion : desc
     };
 
-    console.table(data);
+    //console.table(data);
     
-    fetch('/',{
+    fetch('/registrar',{
         method: 'POST',
         headers: {'Content-Type':'application/json','csrf-token': csrf},
         body:JSON.stringify(data)
-    }).then(result => {
+    }).then((result) => {
         return result.json();
-    }).then(data => {
+    }).then((data) => {
         console.log('Nuevo Registro');
-        console.log(data.Incidentes);
         let html = '';
         for (let Incidente of data.Incidentes) { 
             html += '<div class="col l3 m4 s12">' +
@@ -45,12 +44,12 @@ const registrarIncidente = () => {
                         '</div>' +
                     '</div>';
         }
-        console.log(html);
-        //document.getElementById('lista_incidenes').innerHTML = html;
+        document.getElementById('lista_incidentes').innerHTML = html;
+        M.toast({html: 'El incidente fue registrado'})
     }).catch(err => {
         console.log(err);
     });
-};
+}
 
 const buscar = () => {
         
@@ -69,7 +68,6 @@ const buscar = () => {
         return result.json(); 
     }).then(data => {
         console.log("Respuesta de busqueda");
-        console.log(data.Incidentes);
         let html = '';
         for (let Incidente of data.Incidentes) { 
             html += '<div class="col l3 m4 s12">' +
@@ -81,7 +79,7 @@ const buscar = () => {
                         '</div>' +
                     '</div>';
         }
-        document.getElementById('lista_incidenes').innerHTML = html;
+        document.getElementById('lista_incidentes').innerHTML = html;
     }).catch(err => {
         console.log(err);
     });

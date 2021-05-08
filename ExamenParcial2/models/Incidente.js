@@ -12,7 +12,7 @@ module.exports = class Incidente {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        console.log(this);
+        //console.log("Guardar registro");
         return db.execute('SELECT MAX(I.idIncidente) AS `num` FROM incidentes I')
         .then(([rows, fieldData]) => {
             let idincidente = rows[0].num;
@@ -27,7 +27,7 @@ module.exports = class Incidente {
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        console.log("Recupera todos registros")
+        //console.log("Recupera todos registros");
         return db.execute('SELECT I.idIncidente, L.nombre AS `lugarNombre`, T.nombre AS `nombreTipo`, I.descripcion, I.tiempo FROM incidentes I, lugares L, tipo_incidentes T WHERE I.idTipoIncidente = T.idTipoIncidente AND L.idLugar = I.idLugar ORDER BY I.tiempo DESC');
     }
 
@@ -36,7 +36,7 @@ module.exports = class Incidente {
     }
 
     static fetch(criterio) {
-        console.log("busqueda de registros")
+        //console.log("busqueda de registros");
         return db.execute('SELECT I.idIncidente, L.nombre AS `lugarNombre`, T.nombre AS `nombreTipo`, I.descripcion, I.tiempo FROM incidentes I, lugares L, tipo_incidentes T WHERE I.idTipoIncidente = T.idTipoIncidente AND L.idLugar = I.idLugar AND ( I.descripcion LIKE ? OR L.descripcion LIKE ? OR T.descripcion LIKE ? OR L.nombre LIKE ? OR T.nombre LIKE ?) ORDER BY I.tiempo DESC', 
         ['%'+criterio+'%','%'+criterio+'%','%'+criterio+'%','%'+criterio+'%','%'+criterio+'%']);
     }

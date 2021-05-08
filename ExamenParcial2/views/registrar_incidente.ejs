@@ -2,6 +2,7 @@
 <%- include('includes/navbar.ejs') %>
 
 <div class="row valign-wrapper">
+  <!-- Búsqueda -->
   <div class="input-field col s8 offset-s2">
     <div class="input-field">
       <i class="material-icons prefix">search</i>
@@ -10,50 +11,18 @@
       <label for="buscar">Buscar</label>
     </div>
   </div>
+  <!-- Boton par activar modal -->
   <div class=" col s5 offset-s2">
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Resistrar incidente</a>
-  </div>
-  <div >
-    <div id="modal1" class="modal modal-fixed-footer">
-      <form action="/" method="POST">
-      <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
-          <div class="modal-content">
-              <br><br>
-              <h4>Registrar incidente</h4>
-              <br><br>
-              <div class="input-field col s10 offset-s1">
-                  <select name="idLugarIn" idn="idLugarIn" required>
-                  <option value="0" disabled selected>Selecciona lugar</option>
-                  <% for(let lugar of Lugares) { %>
-                      <option value="<%= lugar.idLugar %>"> <%= lugar.nombre %> </option>
-                  <% } %>
-                  </select>
-                  <label for="idLugarIn">Lugar</label>
-              </div>
-              <br><br> <br>
-              <div class="input-field col s10 offset-s1">
-                  <select name="idTIncidenteIn" id="idTIncidenteIn" required >
-                  <option value="0" disabled selected>Selecciona tipo de incidente</option>
-                  <% for(let tipo of Tipos) { %>
-                      <option value="<%= tipo.idTipoIncidente %>"> <%= tipo.nombre %> </option>
-                  <% } %>
-                  </select>
-                  <label for="idTIncidenteIn">Tipo de incidente</label>
-              </div>
-              <br><br><br>
-              <div class="col s10 offset-s1">
-                  <textarea id="descIncidente" name="descIncidente"  class="materialize-textarea"></textarea>
-                  <label class="active" for="descIncidente">Descripción de Incidente</label>
-              </div>
-          </div>
-          <div class="modal-footer">
-              <button class="waves-effect waves-light modal-close btn" onclick="registrarIncidente()"><i class="material-icons right">add</i>Registrar</button>
-          </div>
-      </form>
-    </div>  
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1"><i class="material-icons right">add</i>Registrar incidente</a>
   </div>
 </div>
 
+<!-- Modal de registro -->
+<div >
+  <%- include('includes/modalRegIncidente.ejs') %>   
+</div>
+
+<!-- Tarjetas -->
 <div class="container">
   <h2>Registros Incidentes Pasados</h2>
   <%- include('includes/tarjetaIncidente.ejs') %>  

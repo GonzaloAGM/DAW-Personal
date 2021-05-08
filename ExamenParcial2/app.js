@@ -39,9 +39,9 @@ app.use(csrfMiddleware);
 
 app.get('/buscar/:criterio', consController.getBuscar);
 
-app.get('/', regController.getHome);
+app.post('/registrar', consController.regIncidente);
 
-app.post('/', consController.regIncidente);
+app.get('/', regController.getHome);
 
 app.use(regController.useNotFound);
 

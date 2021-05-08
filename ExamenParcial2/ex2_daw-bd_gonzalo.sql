@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2021 a las 17:53:58
+-- Tiempo de generación: 08-05-2021 a las 22:31:50
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -31,7 +31,7 @@ CREATE TABLE `incidentes` (
   `idIncidente` int(11) NOT NULL,
   `idTipoIncidente` int(11) NOT NULL,
   `idLugar` int(11) NOT NULL,
-  `tiempo` date NOT NULL DEFAULT current_timestamp(),
+  `tiempo` datetime NOT NULL DEFAULT current_timestamp(),
   `descripcion` varchar(300) COLLATE utf8_spanish2_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -40,9 +40,11 @@ CREATE TABLE `incidentes` (
 --
 
 INSERT INTO `incidentes` (`idIncidente`, `idTipoIncidente`, `idLugar`, `tiempo`, `descripcion`) VALUES
-(1, 1, 6, '0000-00-00', 'Al estar dilofosando, los ISC y los mecatrónicos se pelearon, causando un corto circuito'),
-(2, 3, 4, '0000-00-00', 'System Velociraptor is on the run to finish the exam'),
-(3, 7, 2, '0000-00-00', 'It’s a UNIX System, I know this, or that they thought');
+(1, 1, 6, '2021-05-06 00:00:00', 'Al estar dilofosando, los ISC y los mecatrónicos se pelearon, causando un corto circuito'),
+(4, 2, 5, '2021-05-06 00:00:00', 'Coches pisados'),
+(2, 3, 4, '2021-05-02 00:00:00', 'System Velociraptor is on the run to finish the exam'),
+(5, 3, 4, '2021-05-08 15:27:30', 'VeloSystem has finally arrived'),
+(3, 7, 2, '2021-05-29 00:00:00', 'It’s a UNIX System, I know this, or that is what they thought');
 
 -- --------------------------------------------------------
 

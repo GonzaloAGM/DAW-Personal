@@ -1,6 +1,4 @@
 const Incidente = require('./../models/Incidente');
-const Lugar = require('./../models/lugar');
-const TipoIncidente = require('./../models/tipoincidente');
 
 exports.getBuscar =  (request, response, next) => {
 
@@ -19,8 +17,7 @@ exports.getBuscar =  (request, response, next) => {
 exports.regIncidente = (request, response, next) => {
 
     console.log("Registro asincrono");
-    console.log(request.body);
-    const incidente = new Incidente(request.body.idLugarIn, request.body.idTIncidenteIn, request.body.descIncidente);
+    const incidente = new Incidente(request.body.idLugar, request.body.idTipoIncidente, request.body.descripcion);
 
     incidente.save()
         .then(([rows, fieldData]) => {
