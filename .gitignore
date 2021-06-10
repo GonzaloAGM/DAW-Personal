@@ -8,6 +8,7 @@ node_modules/
 dist/
 
 #archivo de contraseñas
+Lab28/util/secret.js
 util/secret.js
 secret.js
 

@@ -5,66 +5,26 @@
         <section class="tabcontent" id="Preguntas">
             <h2  class="titulo_sec">Preguntas a responder</h2>
             <div>
-                <p class="pregunta flow-text">¿Qué otras formas de autentificación existen?</p>
-                <p class="flow-text">Existen varios tipos de autentificación de los usuarios a lo largo de la diversidad
-                    de aplicaciones, tanto web como offline, existentes. De los mas comunes son:
-                    <ol>
-                        <li class="flow-text">
-                            <strong> Identificador y contraseña</strong>: Se basa en recuperar la información proporcionada
-                            por el usuario y contrastarla con aquella que existe en un servidor de base de datos.
-                        </li><br>
-                        <li class="flow-text">
-                            <strong> Identificador y OTP (One-Time Password)</strong>: El usuario posee un “calculador” 
-                            específico que va a permitirle proporcionar una contraseña válida durante un período limitado. 
-                            Para poder utilizar su calculador, debe entrar previamente una contraseña. El calculador le 
-                            proporciona entonces a cambio una contraseña de un solo uso que el usuario va, a su vez, a 
-                            proporcionar al módulo de autenticación del PC. El módulo de autenticación dialoga a 
-                            continuación con el servidor OTP para asegurarse de la validez de la información proporcionada 
-                            y para aceptar o no la conexión. 
-                        </li><br>
-                        <li class="flow-text">
-                            <strong> El Token USB o tarjeta inteligente PKI</strong>: Esto ya involucra el lector del medio 
-                            físico por el cual se introduce un identificador único, codificado en un medio que trae consigo 
-                            el usuario que busca utilizarla. Muchas veces solamente incertarlo no es suficiente, sino que es 
-                            necesario ingresar un PIN. Muchas veces la autentificación se verifica en un servidor centralizado
-                            con los métodos de llave pública y privada.
-                        </li><br>
-                        <li class="flow-text">
-                            <strong> La Llave “Confidencial Defensa”</strong>: Muy parecido a la solución de autentificación 
-                            anterior. Lo que cambia es que es mas robusta en términos de hardware, a cambio de poseer mas 
-                            funcionalidades y brindar mas seguridad. Esto lo hace con un teclado externo donde ingresar el PIN 
-                            ademas de poseer en si misma todo el software de cifrado y decifrado, convirtiendolo en una opción 
-                            de seguridad verdaderamente portable e independiente.
-                        </li><br>
-                        <li class="flow-text">
-                            <strong> Autentificación por medio de biométricos</strong>: A través de información única del usuario 
-                            como serían íris, lectura de huella digital o incluso reconocimiento facial y/o de voz se puede tener 
-                            un sistema robusto de seguridad. Sin embargo es uno de los mas engorrosos y complicados con los cuales
-                            verificar la información puede dar falsos negativos así como involucrar el amacenamiento de datos mucho
-                            mas sensibles de los usuarios, mas que solo las contraseñas.
-                        </li><br>
-                        <li class="flow-text">
-                            <strong> Autentificación de Multiples pasos</strong>: Esto se basa en el el proceso de autentificación 
-                            se involucren pasos como sería el de generación de un token, la necesidad de que en una cuenta secundaria
-                            previemente autentificada se de accesso, o incluso a través de un dispositivo personal del usuario previamente 
-                            enlazado al sistema como un telefono celular.
-                        </li><br>
-                    </ol>
+                <p class="pregunta flow-text">¿Qué ventajas y desventajas tiene la integración de tus aplicaciones web con servicios web desarrollados por terceros?</p>
+                <p class="flow-text">Si tu aplicación es totalmente dependiente de los servicios de terceros, pues simplemente si existe un fallo, todo el sistema desarrollado
+                    no podría sostenerse solo si es que en algun momento colapsa el servicio del tercero. Así mismo no se tiene un control total de este, así como estar limitado
+                    a las condiciones y cambios del servicio. <br>
+                    Por otro lado el desarrollo es mas rápido y existe cierta confianza de que no fallaran, o que si lo hacen el soporte será rápido, por lo que se vuelve mas 
+                    barato y se ahorra tiempo.
                 </p><br>
-            </div>
+            </div><!--
             <div>
                 <h2>Referencias</h2>
                 <p class="flow-text"><a href="https://www.evidian.com/pdf/wp-strongauth-es.pdf">Los 7 métodos de Autentificación más utilizados</a></p>
-            </div> 
+            </div> -->
         </section>
 
         <!-- Recursos -->
         <section class="tabcontent" id="Recursos">
           <h2  class="titulo_sec">Recursos útiles al llevar a cabo el laboratorio</h2>
           <ul>
-              <li><a class="flow-text" href="https://www.npmjs.com/package/bcryptjs">bcryptjs</a></li></br>
-              <li><a class="flow-text" href="https://owasp.org/www-community/attacks/csrf">CSRF</a></li></br>
-              <li><a class="flow-text" href="https://www.npmjs.com/package/csurf">csurf</a></li></br>
+              <li><a class="flow-text" href="https://github.com/abhishekbanthia/Public-APIs?utm_source=SitePoint&utm_medium=email&utm_campaign=Versioning">Public Apis</a></li></br>
+              <li><a class="flow-text" href="https://www.freecodecamp.org/news/what-is-an-api-and-how-to-test-it/">What is an API and how to test it</a></li></br>
           </ul><br><br>
         </section>
 

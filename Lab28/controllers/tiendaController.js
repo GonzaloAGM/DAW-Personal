@@ -74,18 +74,19 @@ exports.useTotal = (request, response, next) => {
     base('Entradas').create([
         {
             fields:{
-                Name : request.session.sesionLoginUser,
-                Notes : total.toString()
+                Nombre_Comprador : request.session.sesionLoginUser,
+                Monto_pagado : total.toString()
             }
         }
     ], 
     (err, records) => {
-        records.forEach(record => {
+        console.table(records.fields);
+        /*for(let record of records){
             console.log(record.fields);
             console.log(record);
-        });
-        console.log(err);
-    });
+        }*/
+        err === null ? console.log('') : console.log(err);
+    }); 
     console.log("Total tienda");
     //console.log("Descuento: " + descuento + " | IVA: " + iva +" | Total: $" + total);
     response.status(201);
