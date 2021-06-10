@@ -1,7 +1,9 @@
+let lab = "Lab28";
+
 exports.useHome = (request, response, next) => {
     let state = request.session.isLoggedIn === undefined ? false : true;
-    response.render('lab20', {
-        titulo: "Lab20-GAGM-DAW & BD",
+    response.render('lab28', {
+        titulo: lab+"-GAGM-DAW & BD",
         logged : state,
         act1: "active",
         act2: "",
@@ -15,7 +17,7 @@ exports.useHome = (request, response, next) => {
 exports.useRecursos = (request, response, next) => {
     let state = request.session.isLoggedIn === undefined ? false : true;
     response.render('Recursos', {
-        titulo: "Lab20-Recursos-GAGM-DAW & BD",
+        titulo: lab+"-Recursos-GAGM-DAW & BD",
         logged : state,
         act1: "",
         act2: "",
@@ -29,7 +31,7 @@ exports.useRecursos = (request, response, next) => {
 exports.useNotFound = (request, response, next) => {
     let state = request.session.isLoggedIn === undefined ? false : true;
     response.render('Err404', {
-        titulo: "Lab20-404-GAGM-DAW & BD",
+        titulo: lab+"-404-GAGM-DAW & BD",
         logged : state,
         act1: "",
         act2: "",

@@ -7,6 +7,9 @@
 node_modules/
 dist/
 
+#archivo de contraseñas
+util/secret.js
+
 # Compiled Java class files
 *.class
 
