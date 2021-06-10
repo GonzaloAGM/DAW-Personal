@@ -9,6 +9,7 @@ dist/
 
 #archivo de contraseñas
 util/secret.js
+secret.js
 
 # Compiled Java class files
 *.class
