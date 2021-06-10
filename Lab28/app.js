@@ -21,12 +21,13 @@ const isAlreadAuth = require('./util/isAlread-auth');
 
 //Controladores
 const homeController = require('./controllers/lab20_controller');
+const secret = require('./util/secret');
 
 //Activa bodyparser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(session({
-  secret: '1d#$%dwe45f#$5sd()=df345#$%bLim&dfvdfg#$12qex%RT(?ipfgh5dvfgdewt56ytbru9',//'mi string secreto que debe ser un string aleatorio muy largo, no como éste, de preferencia que no tenga sentido' 
+  secret: secret.secretSession,//'mi string secreto que debe ser un string aleatorio muy largo, no como éste, de preferencia que no tenga sentido' 
   resave: false, //La sesión no se guardará en cada petición, sino sólo se guardará si algo cambió 
   saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));

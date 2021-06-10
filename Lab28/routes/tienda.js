@@ -31,6 +31,8 @@ router.use('/Total', isAuth, tiendaController.useTotal);
 
 router.use('/:Articulos_nombre', tiendaController.getArticulo);
 
+router.use('/Records',tiendaController.getRecords);
+
 router.get('/', tiendaController.getTienda);
 
 router.post('/', isAuth, tiendaController.postTienda);

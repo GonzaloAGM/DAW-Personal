@@ -143,11 +143,24 @@ exports.getArticulo = (request, response, next) => {
                 articulos: rows,
                 Descuento : cuenta.getDescuento(),
                 nombreUser: request.session.sesionLoginUser
-            })
+            });
         })
         .catch(err => {
                 console.log(err);
                 response.redirect('/Err404');
             });
     //Resto del código del controlador...
-}
+};
+
+exports.getRecords = (request, response, next) => {
+    let state = request.session.isLoggedIn === undefined ? false : true;
+    response.render('records', {
+        titulo: "Lab28-Registros",
+        logged : state,
+        act1: "",
+        act2: "",
+        act3: "active",
+        act4: "",
+        nombreUser: request.session.sesionLoginUser
+    });
+};
